@@ -6,7 +6,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.util.Set;
 
-public class JumpToTheNewWindow {
+public class JumpToTheNewWindow_ImportantMethodInside {
 
     public static void main(String[] args)throws Exception {
 
