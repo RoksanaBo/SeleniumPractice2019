@@ -26,6 +26,7 @@ public class GoogleSearchTest {
         // use Key.ENTER
 
         // Keys.ENTER --> perform keyboard click.
+        // KeysToSend --> name of the parameter, we don't specify it.
         search.sendKeys("Java", Keys.ENTER);
 
         Thread.sleep(2000);
