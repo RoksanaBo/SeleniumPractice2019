@@ -44,7 +44,7 @@ public class VerifyThanElementsGone {
         for(WebElement button: buttons){
             //click on every button
             button.click();
-            Thread.sleep(2000);
+            Thread.sleep(3000);
         }
 
         driver.quit();
