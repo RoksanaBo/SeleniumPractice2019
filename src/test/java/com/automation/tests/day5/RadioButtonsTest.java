@@ -27,6 +27,7 @@ public class RadioButtonsTest {
         }
 
 
+        BrowserUtils.wait(2);
 
         // how do we verify that button clicked?
         // returns true if button clicked
@@ -35,6 +36,7 @@ public class RadioButtonsTest {
         }else{
             System.out.println("test failed");
         }
+
 
 
 
