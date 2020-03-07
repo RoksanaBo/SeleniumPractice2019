@@ -20,7 +20,10 @@ public class RadioButtonsTest {
 
 
         if(blackButton.isDisplayed() && blackButton.isEnabled()){  // isEnabled - включен
+            System.out.println("clicked on black button");
             blackButton.click();
+        }else{
+            System.out.println("failed to click black button");
         }
 
 
@@ -32,6 +35,8 @@ public class RadioButtonsTest {
         }else{
             System.out.println("test failed");
         }
+
+
 
 
 
