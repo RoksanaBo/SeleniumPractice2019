@@ -27,8 +27,21 @@ public class TestFor_iFrame {
         WebElement textInput = driver.findElement(By.id("tinymce"));
         System.out.println(textInput.getText());
 
+        BrowserUtils.wait(4);
+
+
+        textInput.clear(); // to delete text
+        textInput.sendKeys("Hello, World");
+
+        BrowserUtils.wait(4);
+
+
         //exit from the frame:
         driver.switchTo().defaultContent();
+
+
+        WebElement heading = driver.findElement(By.tagName("h3"));
+        System.out.println(heading.getText());
 
         driver.quit();
     }
