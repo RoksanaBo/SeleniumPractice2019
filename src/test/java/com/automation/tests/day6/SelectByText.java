@@ -47,6 +47,7 @@ public class SelectByText {
         selectMonth.selectByVisibleText("December");
         selectDay.selectByVisibleText("3");
 
+        BrowserUtils.wait(3);
 
         // select all months one by one,
         // .getOptions() --> returns all options from dropdown as List<WebElement>
@@ -78,7 +79,13 @@ public class SelectByText {
         }
 
 
+        BrowserUtils.wait(3);
 
+
+        List<WebElement> states = stateSelect.getOptions();
+        for( WebElement stateOption : states){
+            System.out.println(stateOption.getText());
+        }
 
 
 
