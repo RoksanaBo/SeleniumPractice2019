@@ -30,7 +30,7 @@ public class NoSelectDropdown {
         }
 
 
-        driver.findElement(By.linkText("Etsy")).click();//click on option
+        driver.findElement(By.linkText("Amazon")).click();//click on option
         BrowserUtils.wait(3);
 
         driver.quit();
