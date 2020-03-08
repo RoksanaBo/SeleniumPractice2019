@@ -12,14 +12,11 @@ import java.util.List;
 public class CheckBoxesTest {
     public static void main(String[] args) {
 
-
-        WebDriverManager.chromedriver().setup();
+        WebDriverManager.chromedriver().version("79").setup();
         WebDriver driver = new ChromeDriver();
-
-        // Task:
-        // verify that first checkbox is not
-        // selected and second is selected:
-
+        driver.get("http://practice.cybertekschool.com/checkboxes");
+        //#TASK
+        //verify that 1st checkbox is not selected and 2nd is selected
         BrowserUtils.wait(4);
 
         List<WebElement> checkBoxes = driver.findElements(By.tagName("input"));
@@ -31,8 +28,8 @@ public class CheckBoxesTest {
         }
 
         BrowserUtils.wait(2);
-        // let's click on the first checkbox and verify it's clicked
-        // checkBoxes.get(0).click();
+        //let's click on the first checkbox and verify it's clicked
+//        checkBoxes.get(0).click();
         WebElement checkbox1 = checkBoxes.get(0); //to get 1st checkbox
         checkbox1.click();//click on it
 
@@ -48,14 +45,6 @@ public class CheckBoxesTest {
 
 
         driver.quit();
-
-
-
-
-
-
-
-
 
 
     }
