@@ -23,7 +23,7 @@ public class RadioButtonsTest {
             System.out.println("clicked on black button");
             blackButton.click();
         }else{
-            System.out.println("failed to click black button");
+            System.out.println("failed to click on black button");
         }
 
 
