@@ -43,9 +43,9 @@ public class SelectByText {
         Select selectMonth = new Select(driver.findElement(By.id("month")));
         Select selectDay = new Select(driver.findElement(By.id("day")));
 
-        selectDay.selectByVisibleText("3");
-        selectMonth.selectByVisibleText("December");
         selectYear.selectByVisibleText("1985");
+        selectMonth.selectByVisibleText("December");
+        selectDay.selectByVisibleText("3");
 
 
         // select all months one by one,
