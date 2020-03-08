@@ -30,12 +30,10 @@ public class RadioButtons {
             System.out.println(id + " is selected?" + isSelected);
 
 
-
-
             if(radioButton.isEnabled()) {
                 radioButton.click();
-                System.out.println("Clicked on :: "+id);
-                BrowserUtils.wait(1);
+                System.out.println("Clicked on :: "+radioButton.getAttribute("id"));
+                BrowserUtils.wait(2);
 
             } else {
                 System.out.println("Button is disabled, not clicked :: "+id);
