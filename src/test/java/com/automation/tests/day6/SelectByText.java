@@ -18,16 +18,23 @@ public class SelectByText {
 
         WebDriver driver = DriverFactory.createDriver("chrome");
         driver.get("http://practice.cybertekschool.com/dropdown");
-        BrowserUtils.wait(3);
+        BrowserUtils.wait(2);
 
         // create webElement object or dropdown:
         WebElement simpleDropdown = driver.findElement(By.id("dropdown"));
 
+
         // provide webElement object into constructor:
         Select selectSimpleDropdown = new Select(simpleDropdown);
 
+
         // select by visible text:
         selectSimpleDropdown.selectByVisibleText("Option 2");
+        BrowserUtils.wait(2);
+
+
+        // and select option 1 :
+        selectSimpleDropdown.selectByVisibleText("Option 1");
 
 
 
@@ -40,7 +47,7 @@ public class SelectByText {
 
 
 
-        BrowserUtils.wait(3);
+        BrowserUtils.wait(2);
         driver.quit();
 
 
