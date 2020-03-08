@@ -38,6 +38,8 @@ public class RadioButtonsTest {
         }
 
 
+        BrowserUtils.wait(3);
+        driver.quit();
 
 
 
