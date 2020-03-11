@@ -27,9 +27,6 @@ public class X_Path {
 
 
 
-
-
-
         BrowserUtils.wait(3);
         driver.quit();
 
