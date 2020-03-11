@@ -32,6 +32,17 @@ public class Xpath {
  //        // --> relative
 
 
+        //click on button#2
+        WebElement btn2 = driver.findElement(By.xpath("//button[text()='Button 2']"));
+        btn2.click();
+        System.out.println(result.getText());
+
+
+
+
+
+
+
         BrowserUtils.wait(3);
         driver.quit();
     }
