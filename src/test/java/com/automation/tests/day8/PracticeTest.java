@@ -40,6 +40,30 @@ public class PracticeTest {
     }
 
 
+    /**
+     * Given user is on the practice landing page
+     * When user navigates to "Forgot password" page
+     * Then user enters hie email
+     * And clicks "Retrieve password" button
+     * Then user verifies that message "Your e-mail's been sent!" is displayed
+     */
+
+
+
+    public void forgotPassword(){
+
+
+
+    }
+
+
+
+
+
+
+
+
+
 
     @BeforeMethod
     public void setup(){
