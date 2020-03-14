@@ -37,11 +37,50 @@ public class SearchTests {
                 System.out.println(var);
 
                 // verify that every search result contains java
+                // is some of the search results
+                // doesn't contain java word, it will fail the test
                 Assert.assertTrue(var.toLowerCase().contains("java"));
+                System.out.println(var.toLowerCase());
+                System.out.println();
             }
 
         }
     }
+
+
+
+    /**
+     * Given user is on the amazon.com page
+     * When user enters "java" as a search item
+     * Then user clicks on the search button
+     * And user clicks on the first search item
+     * And user verifies that title of the search item contains "Java"
+     */
+    @Test(description = "Search for Java book on amazon")
+    public void amazonSearchTest(){
+        driver.get("http://amazon.com");
+        BrowserUtils.wait(4);
+
+        driver.findElement(By.id("twotabsearchtextbox")).sendKeys("Java",Keys.ENTER);
+        BrowserUtils.wait(5);
+
+
+        // find all links inside h2 elements, because h2 element is no clickable itself:
+        List<WebElement> searchItem = driver.findElements(By.xpath("//h2//a"));
+        // click on the first item
+
+        searchItem.get(0).click();
+        BrowserUtils.wait(4);
+
+
+        WebElement productTitle = driver.findElement(By.id("title"));
+        String productTitleString = productTitle.getText();
+        System.out.println(productTitleString);
+
+        Assert.assertTrue(productTitleString.contains("Java"));
+
+    }
+
 
 
 
