@@ -61,15 +61,22 @@ public class SearchTests {
         driver.get("http://amazon.com");
         BrowserUtils.wait(4);
 
+        // item might not be visible, so maximize window!
+        driver.manage().window().maximize();
+
         driver.findElement(By.id("twotabsearchtextbox")).sendKeys("Java",Keys.ENTER);
         BrowserUtils.wait(5);
 
 
         // find all links inside h2 elements, because h2 element is no clickable itself:
-        List<WebElement> searchItem = driver.findElements(By.xpath("//h2//a"));
-        // click on the first item
+        List<WebElement> searchItems = driver.findElements(By.xpath("//h2//a"));
 
-        searchItem.get(0).click();
+        // click on the first item
+        for(WebElement searchItem: searchItems){
+            System.out.println("Title: "+searchItem.getText());
+        }
+
+        searchItems.get(0).click();
         BrowserUtils.wait(4);
 
 
@@ -78,6 +85,14 @@ public class SearchTests {
         System.out.println(productTitleString);
 
         Assert.assertTrue(productTitleString.contains("Java"));
+
+
+        //so h2 elements are not clickable, even though they contain links
+        //that's why, instead of collection all h2 elements
+        //we collected all hyperlinks
+        //every hyperlink represent some search item
+
+
 
     }
 
