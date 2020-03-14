@@ -16,7 +16,21 @@ UNIT testing --> testing of smallest functional keys of the application.
 
   import org.testng.annotations.Test;
 
-@Test annotation used to create a test. Put it on top of the method.In this case
+@Test annotation used to create a test. Put it on top of the method.In this case,
+ we don't use main method and we can create lots of tests in one class.
+
+Before Suite
+   Before Test
+     Before Class
+         Before Method
+              Test 1
+         After Method
+     Before Method
+
+
+
+
+
 
 
 integration
