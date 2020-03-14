@@ -1,0 +1,21 @@
+Levels of testing:
+
+UNIT testing --> testing of smallest functional keys of the application.
+                 Ex: method, class..
+
+  In my project developers will following this flow:
+     developers write a code --> unit tests to test their code -->
+     --> code review--> code goes to github(for example)-->
+     --> new build can be deployed to the test env --> and
+     here we do functional testing . Unit testing at the very early
+     stage, because it's easier to find a bug.
+
+  Who writes unit test? for application code - developers.
+  Can I write some unit tests for my automation framework? yes.
+
+
+
+
+integration
+system
+UAT

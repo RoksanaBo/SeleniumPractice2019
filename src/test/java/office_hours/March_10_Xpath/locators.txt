@@ -1,0 +1,73 @@
+
+Xpath {
+
+ 1. Absolute Xpath (this is not recommended)
+    begin with single aslash
+    /
+    Found the first button with absolute Xpath
+    /html/body/div/div[2]/div/div[1]/button[1]
+
+ 2. Relative Xpath
+    begins with double slash
+    //
+    Start a designated tag   Начать назначенный тег
+    //tagName[@attribute='value']
+    <button class="btn btn-primary" onclick="button2()" name="button2">Button 2</button>
+
+    //button[@name='button2']
+    //button[@class='btn btn-primary']
+    //button[@onclick='button2()']
+
+
+    Dynamic Elements --dynamic(changing)     Динамические элементы - динамические (меняющиеся)
+    1. Any tag:
+       tagName will be replaced with a *
+       //*tagName[@attribute='value']
+
+
+    2. Operator 'and'  (&&)
+       combine two different attributes to find a single Elements
+       First way:
+       //tagName[@attribute='value' and @attribute2='value2']
+
+       Second way:  (use this one)
+       //tagName[@attribute='value'][@attribute2='value2'
+
+       <button class="btn btn-primary" onclick="button2()" name="button2">Button 2</button>
+
+       //button[@class='btn btn-primary' and @onclick='button2()']
+       //button[@class='btn btn-primary'][@onclick='button2()']
+
+
+    3. Operator 'or':
+          //button[@class='btn btn-primary' and @onclick='button2()']
+
+
+    4. Attribute 'starts-with':
+       //tagName[starts-with(@attribute,'value')]
+         value --> could be partial value (частичная стоимость) or beginning of a value
+
+       <button class="btn btn-primary" onclick="button3()" id="button_b1">Button 3</button>
+
+       //button[starts-with9@id,'button_')]
+       //button[(starts-with(text(),'Button'))]
+
+
+    5. Attribute 'ends-with':
+       //tagName[ends-with(@attribute,'value')]
+
+
+    6. Attribute 'contains':
+       //tagName[contains(@attribute,'value')]
+       //tagName[contains(text(),'5')]
+
+
+    7. Any attribute:
+       attribute is perlace with *
+       //tagName[@*='value']
+
+
+
+
+
+}
