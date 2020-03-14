@@ -1,5 +1,7 @@
 package com.automation.tests.day8;
 
+import org.testng.annotations.Test;
+
 public class Unit_Test_Practice {
 
     public static void main(String[] args) {
@@ -14,8 +16,22 @@ public class Unit_Test_Practice {
         // Assertion:  Утверждение:
         verifyEquals(expected,actual);
 
-    //    System.out.println(reverseString("apple"));
+
     }
+
+
+
+
+    // annotation  примечание
+    @Test(description = "Verify if method can reverse a String")   // Unit test
+    public void test(){
+
+    }
+
+
+
+
+
 
 
     public static boolean verifyEquals(String expected, String actual){
