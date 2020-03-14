@@ -1,5 +1,6 @@
 package com.automation.tests.day8;
 
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class Unit_Test_Practice {
@@ -23,8 +24,28 @@ public class Unit_Test_Practice {
 
 
     // annotation  примечание
+    // description - is not working for junit,make sure that you use testing.
     @Test(description = "Verify if method can reverse a String")   // Unit test
     public void test(){
+        String expected = "elppa";
+        String actual = reverseString("apple");
+
+        // to verify if expected result is equals to actual result:
+        // its coming from testNG, junit also has this class
+        // you can compare any data types here: strings,primitives,arrays,objects
+        Assert.assertEquals(actual,expected);
+
+
+    }
+
+
+
+    @Test(description = "Verify if method can reverse a String")
+    public void test2(){
+
+        String expected = "rac";
+        String actual = reverseString("car");
+        Assert.assertEquals(actual,expected);
 
     }
 
