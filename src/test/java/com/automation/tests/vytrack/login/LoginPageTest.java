@@ -17,6 +17,8 @@ public class LoginPageTest {
 
     private WebDriver driver;
     private String URL = "https://qa2.vytrack.com/user/login";
+    private String username = "storemanager85";
+    private String password = "UserUser123";
     private By usernameBy = By.id("prependedInput");
     private By passwordBy = By.id("prependedInput2");
     private By warningMessageBy = By.cssSelector("[class='alert alert-error'] > div");
@@ -31,7 +33,26 @@ public class LoginPageTest {
         WebElement warningElement = driver.findElement(warningMessageBy);
         assertTrue(warningElement.isDisplayed());
 
+        String expected = "Invalid user name or password.";
+        String actual = warningElement.getText();
+        assertEquals(actual, expected);
+
     }
+
+    @Test(description = "Login as store manager and verify that title is equals to Dashboard")
+    public void loginAsStoreManager(){
+        driver.findElement(usernameBy).sendKeys(username);
+        driver.findElement(passwordBy).sendKeys(password, Keys.ENTER);
+
+        String expected = "Dashboard";
+        String actual = driver.getTitle();
+
+        assertEquals(actual,expected,"Page title is not correct");
+
+    }
+
+
+
 
     // https is a secured version of http protocol
     // http - it's hypertext transfer protocol that every single website is using now days
