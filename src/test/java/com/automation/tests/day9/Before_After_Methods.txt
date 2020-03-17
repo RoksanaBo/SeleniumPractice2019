@@ -1,0 +1,32 @@
+
+@BeforeClass --> method will be executed before test and before @BeforeMethod only once.
+
+@AfterClass --> it's a mirror of before class, it will be executed after all tests, and after method.
+
+@BeforeMethod --> runs exactly before Test automatically,
+
+@AfterMethod  -->  mirror of @BeforeMethod, runs automatically ,immediately after every test.
+
+We may use only Before method or only After method, no needed to use both of them together in the same class.
+or same framework. But it's easier to use them both, to make life easier.
+
+Different @BeforeMethod and @AfterMethod from other annotations --> they run automatically
+before nd after every Test. If we have one test, they will run only once.If we have 2 tests, it will run twice....
+
+YOU HAVE 500 TEST CASES BUT THE CLIENT ASKED YOU TO RUN ONLY 40 OF THEM
+FOR SMOKE TEST. HOW WILL YOU DO IT?
+-- we use xml runners ro create suite of tests and we already have xml runner for the
+   smoke test. In my framework, we group test scripts based on modules. So for every
+   module we have a corresponding package with test scripts.
+
+-- мы используем xml runners ro для создания набора тестов, и у нас уже есть xml runner для
+   smoke тест.В моей структуре мы группируем тестовые сценарии на основе модулей. Так для каждого
+   в модуле у нас есть соответствующий пакет с тестовыми скриптами.
+
+TestNG is a testing framework. You can execute bunch of test cases, or optional ,selectively execute some cases.
+
+PRIORITY -->
+
+
+
+

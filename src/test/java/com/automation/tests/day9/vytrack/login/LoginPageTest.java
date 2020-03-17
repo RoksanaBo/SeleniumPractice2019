@@ -1,4 +1,4 @@
-package com.automation.tests.vytrack.login;
+package com.automation.tests.day9.vytrack.login;
 
 import com.automation.utilities.BrowserUtils;
 import io.github.bonigarcia.wdm.WebDriverManager;
@@ -10,6 +10,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+
+//STATIC IMPORT OF ALL ASSERTIONS:
 import static org.testng.Assert.*;
 
 
@@ -28,7 +30,7 @@ public class LoginPageTest {
     @Test(description = "verify that warning message displays when user enters invalid username")
     public void invalidUsername(){
         driver.findElement(usernameBy).sendKeys("invalidusername");
-        driver.findElement(passwordBy).sendKeys("UserUser123", Keys.ENTER);
+        driver.findElement(passwordBy).sendKeys("USerUser123", Keys.ENTER);
         BrowserUtils.wait(3);
         WebElement warningElement = driver.findElement(warningMessageBy);
         assertTrue(warningElement.isDisplayed());
@@ -50,9 +52,6 @@ public class LoginPageTest {
         assertEquals(actual,expected,"Page title is not correct");
 
     }
-
-
-
 
     // https is a secured version of http protocol
     // http - it's hypertext transfer protocol that every single website is using now days

@@ -1,0 +1,23 @@
+TestNG and JUnit (tools)--> shortcuts.
+
+Begun with unit testing approach.
+
+Easily test in a framework which integrates perfectly with Selenium.
+(TestNG) Advantages:
+1. Annotations to use and understand when building test scripts
+2. Test cases can be grouped. (We can group by class)
+3. Generate Reports (The reporting for TestNG, instead we use  different tool)
+4. Parallel testing.
+
+
+@Annotations -->
+- are instructions for our JVM
+- carry information and some procedure for how a test should instructions
+
+@Test --> the method below is a test case(this way we can run the test case, make it runable)
+
+@BeforeMethod, @AfterMethod( scope is locked inside a class unless inherited )
+Before or After every test case run the following code.
+
+@BeforeClass, @AfterClass
+Before every class run the following code.
