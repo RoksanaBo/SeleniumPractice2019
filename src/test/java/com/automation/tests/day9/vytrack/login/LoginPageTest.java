@@ -19,10 +19,13 @@ public class LoginPageTest {
 
     private WebDriver driver;
     private String URL = "https://qa2.vytrack.com/user/login";
+    // Credentials for store manager
     private String username = "storemanager85";
     private String password = "UserUser123";
+
     private By usernameBy = By.id("prependedInput");
     private By passwordBy = By.id("prependedInput2");
+
     private By warningMessageBy = By.cssSelector("[class='alert alert-error'] > div");
 
 
