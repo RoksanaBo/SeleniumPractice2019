@@ -1,0 +1,20 @@
+
+HOW DO I START AUTOMATION?
+First I create test cases and execute test scenarios manually.
+It helps to understand the logic of scenarios, then I have to find
+all web elements and related methods to them. Them I start developing automation scripts.
+Last step is - generate report.
+
+Сначала я создаю тестовые случаи и выполняю тестовые сценарии вручную.
+Это помогает понять логику сценариев, тогда я должен найти
+все веб-элементы и связанные с ними методы. Я начинаю разработку сценариев автоматизации.
+Последний шаг - создание отчета.
+
+Scenario: Verify for store manager
+Login as store manager
+Go to Activities --> Calls
+Verify that Log Call button is displayed
+
+
+Go to Activities --> Calendar Events
+Verify that Create Calendar Event button is displayed
