@@ -14,13 +14,15 @@ https://qa2.vytrack.com/user/login
 https://qa3.vytrack.com/user/login
 under tests package create a package called “vyTrack” -->
 under this package create a package called “login”
-in css selector, you can move from parent to child element (node), but you cannot mode from child to parent like in xpath.
+
+in css selector, you can move from parent to child element (node),
+but you cannot mode from child to parent like in xpath.
 
 
 XPATH
-//div[@class=‘example’]/div - go to div element, that is direct child of this element (only one step down)
+//div[@class=‘example’]/div  - go to div element, that is direct child of this element (only one step down)
 //div[@class=‘example’]//div - go to div element, that is any child (grand child, grand grand child)
-  of this element (no limit for stepping down)
+                               of this element (no limit for stepping down)
 
 
 CSS SELECTOR

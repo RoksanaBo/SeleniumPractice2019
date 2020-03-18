@@ -1,4 +1,4 @@
-package com.automation.tests.day9.vytrack.activities;
+package com.automation.tests.day10.activities;
 
 import com.automation.utilities.BrowserUtils;
 import com.automation.utilities.DriverFactory;
@@ -11,6 +11,9 @@ import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 public class CalendarEventsPageTests {
 
@@ -30,6 +33,11 @@ public class CalendarEventsPageTests {
     private String storeManagerPassword = "UserUser123";
     private By activitiesBy = By.xpath("//span[@class='title title-level-1' and contains(text(),'Activities')]");
     private By createCalendarEventBtnBy = By.cssSelector("a[title='Create Calendar event']");
+    private By currentUserBy = By.cssSelector("#user-menu > a");
+    private By ownerBy = By.className("select2-chosen");
+    private By titleBy = By.cssSelector("[name='oro_calendar_event_form[title]']");
+    private By startDateBy = By.cssSelector("");
+    private By startTimeBy = By.cssSelector("");
 
 
 
@@ -45,9 +53,6 @@ public class CalendarEventsPageTests {
         actions = new Actions(driver);
 
         BrowserUtils.wait(3);
-
-
-
 
 
         driver.findElement(usernameBy).sendKeys(storeManagerUserName);
@@ -72,6 +77,50 @@ public class CalendarEventsPageTests {
         WebElement createCalendarEventBtn = driver.findElement(createCalendarEventBtnBy);
         Assert.assertTrue(createCalendarEventBtn.isDisplayed());
     }
+
+
+
+
+
+
+    // Scenario 3 :Default Options
+    // Login as sales manager
+    // Go to Activities --> Calendar Events
+    // Click on Create Calendar Event
+    // ---------------------------------------------------
+    // Default owner name should be current user
+    // Default title should blank
+    // Default start date should be current date
+    // Default start time should be current time
+
+
+    @Test(description = "Default options")
+    public void verifyDefaultValues(){
+        //  Click on Create Calendar Event
+        driver.findElement(createCalendarEventBtnBy).click();
+        BrowserUtils.wait(3);
+        // Default owner name should be current user
+        String currentUserName = driver.findElement(currentUserBy).getText();
+        String defaultOwnerName = driver.findElement(ownerBy).getText();
+        Assert.assertEquals(currentUserName,defaultOwnerName);
+
+        // Default title should be blank
+        WebElement titleElement = driver.findElement(titleBy);
+        Assert.assertTrue(titleElement.getAttribute("value").isEmpty());
+
+        String expectedDate = LocalDate.now().format(DateTimeFormatter.ofPattern("MMM dd, yyyy"));
+
+
+
+
+        // css Selector : #-means Id
+        // css selector : >-means direct child
+        // #user-menu>a
+
+
+    }
+
+
 
 
 
