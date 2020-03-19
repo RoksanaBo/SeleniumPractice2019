@@ -36,6 +36,7 @@ public class VehiclesTests {
     private By fleetBy = By.xpath("//span[@class='title title-level-1' and contains(text(),'Fleet')]");
 
     private By subtitleBy = By.className("oro-subtitle");
+    private By pageNumberBy = By.cssSelector("input[type='number']");
     private WebDriver driver;
 
 
@@ -45,12 +46,33 @@ public class VehiclesTests {
         driver = new ChromeDriver();
         driver.get(URL);
         driver.manage().window().maximize();
+
+
+        // login
+        driver.findElement(usernameBy).sendKeys(username);
+        driver.findElement(passwordBy).sendKeys(password, Keys.ENTER);
+
+        BrowserUtils.wait(3);
+
+        // click on fleet
+        // driver.findElement(fleetBy).click();
+
+
+        // Actions class is used for more advanced browser interactions.
+        Actions actions = new Actions(driver);
+        // move to element instead of click
+        actions.moveToElement( driver.findElement(fleetBy)).perform();
+
+        // perform() --> to execute command
+        // every action shouls ends with perform()
+
+        BrowserUtils.wait(3);
     }
 
 
     @Test
     public void verifyPageSubTitle(){
-
+/*
         // login
         driver.findElement(usernameBy).sendKeys(username);
         driver.findElement(passwordBy).sendKeys(password, Keys.ENTER);
@@ -87,7 +109,31 @@ public class VehiclesTests {
 
         Assert.assertEquals(actual,expected);
 
+
+ */
     }
+
+
+
+
+    // Task:
+    // Given user is on the vytrack landing page
+    // When user logs on as a store manager
+    // Then user navigates to Fleet --> Vehicles
+    // And user verifies that page number is equals to "1"
+
+    @Test
+    public void verifyPageNumber(){
+
+    String expected = "1";
+    String actual = driver.findElement(pageNumberBy).getAttribute("value");
+
+    Assert.assertEquals(actual,expected);
+
+
+    }
+
+
 
 
     @AfterMethod
