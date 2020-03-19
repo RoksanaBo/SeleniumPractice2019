@@ -71,6 +71,31 @@ public class ActionsTests {
 
     }
 
+    @Test
+    public void jqueryMenuTest(){
+        driver.get("http://practice.cybertekschool.com/jqueryui/menu#");
+
+        // hover on "enabled"
+        // hover on "downloads"
+        // click on "PDF"
+
+        BrowserUtils.wait(3);
+
+        WebElement enab = driver.findElement(By.id("ui-id-3"));
+        WebElement downloads = driver.findElement(By.id("ui-id-4"));
+        WebElement pdf = driver.findElement(By.id("ui-id-5"));
+
+        actions.moveToElement(enab).
+                pause(1000).
+                moveToElement(downloads).
+                pause(1000).
+                moveToElement(pdf).
+                build().perform();
+    }
+
+
+
+
 
     @AfterMethod
     public void teardown(){
