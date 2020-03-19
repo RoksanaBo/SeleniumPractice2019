@@ -9,4 +9,9 @@ public class VehiclesTests {
     // In this test you will need to navigate to Fleet --> Vehicles and
     // verify that page subtitle is equals to "All Cars"
     // user assertions for validation.
+
+    private String URL = "https://qa2.vytrack.com/user/login";
+
+    // CREDENTIALS FOR store manager
+
 }

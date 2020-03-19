@@ -104,6 +104,10 @@ public class ActionsTests {
         driver.manage().window().maximize();
         BrowserUtils.wait(3);
 
+        driver.findElement(By.xpath("//button[text()='Accept Cookies']")).click();
+
+        BrowserUtils.wait(3);
+
         WebElement earth = driver.findElement(By.id("droptarget"));
         WebElement moon = driver.findElement(By.id("draggable"));
 
