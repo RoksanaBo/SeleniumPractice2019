@@ -97,6 +97,27 @@ public class ActionsTests {
 
 
 
+    // Drag and Drop example:
+    @Test
+    public void dragAndDropTest(){
+        driver.get("https://demos.telerik.com/kendo-ui/dragdrop/index");
+        driver.manage().window().maximize();
+        BrowserUtils.wait(3);
+
+        WebElement earth = driver.findElement(By.id("droptarget"));
+        WebElement moon = driver.findElement(By.id("draggable"));
+
+        actions.dragAndDrop(moon,earth).perform();
+
+        String expected ="You did great!";
+        String actual = earth.getText();
+
+        Assert.assertEquals(actual,expected);
+
+    }
+
+
+
 
     @AfterMethod
     public void teardown(){
