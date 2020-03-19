@@ -72,6 +72,6 @@ public class JavaScriptExecutor {
         driver.executeScript("arguments[0].scrollIntoView(true)",link);
 
         // scrollIntoView(true) --> scroll until it becomes visible, JavaScript method
-        // arguments[0]  -->  means 1st webElement after comma
+        // arguments[0]  -->  means 1st webElement after comma .
     }
 }
