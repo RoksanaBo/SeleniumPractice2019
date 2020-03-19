@@ -7,6 +7,7 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -48,21 +49,35 @@ public class VehiclesTests {
 
     @Test
     public void verifyPageSubTitle(){
+
+        // login
         driver.findElement(usernameBy).sendKeys(username);
         driver.findElement(passwordBy).sendKeys(password, Keys.ENTER);
 
         BrowserUtils.wait(3);
 
-        driver.findElement(fleetBy).click();
+        // click on fleet
+        // driver.findElement(fleetBy).click();
+
+
+        // Actions class is used for more advanced browser interactions.
+        Actions actions = new Actions(driver);
+        // move to element instead of click
+        actions.moveToElement( driver.findElement(fleetBy)).perform();
+
+        // perform() --> to execute command
+        // every action shouls ends with perform()
 
         BrowserUtils.wait(3);
 
-        // click on Vehicles
 
+        // click on Vehicles
         driver.findElement(By.linkText("Vehicles")).click();
 
         BrowserUtils.wait(3);
 
+
+        // find subtitle element
         WebElement subtitleElement = driver.findElement(subtitleBy);
         System.out.println(subtitleElement.getText());
 
