@@ -74,6 +74,30 @@ public class JSExecutor {
 
 
 
+    @Test
+    public void textInputTest(){
+        driver.findElement(By.linkText("Form Authentication")).click();
+        BrowserUtils.wait(3);
+
+
+        WebElement username = driver.findElement(By.name("username"));
+        WebElement password = driver.findElement(By.name("password"));
+        WebElement loginButton = driver.findElement(By.id("wooden_spoon"));
+
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+
+        // to get text from input box - read attribute "value"
+        // to enter text - set attribute "value"
+
+        js.executeScript("arguments[0].setAttribute('value','tomsmith')", username);// arguments[0] == username
+        js.executeScript("arguments[0].setAttribute('value','SuperSecretPassword')", password); // == password
+        js.executeScript("arguments[0].click()", loginButton);// arguments[0] == loginButton
+
+
+
+    }
+
+
 
     @AfterMethod
     public void teardown(){
