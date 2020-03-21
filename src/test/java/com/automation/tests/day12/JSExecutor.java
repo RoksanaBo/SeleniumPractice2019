@@ -3,8 +3,10 @@ package com.automation.tests.day12;
 import com.automation.tests.day11.JavaScriptExecutor;
 import com.automation.utilities.BrowserUtils;
 import com.automation.utilities.DriverFactory;
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -42,6 +44,35 @@ public class JSExecutor {
 
         Assert.assertEquals(actual,expected);
     }
+
+
+
+    @Test
+    public void clickTest(){
+        WebElement link = driver.findElement(By.linkText("Multiple Buttons"));
+
+        // disable this click action, to perform it with js executor
+        // link.click();
+
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        // after "" you can list web element that will be used
+        // as part of your javascript code
+        // it's varargs, so you can list 0+
+        // arguments - listed after comma ,
+        // use index to get specific web element
+        // WebElement arguments = {element, link, link2 , etc.}; from left to right
+        js.executeScript("arguments[0].click()", link);
+
+        WebElement button6 = driver.findElement(By.id("disappearing_button"));
+        js.executeScript("arguments[0].click()", button6);
+        BrowserUtils.wait(4);
+
+        WebElement result = driver.findElement(By.id("result"));
+        Assert.assertEquals(result.getText(),"Now it's gone!");
+
+    }
+
+
 
 
     @AfterMethod
