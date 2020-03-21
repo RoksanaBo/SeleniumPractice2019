@@ -1,0 +1,3 @@
+
+scrolling or click , or text input does not work. if something doesn't work with selenium method, we use javaScript.
+JS - to build frontend development.
