@@ -13,6 +13,8 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 
 public class CalendarEventsPageTests {
@@ -36,10 +38,10 @@ public class CalendarEventsPageTests {
     private By currentUserBy = By.cssSelector("#user-menu > a");
     private By ownerBy = By.className("select2-chosen");
     private By titleBy = By.cssSelector("[name='oro_calendar_event_form[title]']");
-    private By startDateBy = By.cssSelector("");
-    private By startTimeBy = By.cssSelector("");
+    private By startDateBy = By.cssSelector("[id*='date_selector_oro_calendar_event_form_start-uid']");
+    private By startTimeBy = By.cssSelector("[id*='time_selector_oro_calendar_event_form_start-uid']");
 
-
+// * means "contains"
 
 
     @BeforeMethod
@@ -99,17 +101,35 @@ public class CalendarEventsPageTests {
         //  Click on Create Calendar Event
         driver.findElement(createCalendarEventBtnBy).click();
         BrowserUtils.wait(3);
+
         // Default owner name should be current user
-        String currentUserName = driver.findElement(currentUserBy).getText();
-        String defaultOwnerName = driver.findElement(ownerBy).getText();
+        String currentUserName = driver.findElement(currentUserBy).getText().trim();
+        String defaultOwnerName = driver.findElement(ownerBy).getText().trim();
         Assert.assertEquals(currentUserName,defaultOwnerName);
 
         // Default title should be blank
         WebElement titleElement = driver.findElement(titleBy);
         Assert.assertTrue(titleElement.getAttribute("value").isEmpty());
 
-        String expectedDate = LocalDate.now().format(DateTimeFormatter.ofPattern("MMM dd, yyyy"));
 
+        // Default start date should be current date
+        String expectedDate = LocalDate.now().format(DateTimeFormatter.ofPattern("MMM dd, yyyy"));
+        String actualDate = driver.findElement(startDateBy).getAttribute("value");
+
+        Assert.assertEquals(actualDate,expectedDate);
+
+
+       // String expectedTime = LocalTime.now().format(DateTimeFormatter.ofPattern("h:m a"));
+        String expectedTime = LocalTime.now(ZoneId.of("GMT-7")).format(DateTimeFormatter.ofPattern("h:m a"));
+        String actualTime = driver.findElement(startTimeBy).getAttribute("value");
+
+        Assert.assertEquals(actualTime,expectedTime);
+
+
+
+
+        // date time syntax:
+        // https://www.journaldev.com/17899/java-simpledateformat-java-date-format
 
 
 
@@ -130,3 +150,6 @@ public class CalendarEventsPageTests {
     }
 
 }
+
+// Time zones:
+// GMT  UTC  UT
