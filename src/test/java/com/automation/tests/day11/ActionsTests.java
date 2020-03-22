@@ -73,6 +73,7 @@ public class ActionsTests {
 
     @Test
     public void jqueryMenuTest(){
+        // Go to page : JQuery UI Menus
         driver.get("http://practice.cybertekschool.com/jqueryui/menu#");
 
         // hover on "enabled"
@@ -117,6 +118,8 @@ public class ActionsTests {
         String actual = earth.getText();
 
         Assert.assertEquals(actual,expected);
+
+        // Assert - утверждать
 
     }
 
