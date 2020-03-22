@@ -20,7 +20,7 @@ public class JavaScriptExecutor {
     @BeforeMethod
     public void setup(){
    //     driver = DriverFactory.createDriver("chrome");
-        WebDriverManager.chromedriver().version("79").setup();
+        WebDriverManager.chromedriver().version("79").setup();  // всегда первым шагом является webDriver
         driver = new ChromeDriver();
     }
 
@@ -34,27 +34,29 @@ public class JavaScriptExecutor {
 
     @Test
     public void scrollTest(){
-        driver.get("http://practice.cybertekschool.com/infinite_scroll");
+        driver.get("http://practice.cybertekschool.com/infinite_scroll");// page that we need
         driver.manage().window().maximize();
 
         BrowserUtils.wait(3);
 
-        // you need to cast if reference type is a WebDriver
+        // YOU NEED TO CAST IF REFERENCE TYPE IS A WebDriver
+
         // вам нужно привести, если ссылочный тип является WebDriver
 
-        // JavaScriptExecutor is = (JavaScriptExecutor) driver;
+        // JavaScriptExecutor is = (JavaScriptExecutor) driver; //
 
-        // scroll down 250 pixels:
+        //  scroll down 250 pixels:
         //  x, y coordinates  (0,250)
-
-
-        //driver.executeScript("window.scrollBy(0, 250)");
+        //  driver.executeScript("window.scrollBy(0, 250)");
 
         for (int i = 0; i < 10 ; i++) {
             driver.executeScript("window.scrollBy(0, 250)");
             BrowserUtils.wait(1);
 
         }
+
+        // reference type- тип ссылки
+        // we scroll to make something visible.
 
         BrowserUtils.wait(3);
     }
@@ -69,7 +71,7 @@ public class JavaScriptExecutor {
         BrowserUtils.wait(2);
 
         WebElement link = driver.findElement(By.linkText("Cybertek School"));
-        driver.executeScript("arguments[0].scrollIntoView(true)",link);
+        driver.executeScript("arguments[0].scrollIntoView(true)", link);
 
         // scrollIntoView(true) --> scroll until it becomes visible, JavaScript method
         // arguments[0]  -->  means 1st webElement after comma .

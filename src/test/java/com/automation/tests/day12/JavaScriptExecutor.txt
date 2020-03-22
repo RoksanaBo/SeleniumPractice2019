@@ -6,22 +6,27 @@ JavaScript -used for front-end development and supported by every browser and we
 If, something doesn't work in selenium, we can do it with JavaScriptExecutor. For example:
 click, scroll, text input.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-scrolling or click , or text input does not work. if something doesn't work with selenium method,
- we use javaScript.
 JS - to build frontend development.
+
+reference type- тип ссылки
+
+
+
+                                  SearchContext
+                                   (Interface)
+
+    TakeAScreenShot              WebDriver Interface                 JavaScriptExecutor
+       (interface)                  (interface)                         (interface)
+
+
+                                Remote WebDriver (class)
+
+                FireFoxDriver        ChromeDriver          IEDriver
+                  (class)             (class)              (class)
+
+
+YOU NEED TO CAST IF REFERENCE TYPE IS A WebDriver
+
+
 
 
