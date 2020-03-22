@@ -2,6 +2,8 @@
 
 JavaScriptExecutor - interface that allows to execute javascript code as part of our selenium script.
 
+JavaScriptExecutor - интерфейс, который позволяет выполнять код JavaScript как часть нашего selenium script.
+
 JavaScript -used for front-end development and supported by every browser and website.
 If, something doesn't work in selenium, we can do it with JavaScriptExecutor. For example:
 click, scroll, text input.
@@ -27,6 +29,8 @@ reference type- тип ссылки
 
 YOU NEED TO CAST IF REFERENCE TYPE IS A WebDriver
 
+down casting - happens automatically.
+upper casting - you have to specify the class.
 
 
-
+https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollIntoView

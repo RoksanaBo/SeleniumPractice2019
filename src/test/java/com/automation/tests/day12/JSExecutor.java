@@ -38,7 +38,7 @@ public class JSExecutor {
         // we provide js code as a string
         // return document.title --> javascript code
         // document --> represents HTML page
-        // toString() --> to avoid additional casting from Object to String
+        // .toString() --> to avoid additional casting from Object to String
 
        String actual = (String) js.executeScript("return document.title").toString();
 
@@ -49,6 +49,11 @@ public class JSExecutor {
 
     @Test
     public void clickTest(){
+
+        // driver.findElement(By.linkText("Multiple Buttons"));
+
+        // if we want to break it down:
+
         WebElement link = driver.findElement(By.linkText("Multiple Buttons"));
 
         // disable this click action, to perform it with js executor
@@ -64,7 +69,9 @@ public class JSExecutor {
         js.executeScript("arguments[0].click()", link);
 
         WebElement button6 = driver.findElement(By.id("disappearing_button"));
-        js.executeScript("arguments[0].click()", button6);
+
+      //                                                 0      1    ........
+        js.executeScript("arguments[0].click()", button6);// [0] because it's a first element after comma
         BrowserUtils.wait(4);
 
         WebElement result = driver.findElement(By.id("result"));
@@ -94,14 +101,13 @@ public class JSExecutor {
         js.executeScript("arguments[0].setAttribute('value','tomsmith')", username);// arguments[0] == username
         js.executeScript("arguments[0].setAttribute('value','SuperSecretPassword')", password); // == password
         js.executeScript("arguments[0].click()", loginButton);// arguments[0] == loginButton
-
+        // all arguments in array []
         BrowserUtils.wait(4);
 
 
         String expected = "Welcome to the Secure Area. When you are done click logout below.";
 
-        String subheader = js.executeScript("return document.getElementsByClassName('subheader')[0]." +
-                "                                                                 textContent").toString();
+        String subheader = js.executeScript("return document.getElementsByClassName('subheader')[0].textContent").toString();
 
         Assert.assertEquals(subheader, expected);
 
@@ -123,18 +129,22 @@ public class JSExecutor {
     }
 
 
-    @Test
-    public void scrollTest(){
-        driver.navigate().to("http://practice.cybertekschool.com/infinite_scroll");
-        JavascriptExecutor js = (JavascriptExecutor) driver;
 
-       // js.executeScript(("window.scrollBy(0, 1000"));
 
-        for (int i = 0; i <15 ; i++) {
-            js.executeScript(("window.scrollBy(0, 1000"));
-            BrowserUtils.wait(1);
 
-        }
+        @Test
+        public void scrollTest() {
+            driver.navigate().to("http://practice.cybertekschool.com/infinite_scroll");
+            JavascriptExecutor js = (JavascriptExecutor) driver;
+            for (int i = 0; i < 15; i++) {
+                js.executeScript(("window.scrollBy(0, 1000)"));
+                BrowserUtils.wait(1);
+            }
+
+
+
+
+       // https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollIntoView
 
     }
 
