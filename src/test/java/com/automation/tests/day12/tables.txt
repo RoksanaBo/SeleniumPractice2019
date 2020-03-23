@@ -34,11 +34,15 @@ tbody - table body, main content
 tr - table row
 th - table header data
 td - table data
+
 use indexes, to get specific values.
+
 //table[1]//tbody//tr[1]//td[2]
     means:
         find first table
         get first row from table body
         and get second cell from that row
+
 //table[1]//td[text()='fbach@yahoo.com']//following-sibling::td/a[text()='delete']
+
 //table[1]//td[text()='fbach@yahoo.com']/..//a[text()='delete']
