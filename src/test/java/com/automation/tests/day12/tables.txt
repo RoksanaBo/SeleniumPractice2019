@@ -1,0 +1,8 @@
+
+//table[1]//td[text()='jdoe@hotmail.com']//following-sibling::td/a[text()='delete']
+
+easier way:
+//table[1]//td[text()='jdoe@hotmail.com']/..//a[text()='delete']
+
+easiest way:
+//table[1]//td[text()='jdoe@hotmail.com']/..//a[2]
