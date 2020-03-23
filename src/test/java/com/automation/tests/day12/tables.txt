@@ -6,3 +6,39 @@ easier way:
 
 easiest way:
 //table[1]//td[text()='jdoe@hotmail.com']/..//a[2]
+
+
+
+
+-------------------------------------------------------------------------------------------------------------
+Web tables - used to store tabular data in HTML.
+Structure of web table:
+table
+    thead
+        tr
+            th
+            th
+    tbody
+        tr
+            td
+            td
+        tr
+            td
+            td
+    tfoot
+        tr
+            td
+table - beginning of web table
+thead - table header, use to specify column names
+tbody - table body, main content
+tr - table row
+th - table header data
+td - table data
+use indexes, to get specific values.
+//table[1]//tbody//tr[1]//td[2]
+    means:
+        find first table
+        get first row from table body
+        and get second cell from that row
+//table[1]//td[text()='fbach@yahoo.com']//following-sibling::td/a[text()='delete']
+//table[1]//td[text()='fbach@yahoo.com']/..//a[text()='delete']
