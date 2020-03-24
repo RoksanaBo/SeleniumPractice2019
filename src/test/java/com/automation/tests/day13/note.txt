@@ -1,3 +1,0 @@
-
-table - tag that is used to create a web table in HTML
-
