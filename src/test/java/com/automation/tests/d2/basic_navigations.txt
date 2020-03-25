@@ -39,11 +39,10 @@ driver.getWindowHandle()  --> represents one particular window,where you current
 
 
 
-driver.switchTo()  --> to switch window   --->     for(String windowID: windowHandles){
-                                                       if( ! windowID.equals(windowHandle)){
-                                                          driver.switchTo().window(windowID);
-                                                       }
-                                                    }
+driver.switchTo()  --> to switch window   --->    смотри  switch_two_windows.txt
+
+
+
 
 
 
