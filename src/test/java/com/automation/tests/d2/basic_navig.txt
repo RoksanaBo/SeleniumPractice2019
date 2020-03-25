@@ -12,4 +12,17 @@ driver.getTitle()  --> returns page title     <title>Some title</title> text    
 
 driver.close()     -->  to close browser, browser cannot close itself.
 
+driver.navigate().to(url)  --> go to another website within the same window
+
+driver.navigate().back() --> to go back
+
+driver.navigate().forward()  --> move forward in the browser history  вперёд
+
+driver.navigate().to() = driver.get()     this two methods are same
+
+driver.navigate().refresh()   --->  to reload page
+
+driver.getCurrentUrl()   -->  to get URL           System.out.println("URL : " + driver.getCurrentUrl());
+
+
 

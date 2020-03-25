@@ -39,7 +39,7 @@ public class BasicNavigation {
         }else
             System.out.println("test failed");
 
-//------------------------------------------------------------------------------------------------------------------------
+
 
         // go to another website within the same window
         driver.navigate().to("http://amazon.com");
@@ -81,7 +81,12 @@ public class BasicNavigation {
 
     }
 
-
+    /**
+     * Check if two strings are same. If print TEST PASSED
+     * Otherwise, print TEST FAILED message
+     * @param arg1
+     * @param arg2
+     */
 
     public static void verifyEquals(String arg1, String arg2){
         if(arg1.equals(arg2)){
