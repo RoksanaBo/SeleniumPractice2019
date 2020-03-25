@@ -14,7 +14,7 @@ driver.close()     -->  to close browser, close only 1 window, browser cannot cl
 
 driver.navigate().to(url)  --> go to another website within the same window
 
-driver.navigate().back() --> to go back
+driver.navigate().back() --> to go back   (to previous website)
 
 driver.navigate().forward()  --> move forward in the browser history  вперёд
 
@@ -25,6 +25,8 @@ driver.navigate().refresh()   --->  to reload page
 driver.getCurrentUrl()   -->  to get URL           System.out.println("URL : " + driver.getCurrentUrl());
 
 driver.quit()   --> closes everything .
+
+
 
 --------------------------------------------------------------------------------------------------------------------------
 Selenium can jump in between windows. If you have opened more than 1 window during test execution,

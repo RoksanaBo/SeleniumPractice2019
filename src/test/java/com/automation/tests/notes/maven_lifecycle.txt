@@ -2,6 +2,8 @@
 Maven automates the build process of Java projects. Each phase in the build process is
 known as a Maven lifecycle or a Maven goal.
 
+Maven used for build automation. It has it's own lifecycles.
+
 Each lifecycle manage a certain part of the build process. Maven lifecycles follow each other.
 
 A Maven lifecycle is a Maven command --> mvn verify, mvn test.
