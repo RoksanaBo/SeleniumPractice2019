@@ -1,0 +1,15 @@
+
+
+driver.get()       --> to open the web site
+
+driver.manage().window().maximize()    --> to maximize screen
+
+driver.manage().window().fullscreen()  --> full screen
+
+Thread.sleep(3000)  --> for demo, wait 3 seconds
+
+driver.getTitle()  --> returns page title     <title>Some title</title> text     you can also see it as tab name, in the browser
+
+driver.close()     -->  to close browser, browser cannot close itself.
+
+

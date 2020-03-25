@@ -22,7 +22,20 @@ just java in-built libraries.
 The biggest DISADVANTAGE OF SELENIUM IS synchronization. If selenium cannot find element, it gives you
 exception right away. We can handle it, but sometimes it becomes biggest problem.
 
-
+----------------------------------------------------------------------------------------------------------------------------
 
 Driver browser --> connect our code and the browser itself. WebDriver is required by selenium .
+
+In Selenium everything starts from WebDriver Interface. Chrome driver is a class.
+
+ChromeDriver version has to be the same version as Chrome browser.
+
+By default, WebDrivermanager downloads latest version.
+
+
+
+
+
+
+
 

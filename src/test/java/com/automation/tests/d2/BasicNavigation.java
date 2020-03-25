@@ -39,7 +39,7 @@ public class BasicNavigation {
         }else
             System.out.println("test failed");
 
-
+//------------------------------------------------------------------------------------------------------------------------
 
         // go to another website within the same window
         driver.navigate().to("http://amazon.com");
