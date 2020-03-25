@@ -15,6 +15,7 @@ public class GoogleSearchTest {
 
         driver.get("https://www.google.com/");
 
+
         Thread.sleep(2000);
 
         // By.name("q") --> name = "q":

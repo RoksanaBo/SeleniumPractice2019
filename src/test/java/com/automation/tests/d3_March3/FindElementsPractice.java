@@ -12,6 +12,9 @@ public class FindElementsPractice {
     //    WebDriverManager.chromedriver().setup();
     //    WebDriver driver = new ChromeDriver();
 
+        // test package -this is where we gonna store all our tests.
+        // utilities - package for storing reusable methods that will support our tests.
+        // for example - we can create a class with the method that will give us a WebDriver whenever we need it.
         WebDriver driver = DriverFactory.createDriver("chrome");
 
         driver.get("http://practice.cybertekschool.com/sign_up");
