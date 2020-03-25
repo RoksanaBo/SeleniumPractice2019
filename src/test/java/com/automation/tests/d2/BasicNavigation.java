@@ -7,8 +7,8 @@ public class BasicNavigation {
 
     public static void main(String[] args) throws Exception{
 
-       // to start Selenium script we need to :
-       // setup webDriver (browser driver) and create webDriver object
+        // to start Selenium script we need to :
+        // setup webDriver (browser driver) and create webDriver object
 
         WebDriverManager.chromedriver().setup();  // for google Chrome
         ChromeDriver driver = new ChromeDriver();
