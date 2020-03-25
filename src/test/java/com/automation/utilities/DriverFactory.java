@@ -12,7 +12,7 @@ public class DriverFactory {
      * If you want to use chrome browser, just provide chrome as a parameter.
      *
      * @param browserName
-     * @return
+     * @return web driver object
      */
 
     public static WebDriver createDriver(String browserName){
