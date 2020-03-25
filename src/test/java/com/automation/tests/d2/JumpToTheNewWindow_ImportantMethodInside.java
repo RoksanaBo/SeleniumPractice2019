@@ -38,7 +38,7 @@ public class JumpToTheNewWindow_ImportantMethodInside {
         System.out.println("before switch : " + driver.getCurrentUrl());
 
         for(String windowID: windowHandles){
-            // if it's not old window,then switch
+            // if it's not old window (same window),then switch
             if( ! windowID.equals(windowHandle)){
                 // to jump to the new window:
                 driver.switchTo().window(windowID);
