@@ -33,5 +33,19 @@ by calling quit() method you can be sure that anything that was opened by web dr
 You jump between windows, you need to write a code. Selenium never switch automatically.
 --------------------------------------------------------------------------------------------------------------------------
 
+driver.getWindowHandle()  --> represents one particular window,where you currently are// представляет одно конкретное окно  где вы находитесь в данный момент
+         Set<String> windowHandles =driver.getWindowHandles()  -->  id's of all currently opened windows
+         Set only allows unique values.
+
+
+
+driver.switchTo()  --> to switch window   --->     for(String windowID: windowHandles){
+                                                       if( ! windowID.equals(windowHandle)){
+                                                          driver.switchTo().window(windowID);
+                                                       }
+                                                    }
+
+
+
 
 

@@ -26,6 +26,7 @@ public class JumpToTheNewWindow_ImportantMethodInside {
 
 
         // this method returns id of all currently opened windows
+        // Set only allows unique values
         Set<String> windowHandles =driver.getWindowHandles();
         System.out.println(windowHandles);
 
