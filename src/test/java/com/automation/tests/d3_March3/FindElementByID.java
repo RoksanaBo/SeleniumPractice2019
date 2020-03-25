@@ -1,4 +1,4 @@
-package com.automation.tests.d3;
+package com.automation.tests.d3_March3;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
