@@ -1,0 +1,38 @@
+
+Locators: helps to find elements and work with them. Its a pointers of particular element of the page.
+To be able to find an element, we need to use locator. Make sure that locator points on 1 particular element.
+
+
+Id
+ClassName
+TagName
+Name
+Link Text
+Partial Link Text
+XPath
+CSS
+
+WebElement represents one particular element from the page. Why do we find them?
+To perform some actions, like: click, enter text, read text, etc....
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+We can find element, based on name attribute. Use square brackets.    [name='   ']
+Name is one of the selenium locators. To choose locator, just use By.  +locator
+name -->   [name='(name of the element)']
+
+example:
+<input name="q"type="text"/>
+WebElement search = driver.findElement(By.name("q"));
+
+how to enter the text:    use .sendKeys()
+search.sendKeys("Java");
+
+how to press Enter after entering text:  use Key.ENTER
+search.sendKeys("Java", Key.ENTER);
+
+
+
+.sendKeys() --> to enter text
+Keys.ENTER  --> perform keyboard click
+
+
