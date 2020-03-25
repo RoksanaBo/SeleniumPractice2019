@@ -33,6 +33,10 @@ public class GoogleSearchTest {
 
         // Visible text of this link,can be used
         // by selenium to find this element.
+
+
+        // if you see <a> element, it calls link
+        // visible text of this link can be used by selenium to find this element
         WebElement news = driver.findElement(By.linkText("News"));
         news.click(); // to click on the element
 

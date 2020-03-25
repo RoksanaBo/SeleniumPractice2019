@@ -34,5 +34,10 @@ search.sendKeys("Java", Key.ENTER);
 
 .sendKeys() --> to enter text
 Keys.ENTER  --> perform keyboard click
+keysToSend --> name of the parameter, we don't specify it
+Thread.sleep()  --> used to pause java program
+
+
+If you see <a> element, it calls link. Visible text of this link can be used by selenium to find this element.
 
 
