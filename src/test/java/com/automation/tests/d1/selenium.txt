@@ -1,0 +1,24 @@
+
+Selenium WebDriver --> is used to develop test automation scripts for web based applications.
+
+Web based applications - type of applications that are used in a browser.
+
+Popular browsers:
+* Chrome
+* Firefox
+* Internet Explorer (IE)
+* Safari
+* Edge
+* Opera
+
+The most popular is Google Chrome. In test automation we usually use google chrome only.
+Google Chrome is very fast. It needs a lot of power.
+In my las project I had to test on IE due to government requirements .
+
+Selenium is open source, means free. You don't need to pay for it, but you need to know
+some Java or any other alternative language to use it. I've seen some limitations of selenium
+in the internet , but I believe that most of them you can overcome with some other libraries of
+just java in-built libraries.
+The biggest DISADVANTAGE OF SELENIUM IS synchronization. If selenium cannot find element, it gives you
+exception right away. We can handle it, but sometimes it becomes biggest problem.
+

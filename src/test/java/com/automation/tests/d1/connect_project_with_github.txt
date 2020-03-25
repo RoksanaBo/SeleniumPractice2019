@@ -1,0 +1,35 @@
+
+First of all we need to create local repository.
+To create a local repository we need : in Console:
+
+ git init  --> we run it only once in the beginning.
+
+ git status
+
+ git add .
+
+ git status                                  (git status is not part of the required steps,
+                                                its just help to understand what has been changed since last commit)
+ git commit -m "first commit"
+
+                               *(i took a snapshot of my code and now i am ready to send my code to github)
+                               *go to github, create Repository by clicking "New" button.
+                               *you will see:
+                               *.. or push an existing repository from the command line
+                               *copy --> git remote add origin https://github.com/CybertekSchool/Fall2019Selenium..
+                               *paste it in intellij console
+
+ git remote add origin https://github.com/CybertekSchool/Fall2019Selenium.
+
+
+                               *click enter. then copy -->  git push -u origin master
+
+ git push -u origin master
+
+                               *paste it in intellij console and click enter(run)
+
+ git add .
+
+ git commit -m "first commit"
+
+ git push
