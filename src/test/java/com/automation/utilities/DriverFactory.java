@@ -15,6 +15,10 @@ public class DriverFactory {
      * @return web driver object
      */
 
+
+    // eto static method
+
+
     public static WebDriver createDriver(String browserName){
 
         if(browserName.equalsIgnoreCase("chrome")){
