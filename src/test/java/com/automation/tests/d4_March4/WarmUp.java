@@ -85,15 +85,19 @@ public class WarmUp {
         driver.quit();
     }
 
-    /**
-     * Go to wikipedia.org
-     * enter search term `selenium webdriver`
-     * click on search button
-     * click on search result `Selenium (software)`
-     * verify url ends with `Selenium_(software)`
-     */
+
+
+
+    // Task 3:
+    // Go to wikipedia.org
+    // enter search term `selenium webdriver`
+    // click on search button
+    // click on search result `Selenium (software)`
+    // verify url ends with `Selenium_(software)`
+
     public static void wikiTest() throws Exception{
         driver = DriverFactory.createDriver("chrome");
+
         //Go to wikipedia.org
         driver.get("https://en.wikipedia.org/wiki/Main_Page");
 

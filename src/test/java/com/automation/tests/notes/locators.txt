@@ -76,7 +76,7 @@ It make sense to use when click() method doesn't work.
 
 
 .sendKeys() --> to enter text
-Keys.ENTER  --> perform keyboard click
+Keys.ENTER  --> perform keyboard click , to click "Enter" button
 keysToSend --> name of the parameter, we don't specify it
 Thread.sleep()  --> used to pause java program
 findElement()  -->  a method, thats returns a WebElement object.
@@ -101,3 +101,7 @@ If you see <a> element, it calls link. Visible text of this link can be used by 
 
 What if your locator is wrong? How you gonna find out? --->  you will get NoSuchElementException .
 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+String[] searchSentence = searchResults.getText().split(" ");
+System.out.println(Arrays.toString(searchSentence));
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
