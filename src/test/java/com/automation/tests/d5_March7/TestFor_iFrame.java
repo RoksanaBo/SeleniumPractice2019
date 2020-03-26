@@ -18,10 +18,12 @@ public class TestFor_iFrame {
         BrowserUtils.wait(4);
 
 
-        //before looking for that element, we need to jump to that frame
+        // before looking for that element, we need to jump to that frame
         // You can specify : name,id, index or web element of the frame
         // it's like we are jumping to another layer.
+
         driver.switchTo().frame("mce_0_ifr");
+
         //now, this content will be visible
 
         WebElement textInput = driver.findElement(By.id("tinymce"));

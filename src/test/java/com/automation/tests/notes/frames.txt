@@ -1,0 +1,42 @@
+
+Frame:
+We have HTML document, and we can insert another HTML document inside by using frame.
+One HTML document inside another one.
+The content inside Frame is not visible to selenium ,unless you jump into that frame.
+If we cannot find the an element, we need to check if there is an iframe or not.
+
+There are 2 types of frames:
+- Frame --> helps to divide the page on sectors/zones
+- iFrame --> to insert one page inside another one. The document can be anywhere, no need to be divided on sectors.
+
+In Web Development, in front end development, developers use iFrame to insert advertisements --> вставить рекламу
+iFrame has a document inside. iFrames - usually used to display adds. To be able to interact
+with the content inside a frame, you need to switch to it.
+
+driver.switchTo().frame(name or id) - by name or id of the frame
+
+driver.switchTo().frame(WebElement) --> if frame doesn't have name or id,and index
+                                        doesn't give accurate frame position, use webElement.
+driver.switchTo().defaultContent() -->  to exit from the frame. If you don't exit, selenium will not
+                                        see the content outside of this frame.
+
+driver.switchTo().frame(index)  -->  by frame index, starting from 0. if there is only 1 frame = index will be 0,
+                                      If there are 2 frames = first one will have index 0, 2nd - index 1.
+                                      Counting - from top to bottom.
+
+
+WebElement frameElement = driver.findElement(By.className("some frame"));
+driver.switchTo().frame(frameElement);
+
+
+.clear() --> to delete text
+
+
+
+Usually all frames have id or name.
+Before looking for that element, we need to jump to that frame.
+You can specify : name,id, index or web element of the frame. It's like we are jumping to another layer.  слой
+
+
+
+List<List<String>> --> nested frame
