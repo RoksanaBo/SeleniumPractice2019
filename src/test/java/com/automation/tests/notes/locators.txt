@@ -83,6 +83,10 @@ findElement()  -->  a method, thats returns a WebElement object.
 .getText() -->    returns visible text of the element, get text from element
                   appears between opening and closing tags is a visible text.
 
+findElements() --> to find lots of elements at once. returns List<WebElement>.
+                   In case of findElements , you can get 0+ elements. If locator is wrong or element is gone
+                   already, you will get empty list.
+
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 .getAttribute() --> returns attribute's value.
    Example:
