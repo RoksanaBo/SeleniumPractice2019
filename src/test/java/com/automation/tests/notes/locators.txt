@@ -49,7 +49,7 @@ Check first what kind of <tag> represents that element.
 WebElement represents one particular element from the page. Why do we find them?
 To perform some actions, like: click, enter text, read text, etc....
 
-WebElement - this is how selenium wraps any kind of elements on the page.
+WebElement - this is how selenium wraps any kind of elements on the page.Any HTML element on the page for selenium.
 Webelement - is an Interface.
 syntax - driver find an element by this locator
 findElement - a method, thats returns a WebElement object.
@@ -99,4 +99,5 @@ findElement()  -->  a method, thats returns a WebElement object.
 
 If you see <a> element, it calls link. Visible text of this link can be used by selenium to find this element.
 
+What if your locator is wrong? How you gonna find out? --->  you will get NoSuchElementException .
 

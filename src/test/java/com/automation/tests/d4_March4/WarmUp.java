@@ -1,4 +1,4 @@
-package com.automation.tests.d4;
+package com.automation.tests.d4_March4;
 
 import com.automation.utilities.DriverFactory;
 import org.openqa.selenium.By;
@@ -8,7 +8,7 @@ import org.openqa.selenium.WebElement;
 
 import java.util.Arrays;
 
-public class March4 {
+public class WarmUp {
 
 
     static WebDriver driver;
@@ -16,16 +16,19 @@ public class March4 {
     public static void main(String[] args) throws Exception{
 
         //        ebayTest();
-//        amazonTest();
+        //        amazonTest();
+
         wikiTest();
+
     }
 
-    /**
-     * Go to ebay --->          driver.get("http://ebay.com");
-     * enter search term        input.sendKeys("java book");
-     * click on search button   searchButton.click();
-     * print number of results
-     */
+
+     // Go to ebay --->              driver.get("http://ebay.com");
+     // enter search term            input.sendKeys("java book");
+     // click on search button       searchButton.click();
+     // print number of results      System.out.println(numOfResults.getText());   By.tagName("h1")
+
+
     public static void ebayTest() throws Exception {
         WebDriver driver = DriverFactory.createDriver("chrome");
         //Go to ebay
