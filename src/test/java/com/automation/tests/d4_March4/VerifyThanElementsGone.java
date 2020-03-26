@@ -38,7 +38,7 @@ public class VerifyThanElementsGone {
 
         Thread.sleep(2000);
         //to find all buttons
-        //make sure that you us findElements <--- ending is important
+        //make sure that you use findElements <--- ending is important
         List<WebElement> buttons = driver.findElements(By.tagName("button"));
 
         for(WebElement button: buttons){
