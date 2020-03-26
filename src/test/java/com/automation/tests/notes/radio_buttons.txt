@@ -1,4 +1,18 @@
 
-.isEnabled() --> returns true, if button can be clicked, otherwise - false.
+.isEnabled() --> returns true, if button can be clicked, otherwise - false.      isEnabled --  включен
 
 .isSelected() --> returns true, if button already clicked, otherwisw - false
+
+.isDisplayed() --> returns true, if element is visible. Applies to any kind of web element, not only radio buttons.
+
+driver.findElements().size() ==0
+
+
+If element does not exist at all, you will gat - NoSuchElementException. This method will not work,
+if element doesn't present in the HTML code. To verify if element is not in HTML code at all, use-->
+--> findElements().size() ==0.
+
+Priority:
+- element must be present         элемент должен присутствовать
+- element must be visible         элемент должен быть видимым
+- element must be enabled         элемент должен быть включен
