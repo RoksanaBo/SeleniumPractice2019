@@ -22,7 +22,7 @@ public class WarmUp {
 
     }
 
-
+     // Task 1
      // Go to ebay --->              driver.get("http://ebay.com");
      // enter search term            input.sendKeys("java book");
      // click on search button       searchButton.click();
@@ -56,12 +56,15 @@ public class WarmUp {
         driver.quit();
     }
 
-    /**
-     * go to amazon
-     * enter search term
-     * click on search button
-     * verify title contains search term
-     */
+
+
+
+    // Task 2
+    // go to amazon
+    // enter search term
+    // click on search button
+    // verify title contains search term
+
     public static void amazonTest() throws Exception{
         driver = DriverFactory.createDriver("chrome");
         //go to amazon
