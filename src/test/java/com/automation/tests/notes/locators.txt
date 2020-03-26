@@ -33,7 +33,16 @@ class="  --> unique
 name --> unique
 
 
+// tag
+[] value
+<a  hyperlink  гиперссылка . Every element with <a> tag is a link
 
+To check if tagName is unique --> //tagname
+To check some attribute like name, id, class --> just put attribute=value pair into square brackets[]
+If it shows 1 of 1 --> locator is unique.
+
+If you see button on page, it doesn't always based on <button> tag.
+Check first what kind of <tag> represents that element.
 
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -73,6 +82,20 @@ Thread.sleep()  --> used to pause java program
 findElement()  -->  a method, thats returns a WebElement object.
 .getText() -->    returns visible text of the element, get text from element
                   appears between opening and closing tags is a visible text.
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.getAttribute() --> returns attribute's value.      attribute - orange color
+   Example:
+     <a class="button secondary radius" href="/logout"><i class="icon-2x icon-signout"> Logout</i></a>
+
+     a -tag name
+     class - attribute
+     href - attribute
+     Logout - text
+
+     getAttribute("class")  ---> button secondary radius
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 If you see <a> element, it calls link. Visible text of this link can be used by selenium to find this element.
 

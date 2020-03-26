@@ -13,9 +13,10 @@ public class FindElementByID {
         WebDriverManager.chromedriver().setup();
         WebDriver driver = new ChromeDriver();
 
-
         driver.get("http://practice.cybertekschool.com/login");
+
         driver.findElement(By.name("username")).sendKeys("tomsmith");
+
         Thread.sleep(2000);
 
         WebElement password = driver.findElement(By.name("password"));
@@ -41,9 +42,12 @@ public class FindElementByID {
         //let's click on Logout button. It looks like a button, but it's actually a link
         //every element with <a> tag is a link
         //if you have couple spaces in the text, just use partialLinkText instead of linkText
-        //linkText - equals()
-        //partialLinkText - contains() - complete match doesn't required
+
+        //linkText --> equals()
+        //partialLinkText --> contains() - complete match doesn't required   полное совпадение не требуется
+
         //don't put space
+
         WebElement logout = driver.findElement(By.partialLinkText("Logout"));
 
         String href = logout.getAttribute("href");
@@ -52,8 +56,12 @@ public class FindElementByID {
         System.out.println(href);
         System.out.println(className);
 
+
+
         logout.click();
         Thread.sleep(2000);
+
+
 
         //let's enter invalid credentials
 
