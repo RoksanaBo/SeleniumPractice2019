@@ -3,15 +3,34 @@ Locators: helps to find elements and work with them. Its a pointers of particula
 To be able to find an element, we need to use locator. Make sure that locator points on 1 particular element.
 
 
-Id
-ClassName
-TagName
-Name
-Link Text
-Partial Link Text
-XPath
-CSS
+Id         --> attribute in HTML
+ClassName  --> attribute in HTML
+TagName    --> HTML element itself
+Name       --> attribute in HTML
+Link Text  --> visible text of the link
+Partial Link Text --> partially mentioned text    частично упомянутый текст
+XPath  -->
+CSS    -->
 
+
+
+id --> always unique attribute. id in HTML is used to distinguish element out of others.      id в HTML используется, чтобы отличить элемент от других.
+
+<div id="btn>Hello world!</div>
+
+
+
+
+id --> unique
+h3 --> unique
+class="  --> unique
+name --> unique
+
+
+
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 WebElement represents one particular element from the page. Why do we find them?
 To perform some actions, like: click, enter text, read text, etc....
 
@@ -35,6 +54,10 @@ search.sendKeys("Java");
 how to press Enter after entering text:  use Key.ENTER
 search.sendKeys("Java", Key.ENTER);
 
+When you see type="submit", you can use submit() instead of click().
+It make sense to use when click() method doesn't work.
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
 .sendKeys() --> to enter text
@@ -42,6 +65,8 @@ Keys.ENTER  --> perform keyboard click
 keysToSend --> name of the parameter, we don't specify it
 Thread.sleep()  --> used to pause java program
 findElement()  -->  a method, thats returns a WebElement object.
+.getText() -->    returns visible text of the element, get text from element
+                  appears between opening and closing tags is a visible text.
 
 If you see <a> element, it calls link. Visible text of this link can be used by selenium to find this element.
 
