@@ -1,0 +1,43 @@
+
+
+
+StaleElementReferenceException --> stale element reference --> element is not attached to the page document
+
+StaleElementReferenceException - means that selenium cannot find previously located element.
+It happens when you are trying to interact with element after page refresh or navigation.
+
+
+                          INTERVIEW QUESTIONS:
+
+1.WHAT IS StaleElementReferenceException? -->
+
+- if it occurs, you need to find element again.
+
+if it generates exception once in a while,
+put it into try/catch and try to find element one more time
+try{
+
+  driver.findElement(By.id("name")).click()
+
+}catch( StaleElementReferenceException e){
+  driver.findElement(By.id("name")).click()
+
+}
+
+
+2.WHAT HAPPENS IF ELEMENT WASN'T FOUND, IN CASE OF findElement? -->
+  NoSuchElementException
+
+
+3.WHAT HAPPENS IF ELEMENTS WEREN'T FOUND, IN CASE OF findElements? -->
+  nothing, you will get empty list.
+
+
+4. HOW TO CHECK IF ELEMENT DOES NOT EXIST ANYMORE/ JUST DOESN'T EXIST? -->
+   check if collection is empty:
+        if(driver.findElements(By.id("name")).size()==0)){
+            element doesn't exist!
+        }
+
+   You can use findElements method to find 0+ elements. In case of find element - only 1 element.
+   If there is no element by given locator - NoSuchElementException

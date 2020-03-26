@@ -84,7 +84,7 @@ findElement()  -->  a method, thats returns a WebElement object.
                   appears between opening and closing tags is a visible text.
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-.getAttribute() --> returns attribute's value.      attribute - orange color
+.getAttribute() --> returns attribute's value.
    Example:
      <a class="button secondary radius" href="/logout"><i class="icon-2x icon-signout"> Logout</i></a>
 
@@ -105,3 +105,8 @@ What if your locator is wrong? How you gonna find out? --->  you will get NoSuch
 String[] searchSentence = searchResults.getText().split(" ");
 System.out.println(Arrays.toString(searchSentence));
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+purple - tag
+orange - attribute
+black - text
+

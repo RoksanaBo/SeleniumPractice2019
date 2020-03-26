@@ -16,8 +16,8 @@ public class FindElementsTest {
         WebDriverManager.chromedriver().version("79").setup();
         WebDriver driver = new ChromeDriver();
         driver.get("http://practice.cybertekschool.com/");
-
         Thread.sleep(3000);
+
 
         //how to collect all links from the page?
         List<WebElement> links = driver.findElements(By.tagName("a"));
@@ -32,12 +32,10 @@ public class FindElementsTest {
 
         for(int i=1; i < links.size(); i++){
             links.get(i).click();
-//            Thread.sleep(2000);
 
             driver.navigate().back();
 
-//            Thread.sleep(2000);
-            //refresh list
+            //refresh list --> find old link again
             links = driver.findElements(By.tagName("a"));
         }
 
