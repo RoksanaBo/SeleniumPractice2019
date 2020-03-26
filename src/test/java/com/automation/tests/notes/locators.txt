@@ -3,12 +3,18 @@ Locators: helps to find elements and work with them. Its a pointers of particula
 To be able to find an element, we need to use locator. Make sure that locator points on 1 particular element.
 
 
-Id         --> attribute in HTML
-ClassName  --> attribute in HTML
-TagName    --> HTML element itself
-Name       --> attribute in HTML
-Link Text  --> visible text of the link
-Partial Link Text --> partially mentioned text    частично упомянутый текст
+id         --> attribute in HTML   <h3 id="smth"></h3>   the best locator,always unique
+
+name       --> attribute in HTML   <h3 name="smth"></h3>  good locator, not always unique, but mostly
+
+className  --> attribute in HTML    <h3 class="smth"></h3> not good locator, because almost never unique
+
+tagName    --> HTML element itself    <h3></h3>   (h3  is a tag name) not good locator, because almost never unique
+
+linkText  --> visible text of the link  --> ok locator, sometimes unique
+
+partialLinkText --> partially mentioned text  --> same as linkText   частично упомянутый текст
+
 XPath  -->
 CSS    -->
 
