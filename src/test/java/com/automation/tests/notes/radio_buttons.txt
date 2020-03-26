@@ -1,1 +1,4 @@
 
+.isEnabled() --> returns true, if button can be clicked, otherwise - false.
+
+.isSelected() --> returns true, if button already clicked, otherwisw - false

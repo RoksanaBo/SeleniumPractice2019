@@ -1,4 +1,4 @@
-package com.automation.tests.d5;
+package com.automation.tests.d5_March7;
 
 import com.automation.utilities.BrowserUtils;
 import io.github.bonigarcia.wdm.WebDriverManager;
@@ -23,15 +23,12 @@ public class RadioButtons {
 
         for(WebElement radioButton: radioButtons){
             //to check if button can be clicked
-
             String id = radioButton.getAttribute("id");
             // if button is eligible to click
             // returns true of you can click on the button
-
             // returns true if button already clicked:
             boolean isSelected = radioButton.isSelected();
             System.out.println(id + " is selected?" + isSelected);
-
 
             if(radioButton.isEnabled()) {
                 radioButton.click();

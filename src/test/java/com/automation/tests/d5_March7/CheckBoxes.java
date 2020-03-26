@@ -1,4 +1,4 @@
-package com.automation.tests.d5;
+package com.automation.tests.d5_March7;
 
 import com.automation.utilities.BrowserUtils;
 import io.github.bonigarcia.wdm.WebDriverManager;
