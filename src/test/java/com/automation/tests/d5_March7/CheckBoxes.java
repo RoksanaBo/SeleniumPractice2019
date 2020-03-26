@@ -25,7 +25,7 @@ public class CheckBoxes {
         //go over collection of checkboxes
         for(int i=0; i<checkBoxes.size(); i++) {
 
-            //       if visible,                            eligible to click  and         not clicked yet
+            //       if visible,                            eligible to click    and        not clicked yet
             if (checkBoxes.get(i).isDisplayed() && checkBoxes.get(i).isEnabled() && (!checkBoxes.get(i).isSelected())) {
 
                 //if checkbox is not selected, click on it
