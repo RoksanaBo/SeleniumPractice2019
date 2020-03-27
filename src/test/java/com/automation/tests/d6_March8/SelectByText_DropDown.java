@@ -9,7 +9,7 @@ import org.openqa.selenium.support.ui.Select;
 
 import java.util.List;
 
-public class SelectByText {
+public class SelectByText_DropDown {
 
     public static void main(String[] args) {
 
@@ -20,6 +20,7 @@ public class SelectByText {
         driver.get("http://practice.cybertekschool.com/dropdown");
         BrowserUtils.wait(2);
 
+
         // create webElement object or dropdown:
         WebElement simpleDropdown = driver.findElement(By.id("dropdown"));
 
@@ -28,7 +29,7 @@ public class SelectByText {
         Select selectSimpleDropdown = new Select(simpleDropdown);
 
 
-        // select by visible text:
+        // select by visible text: we can see it inside  dropdown
         selectSimpleDropdown.selectByVisibleText("Option 2");
         BrowserUtils.wait(2);
 
@@ -36,7 +37,7 @@ public class SelectByText {
         // and select option 1 :
         selectSimpleDropdown.selectByVisibleText("Option 1");
 
-
+        // select your DOB:
         Select selectYear = new Select(driver.findElement(By.id("year")));
         Select selectMonth = new Select(driver.findElement(By.id("month")));
         Select selectDay = new Select(driver.findElement(By.id("day")));
@@ -46,6 +47,8 @@ public class SelectByText {
         selectDay.selectByVisibleText("3");
 
         BrowserUtils.wait(3);
+
+
 
         // select all months one by one,
         // .getOptions() --> returns all options from dropdown as List<WebElement>
