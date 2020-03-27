@@ -3,7 +3,8 @@
 
 .isSelected() --> returns true, if button already clicked, otherwisw - false
 
-.isDisplayed() --> returns true, if element is visible. Applies to any kind of web element, not only radio buttons.
+.isDisplayed() --> to check if element is visible, returns true, if element is visible.
+                   Applies to any kind of web element, not only radio buttons.
 
 driver.findElements().size() ==0
 

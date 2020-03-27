@@ -17,6 +17,7 @@ driver.switchTo().frame(name or id) - by name or id of the frame
 
 driver.switchTo().frame(WebElement) --> if frame doesn't have name or id,and index
                                         doesn't give accurate frame position, use webElement.
+
 driver.switchTo().defaultContent() -->  to exit from the frame. If you don't exit, selenium will not
                                         see the content outside of this frame.
 
@@ -26,12 +27,17 @@ driver.switchTo().frame(index)  -->  by frame index, starting from 0. if there i
 
 
 WebElement frameElement = driver.findElement(By.className("some frame"));
+
 driver.switchTo().frame(frameElement);
 
 
 .clear() --> to delete text
 
 driver.switchTo().parentFrame()  --> go to the top frame
+
+sendKeys() --> to upload file, specify path to the file from your computer.
+                               укажите путь к файлу с вашего компьютера.
+
 
 
 
