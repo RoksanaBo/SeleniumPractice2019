@@ -31,6 +31,8 @@ driver.switchTo().frame(frameElement);
 
 .clear() --> to delete text
 
+driver.switchTo().parentFrame()  --> go to the top frame
+
 
 
 Usually all frames have id or name.
