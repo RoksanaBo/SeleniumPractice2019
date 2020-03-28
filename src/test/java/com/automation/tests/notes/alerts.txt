@@ -17,3 +17,14 @@ driver.switchTo().alert().accept() ---> to click OK
 driver.switchTo().alert().dismiss() --> to click CANCEL
 
 driver.switchTo().alert().sendKeys("Cybertek")  --> to enter some text
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+buttons.get(0).click() --> to click on the first button
+
+driver.switchTo().alert().getText()--> to get the text from popup message
+
+
+If we gonna use alert several times, we can create alert object:
+
+ Alert alert = driver.switchTo().alert();

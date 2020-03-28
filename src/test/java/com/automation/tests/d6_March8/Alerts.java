@@ -44,7 +44,14 @@ public class Alerts {
         BrowserUtils.wait(3);
 
 
-//--------------------------------------------------------------------------------------------------
+
+
+
+        System.out.println("-------------------------------------------------------------------");
+
+
+
+
 
         buttons.get(1).click();//to click on the 2nd button
         BrowserUtils.wait(3);
@@ -52,6 +59,7 @@ public class Alerts {
 
         //to click cancel
         driver.switchTo().alert().dismiss(); // result must be: You clicked: Cancel
+
         String expected2 = "You clicked: Cancel";
         String actual2 = driver.findElement(By.id("result")).getText();
 
@@ -65,17 +73,23 @@ public class Alerts {
 //-----------------------------------------------------------------------------------------------
 
 
-        //TASK : click on button #3
+        //TASK #3: click on button :
         //Enter some text: Hello, World!
         //Verify that result text ends with Hello, World!
 
-        buttons.get(2).click();
+
+        buttons.get(2).click();  // 3rd button
+
         BrowserUtils.wait(3);
 
 
+        // if we gonna use alert several times,
+        // we can create alert object:
         Alert alert = driver.switchTo().alert();
+
         alert.sendKeys("Hello, World!");//enter text
         alert.accept();// click ok
+
         String actual3 = driver.findElement(By.id("result")).getText();
         String expected3 = "Hello, World!";
 
