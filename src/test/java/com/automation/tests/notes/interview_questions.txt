@@ -41,3 +41,16 @@ try{
 
    You can use findElements method to find 0+ elements. In case of find element - only 1 element.
    If there is no element by given locator - NoSuchElementException
+
+
+5. What are the locators?
+
+6. Build a locator for web table
+
+7. Relative vs absolute xpath
+
+8. Which locator to use xpath or css and why
+
+9. How to handle dynamic element (xpath)
+
+10.Unbalanced web table, how to handle
