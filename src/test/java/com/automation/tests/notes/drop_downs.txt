@@ -14,6 +14,7 @@ getText() --> retrieves visible text from the web element
 
 deselectByVisibleText() --> to unselect something
 
+selectByIndex() --> to find element by index. index starts from 0
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Select Object per 1 dropdown!!!
