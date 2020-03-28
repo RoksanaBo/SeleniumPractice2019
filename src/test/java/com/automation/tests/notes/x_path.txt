@@ -22,9 +22,63 @@ There are 2 types of xpath locators:
 
   In work we find them once and store them, and then use them.
 
+  In real cases when it's useful: when you expect some element in the specific place.
+  You need to start from the root element. In case of HTML it's a - <html>
+  You have to go from parent - to child. Node - it's like one element. It refers to any
+  HTML element.
+
   Example:    /html/body/div/div[2]/div/div/button[2]
+               html
+                   head
+                   body
+                       div
+                       div
+                       div
+                          button
+
+
+
+How to go from child to parent:
+/..  - to go up to parent   //button[text()='Button 1']/..
+/../.. - go to grandparent  //button[text()='Button 1']/../..
+
+
+
+How to go to any child (child,grandchild,grand grandchild ...)
+//div[@id='content']//button
+
+
+How to go to direct child only:
+//div[@id='content']/button
+
+
+//label[text()='First name']/following-sibling::div/input
+//label[text()='First name']/following-sibling::*/input
+
+/following-sibling::tag  --> get the sibling that is located under the element.
+
+
+<div>
+    <input type="text">
+    <label>Enter your age:</label>
+</div>
+
+Here input and label are siblings. For input -label is a following sibling.
+For label - input is a preceding sibling   предыдущий брат
+
+//input[@name='age']/following-sibling::label
+
+
+//label[text()='Enter your age:']/preceding-sibling::input
+
+Lets say when input doesn't have id or unique name or something that can help us to find
+that element, we can find a label, that is next to it and jump to that input.
+
+
 
 (right click --> copy --> copy xpath --> paste in "find" window
+
+
 
  Copy xpath -> relative xpath
  Copy full xpath -> absolute xpath
@@ -34,11 +88,12 @@ it's not a good practice to copy xpath from the browser.
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 - Relative xpath --> the path starts from the middle of the HTML DOM structure.
+                     Relative xpath can starts from any element, not only from root.
 
- //tagname[@attribute='value'] :
+ //tagName[@attribute='value'] :
 
 * // -> beginning of element
-* tagname -> tag name of element
+* tagName -> tag name of element
 * @ - Select attribute
 * attribute - attribute name of the element
 * value - value of the attribute
@@ -106,6 +161,22 @@ If there are couple elements with the same xpath, use index to specify needed on
 //button[index]  or  (//button)[index]
 
 Index starts with 1 !
+
+
+angle brackets - угловые скобки
+double column - двойное двоеточие
+
+
+Advantages of XPath:
+- navigation in both directions: back and forward
+- ability to find element by text
+
+
+
+
+
+
+
 
 
 
