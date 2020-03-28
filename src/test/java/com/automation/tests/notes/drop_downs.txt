@@ -12,7 +12,7 @@ getFirstSelectedOption()--> returns a web element.
 
 getText() --> retrieves visible text from the web element
 
-
+deselectByVisibleText() --> to unselect something
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
