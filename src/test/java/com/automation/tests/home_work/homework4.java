@@ -271,4 +271,24 @@ public class homework4 {
     }
 
 
+
+
+    //1. go to https://amazon.com
+    //2. search for "wooden spoon"
+    //3. click search
+    //4. remember name first result that has prime label
+    //5. select Prime checkbox on the left
+    //6. verify that name first result that has prime label is same as step 4
+    //7. check the last checkbox under Brand on the left
+    //8. verify that name first result that has prime label is different
+    @Test
+    public void prime(){
+
+        driver.get("https://amazon.com");
+        driver.findElement(By.id("twotabsearchtextbox")).sendKeys("wooden spoon");
+        driver.findElement(By.xpath("//span[@id='nav-search-submit-text']/following-sibling::input")).click();
+
+
+    }
+
 }

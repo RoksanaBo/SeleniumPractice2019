@@ -8,6 +8,12 @@ There are 2 types of drop-down:
 
 .getOptions() --> returns all options from dropdown as List<WebElement>
 
+getFirstSelectedOption()--> returns a web element.
+
+getText() --> retrieves visible text from the web element
+
+
+
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Select Object per 1 dropdown!!!
