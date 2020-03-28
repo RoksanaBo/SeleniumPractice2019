@@ -1,4 +1,4 @@
-package com.automation.tests.d7;
+package com.automation.tests.d7_March10;
 
 import com.automation.utilities.DriverFactory;
 import org.openqa.selenium.WebDriver;

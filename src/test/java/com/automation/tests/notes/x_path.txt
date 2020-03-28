@@ -67,7 +67,7 @@ for example  //*[@onclick='button1()']  --> * means any tag name
 / - absolute
 // - relative
 
-
+root element - корневой элемент
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 <button class="btn btn-primary" onclick="button4()" id="btn324_button">Button 4</button>

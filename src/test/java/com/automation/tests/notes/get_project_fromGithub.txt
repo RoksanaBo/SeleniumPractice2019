@@ -1,0 +1,10 @@
+
+ - take the link of the project in GitHub (Clone with HTTPS)
+ - clone it in github
+ - go to intelliJ
+ - click on "Get from Version Control"(under the Create new project)
+ - click URL and paste url there
+ - click "Clone" button
+ - popup window - click "yes"
+ - click "Enable Auto-Import"
+

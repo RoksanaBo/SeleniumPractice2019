@@ -15,8 +15,12 @@ linkText  --> visible text of the link  --> ok locator, sometimes unique
 
 partialLinkText --> partially mentioned text  --> same as linkText   частично упомянутый текст
 
-XPath  -->
-CSS    -->
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+XPath  --> xml path->document that looks like HTML,also based on tags.
+
+cssSelector -->
 
 
 
@@ -36,6 +40,8 @@ name --> unique
 // tag
 [] value
 <a  hyperlink  гиперссылка . Every element with <a> tag is a link
+
+<h1>This is a page heading</h1>
 
 To check if tagName is unique --> //tagname
 To check some attribute like name, id, class --> just put attribute=value pair into square brackets[]

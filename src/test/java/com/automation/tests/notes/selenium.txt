@@ -32,10 +32,10 @@ ChromeDriver version has to be the same version as Chrome browser.
 
 By default, WebDrivermanager downloads latest version.
 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-
-
-
+In selenium script, we create a web element for every HTML element on the page.
+We use tags and attributes to come up with a locator.
 
 
 
