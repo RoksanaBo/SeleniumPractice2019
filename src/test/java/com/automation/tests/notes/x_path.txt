@@ -75,6 +75,11 @@ Lets say when input doesn't have id or unique name or something that can help us
 that element, we can find a label, that is next to it and jump to that input.
 
 
+//button[@type='submit' and @id='wooden_spoon'] --> to have both attributes
+
+//button[@type='submit' or @id='wooden_spoon'] --> to have either one or another attribute
+
+
 
 (right click --> copy --> copy xpath --> paste in "find" window
 
@@ -159,6 +164,7 @@ root element - корневой элемент
 
 If there are couple elements with the same xpath, use index to specify needed one:
 //button[index]  or  (//button)[index]
+
 
 Index starts with 1 !
 

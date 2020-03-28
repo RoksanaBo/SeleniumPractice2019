@@ -7,6 +7,8 @@ import org.openqa.selenium.WebDriver;
 
 public class X_Path {
 
+    // it's static, so I can use this inside the same package anywhere
+
     static String userNameLocator = "//label[text()='Username']/following-sibling::input";
     static String passwordLocator = "//label[text()='Password']/following-sibling::input";
     static String loginBtnLocator = "//button[contains(text(), 'Login')]";
