@@ -1,0 +1,83 @@
+Levels of testing:
+
+UNIT testing --> testing of smallest functional piece of the application. Check if our method works properly
+                 Ex: method, class..  done by developers.
+
+  In my project developers will following this flow:
+     developers write a code --> they create unit tests to test their code -->
+     --> code review, someone else must review the code --> if everything is fine, code goes to github(for example)-->
+     --> new build can be deployed to the test environment --> and in the test env-t we run smoke test
+     or we as a testers can test it. And then here we do functional testing .
+
+  So, this is the flow:
+   -developers write the code,
+   -they also write unit test
+   -they do code review
+   -then code goes to the github
+   -they create pull request
+   -code goes to the master branch
+   -once code goes to the master branch, it can be deployed.
+
+   Deployed means:
+   the whole development process:
+
+   it's when the code from the github goes to the tool, that can compile it and create executable file,and
+   that file will become a real application.And that real application will be accessed by end-users through
+   the browser.This is the whole web development process.And then this is start time for testers to start testing.
+   Smoke test - check if application is up and running,and the major critical functionality is working.
+   Usually smoke test should be done automatically.
+
+   If new functionality was deployed to the test environment,as part of new built,then we can write our
+   selenium scripts to test the functionality if we're doing user interface testing, or UA testing,UAT testing.
+
+   Whats the role of Unit test?
+   Unit test happens before code goes to the github, at the very early stage, because it's easier to find a bug
+   in early stage. Unit testing is very important process of development in general.
+
+
+  Who writes unit test? for application code - developers.
+  Can I write some unit tests for my automation framework? yes.
+
+
+  import org.testng.annotations.Test;
+
+@Test annotation used to create a test. Put it on top of the method.In this case,
+ we don't use main method and we can create lots of tests in one class.
+
+
+BEFORE SUITE
+    BEFORE TEST
+        BEFORE CLASS
+            BEFORE METHOD
+                TEST 1
+            AFTER METHOD
+            BEFORE METHOD
+                TEST 2
+            AFTER METHOD
+        AFTER CLASS
+    AFTER TEST
+AFTER SUITE
+
+
+SUITE - it's a collection of tests. For example: regression suite.
+TestNG has 2 types of assertions: hard and soft.
+Assert class provides hard assertions.
+What's the difference? If hard assertion fails - test execution stops due to exception. In case of soft assertion - test execution doesn't stop. For soft assertions you can use the class - SoftAssert. But, common practice is to use only hard assertions. Junit, for example, has only hard assertions.
+
+
+
+TestNG - it's a unit testing,functional testing, e2e testing tool. In test automation we use TestNG
+along with Selenium WebDriver to develop UI test automation scripts. TestNG was inspired by Junit(another very popular unit testing fremework).
+
+TestNG has:
+- annotations for more complex test, like: @BeforeSuite, @BeforeClass, @BeforeMethod,@Test etc..
+- allows to create test suits with xml runners
+- has in-build HTML report
+- allows to group tests
+- allows to do Data riven Testing
+
+
+unit
+integration
+system
+UAT

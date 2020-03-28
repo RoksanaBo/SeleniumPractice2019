@@ -1,0 +1,43 @@
+
+TestNG -tool for unit testing with library.
+
+JUnit - very popular testing tool too.It was created before TestNG.
+
+We used this tools to:
+- provide assertions for verify
+- it can generate report
+- for visual representation for your test results
+
+
+assertTrue:
+  assertTrue(true);
+  assertTrue(1==1);
+  assertTrue(element.isDisplayed());
+
+
+  Where to find assertions:
+  mvnrepository.com --> testng --> version 6.14 for example --> copy maven dependency -->
+  --> add it in pom.xml file between <dependencies>    </dependencies>
+  Once we added dependency, we are ready to use testng. HOW?
+
+  simple void method:  Unit test:
+
+//annotation:  примечание
+ @Test(description = "....")   // just a comment
+    public void test(){
+    }
+
+
+@Test annotation used to create a test. Put it on top of the method. In case we don't use main method
+and we can create lots of tests in one class.
+
+
+Assert org.testng  its coming from testing, JUnit also has this class.
+
+
+Assert.assertEquals(actual, expected) --> to vefify if expected result is equals to actual
+
+If there is an error, it will throw exception.
+
+You can compare any data types here: strings,primitives,arrays,objects
+

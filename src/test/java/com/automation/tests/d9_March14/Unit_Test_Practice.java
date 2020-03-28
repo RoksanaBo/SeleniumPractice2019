@@ -1,4 +1,4 @@
-package com.automation.tests.d8;
+package com.automation.tests.d9_March14;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -10,6 +10,8 @@ public class Unit_Test_Practice {
         // Unit test: to check if our method works properly должным образом
         // If assertion fails, that means our method doesn't work correctly,
         // that means we have to fix the method
+
+        //this is our Unit test:
         String expected = "cba";
         String toReverse = "abc";
         String actual = reverseString(toReverse);

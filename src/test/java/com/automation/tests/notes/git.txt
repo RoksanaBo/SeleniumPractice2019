@@ -1,0 +1,121 @@
+
+Version control - system that stores the changes, made to files and folders.
+
+Git - resolves the issue of collaboration сотрудничество .When couple people work together on the
+project at the same time . Git helps collaborate developers and estets work together + Git tracks
+the changes of the project that were made .Git has the history of all changes -commit.
+
+How to get the copy of the project:
+- open the project in gitHub
+- button "clone or download"
+- copy the link http://git.....
+- in intelliJ click  File -> New -> Project from Version Control
+- insert your link in URL
+- click "Clone"
+
+
+How to get updates from GitHub:
+- in IntelliJ click blue arrow button ,it stands for pull
+- click "OK".
+- it will fetch the data from GitHub
+- you'll se message "All files are up-to-date" - that means:
+  no changes are made yet.
+
+
+
+
+How to clone project manually, without intelliJ:
+- open Power Shell /or git bash on Windows   (terminal on Mac):
+  I use git bash:
+
+ls -> to list directory
+
+ls -a/or ls -l     -> to see all files, even hidden
+
+pwd    -> print work directory
+
+cd folderName  -> to switch to another folder (example: cd git)
+
+mkdir folderName -> make directory
+
+mkdir git -> you will create git folder
+
+------------------------------------------------------------------------------------
+
+git commands are the same for everyone. Git is a command line tool
+To get a copy of the project, use git clone URL
+
+ git clone (http://.......)  paste your copied clone here
+
+
+ For windows: run git bash as administrator-> right click on the program
+ For mac: run command with sudo
+ Instead of:
+ git clone https://github.com/.......
+
+ Use sudo:
+ sudo git clone https://github.com/......
+
+
+ If you wanna delete project that you've just cloned:   the terminal:
+ rm nameOfTheFile or folder.
+
+ WARNING:
+ rm -f file -> force removal,don't use it if you are not sure!
+ rmdir ->remove folder
+ rm -rf folder/filename -> remove forcefully мощно
+ clear -> to clean the terminal
+ pwd -> to see where is your project located
+
+----------------------------------------------------------------------------------------
+
+ In IntelliJ:
+
+ git status -> to see whats new in your project
+
+ Version Control button -> Log --->history of your commits
+
+ git add .   --> to add something
+
+ git commit -m "msg what i want to change"
+
+ git status
+
+ "Your branch is ahead of 'origin/master' by 1 commit." --> means you need to push it.
+
+ git add .
+
+ git commit -m "msg" (describe what you have changed)
+
+ git push    -->send changes from local repository(IntelliJ) to remote repository (GitHub)
+
+ --------------------------------------------------------------------------------------------
+
+If you are connected to CybertekSchool repository, and you want to connect to yours, use
+this command to connect to your own github repository.
+To change remote git URL: git remote set-url origin URL
+
+ git remote -v   --> it will show you where you connected to(to see remote repository URR
+
+ To connect:
+ go to the github, create a new repository and then follow commands for the existing project.
+
+ To change remote git URL/or to connect to another github repository:
+ git remote set-url origin hrrps://github.com/yourusername/projectname.git
+
+ --------------------------------------------------------------------------------------------
+
+ how to send changes from IntelliJ to github:
+ click green button.
+
+
+
+
+
+
+
+
+
+
+
+

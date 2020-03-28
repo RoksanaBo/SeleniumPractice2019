@@ -1,0 +1,132 @@
+click on Maven
+click Next
+Name: ex. OnlineNewGitPractice2020
+GroupId : example org.example
+ArtifactId: same as project name
+Version : leave it as is
+
+click "Finish"
+click "Enable Auto-Import"
+---------------------------------------
+Now we have our project.
+
+1) create git ignore file :
+2) click New->File    :    .gitignore    DON'T COMMIT IT!!!
+
+3) inside the  .gitignore :
+.idea
+target
+*.iml
+
+4) save it.(just close it)
+
+
+You can create new files . "Do you want to add the following file to git?"  click "Add"
+
+
+5) open terminal in intelliJ :
+
+   git init           (only once per project)
+
+   git status
+
+   git add .                          (now our files are all green)
+
+   git commit -m "first commit"       (warning: LF will be replaced by CRLF in pom.xml. -> windows warning, don't worry)
+
+
+------------------------------------------------------------------
+Next step: create "NEW" repository in GitHub:
+
+- click "My repositories"
+- click "New"
+- give a name for "Repository name"
+- click "Create repository"
+- execute commands:
+  ...or push an existing repository from the command line
+  git remote add origin https://.......
+  git push -u origin master
+
+  Copy this commands and paste them one by one in terminal (after every paste click Enter)
+
+  -------------------------------------------------------------------
+
+  We can modify file in GitHub:
+  click on file,then click on pencil icon
+  click "commit changes"
+
+
+  To add/get updates in intelliJ from GitHub:
+
+  git pull              (or click blue arrow )
+
+ ----------------------------------------------------------------------
+
+ How to create new file in GitHub:                    CSV- comma separated file
+1) click "Create file"   file.csv
+   you will get table, if file is .csv
+2) put some information, for example  Martin, 35, Male
+                                    Jessica, 45, Female
+
+3) click "Commit new file" . Our new file looks like a table.
+4) click on blue arrow in intellij to get new files in intellij
+5) "Merge the incoming changes into the current branch"  click "OK"
+    you will see : 1 file updated
+
+6) if you get some kind of messages - don't make any changes, leave it default, just click OK
+
+7) add some more information in file (Name, Age, Gender
+                                      Martin, 35, Male
+                                      Jessica, 45 Female)
+8) commit and push to gitHub
+
+
+------------------------------------------------------------------------------------------
+
+When we rename file :
+
+ git status       (it will show  "renamed")
+
+ git add .
+
+ git commit -m "...."
+
+ git push
+
+ -----------------------------------------------------------------------------------
+
+If we want to make changes in gitHub file:
+
+1) click "Edit the file" pencil icon
+2) add one more user,for example:  Robert, 25, Male
+3) click green button "Commit changes"
+
+4) in intelliJ terminal:
+   git pull
+
+
+-----------------------------------------------------------------------------------
+
+Git pull --> Fetch + merge(слияние)
+
+Git pull downloads latest changes from remote repository(github)
+And automatically merge those changes with local repository (intelliJ)
+
+git fetch -> get updates from the remote repository, without merging them with your code
+
+git merge -> merge changes
+
+
+Example: Linda, 25, Female
+git merge  ->in intelliJ terminal
+
+Now we have :Name, Age, Gender
+             Martin, 35, Male
+             Jessica, 45 Female
+             Linda, 25, Female
+
+------------------------------------------------------------------------------------------------------------------
+
+
+
+
