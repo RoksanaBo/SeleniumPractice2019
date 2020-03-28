@@ -25,3 +25,20 @@ We can select by text, by attribute"value" or by index. Same options are availab
 import org.openqa.selenium.support.ui.Select;
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+For the selenium perspective there are 2 types of drop-downs:
+- select
+- other
+
+To handle select drop-downs, use Select class from selenium.You can select by:
+- text
+- value (<option value="smth">)
+- index
+
+In case of any other drop-down, just click on it,
+wait until options become visible and click on that option.
+You need a locator for drop-down and option.
+
+
+
+
