@@ -1,0 +1,114 @@
+
+XPath is defined as XML path. It is a syntax or language for finding any element on the web page
+using XML path expression. XPath is used to find the location of any element on a web page using
+HTML DOM structure.
+
+XML - document,looks like HTML, build of tags.
+
+XPath is very powerful and flexible locator. It can use any attribute, couple attributes of
+element, it can use text, parent-child relationships, siblings relationships. With XPath we
+can find every single element on the page. But it has small issues with the performance.
+It's slower than other locators, and in case of Internet Explorer browser it's very slow.
+
+when we see / or // --> it's xpath. its always starts with one front slash (/) or
+two front slashes (//)
+
+
+There are 2 types of xpath locators:
+- Absolute xpath : never used in automation, because it's not reliable. Absolute xpath always
+  starts with root element. In case of HTML document - it's html. Absolute xpath starts with
+  single front slash / .You cannot start from anywhere, you must start from the top and go from
+  child to parent without skipping. Otherwise locator will not work.
+
+  In work we find them once and store them, and then use them.
+
+  Example:    /html/body/div/div[2]/div/div/button[2]
+
+(right click --> copy --> copy xpath --> paste in "find" window
+
+ Copy xpath -> relative xpath
+ Copy full xpath -> absolute xpath
+
+
+it's not a good practice to copy xpath from the browser.
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+- Relative xpath --> the path starts from the middle of the HTML DOM structure.
+
+ //tagname[@attribute='value'] :
+
+* // -> beginning of element
+* tagname -> tag name of element
+* @ - Select attribute
+* attribute - attribute name of the element
+* value - value of the attribute
+
+
+If we want to find element by text: instead of attribute we write"text":
+//button[text()="Click for JS Prompt"]
+
+
+INDEXES IN XPATH STARTS FROM 1, not from 0 like in java.
+
+
+- XPath stands for XML Path Language
+- XPath uses "path like" syntax to identify and navigate nodes in an XML document
+- XPath contains over 200 built-in functions
+- XPath is a major element in the XSLT standard
+- XPath is a W3C recommendation
+
+
+
+
+If you don't know the tag name, or want to skip tag name,use *
+for example  //*[@onclick='button1()']  --> * means any tag name
+
+
+/ - absolute
+// - relative
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+<button class="btn btn-primary" onclick="button4()" id="btn324_button">Button 4</button>
+
+
+//button[@class='btn btn-primary']  or //*[@class='btn btn-primary']
+
+
+//button[@onclick='button4();]  - find a button with onclick value button4()
+
+
+//button[@id='btn324_button']  - find a button with id   btn324_button
+
+
+//button[@text()='Button 4']  - find a button with text  Button 4
+
+
+//button[starts-with(Aid,'button_')]  - to find a button,where id starts with button_
+                                        so not exactly equals to button_ ,just starts with it.
+
+//tag[starts-with(@attribute,'value')]  - find element, that has a following value in the
+                                          beginning only.
+
+//tag[starts-with(text(),'text')]   - find element, that has a following text in the beginning only.
+
+//tag[contains(@attribute,'value')]   - find element, that contains partially contains value.
+                                        Doesn't matter in the beginning,end or in the middle.
+
+
+//tag[contains(text(),'text')] - find element, that partially contains text. Doesn't matter in the
+                                    beginning, end or in the end.
+
+
+
+If there are couple elements with the same xpath, use index to specify needed one:
+//button[index]  or  (//button)[index]
+
+Index starts with 1 !
+
+
+
+devhints.io/xpath    website.
+
+

@@ -8,7 +8,7 @@ There are 2 types of drop-down:
 
 .getOptions() --> returns all options from dropdown as List<WebElement>
 
-getFirstSelectedOption()--> returns a web element.
+getFirstSelectedOption()--> returns a web element/ selected option from the dropdown
 
 getText() --> retrieves visible text from the web element
 
@@ -20,7 +20,7 @@ selectByIndex() --> to find element by index. index starts from 0
 Select Object per 1 dropdown!!!
 
 
-We use Select class to handle dropdowns.
+We use Select class to handle dropdowns. It works only with <select> based dropdowns.
 We can select by text, by attribute"value" or by index. Same options are available for deselection.
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 import org.openqa.selenium.support.ui.Select;
@@ -39,6 +39,7 @@ To handle select drop-downs, use Select class from selenium.You can select by:
 In case of any other drop-down, just click on it,
 wait until options become visible and click on that option.
 You need a locator for drop-down and option.
+Don't use Select class if there is no <select> tag.
 
 
 

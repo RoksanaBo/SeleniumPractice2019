@@ -15,7 +15,7 @@ public class Xpath {
 
         BrowserUtils.wait(3);
 
-        // value can be inside single quotes or double quotes.
+        // value can be inside single quotes '' or double quotes ""
         // if you don't know the tag name, or want to skip tag name,use *
         // for example  //*[@onclick='button1()']  --> * means any tag name!
 
@@ -26,8 +26,9 @@ public class Xpath {
         WebElement result =driver.findElement(By.id("result"));
         System.out.println(result.getText());
 
- //        / --> absolute
- //        // --> relative
+ //        /  absolute
+ //        //  relative
+
 
 
         //click on button#2
@@ -37,9 +38,21 @@ public class Xpath {
 
 
 
+        WebElement btn3 = driver.findElement(By.xpath("//button[starts-with(@id,'button_')]"));
+        btn3.click();
+        System.out.println(result.getText());
 
 
 
+        WebElement btn4 = driver.findElement(By.xpath("//button[contains(@id,'_button')][1]"));
+        btn4.click();
+        System.out.println(result.getText());
+
+
+
+        WebElement btn5 = driver.findElement(By.xpath("//button[contains(text(),'5')]"));
+        btn5.click();
+        System.out.println(result.getText());
 
         BrowserUtils.wait(3);
         driver.quit();
