@@ -28,7 +28,7 @@ public class LoginPageTest {
 
     private By warningMessageBy = By.cssSelector("[class='alert alert-error'] > div");
 
-
+    //  >  go to direct  child
 
     @Test(description = "verify that warning message displays when user enters invalid username")
     public void invalidUsername(){
@@ -50,7 +50,9 @@ public class LoginPageTest {
         driver.findElement(passwordBy).sendKeys(password, Keys.ENTER);
 
         String expected = "Dashboard";
-        String actual = driver.getTitle();
+        String actual = driver.getTitle();  //   getTitle()  --> returns the title of the page.
+
+        // first actual, then expected, them message
 
         assertEquals(actual,expected,"Page title is not correct");
 

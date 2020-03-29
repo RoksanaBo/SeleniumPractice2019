@@ -105,6 +105,8 @@ findElements() --> to find lots of elements at once. returns List<WebElement>.
 
      getAttribute("class")  ---> button secondary radius
 
+     getTitle()  --> returns the title of the page.
+
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 If you see <a> element, it calls link. Visible text of this link can be used by selenium to find this element.

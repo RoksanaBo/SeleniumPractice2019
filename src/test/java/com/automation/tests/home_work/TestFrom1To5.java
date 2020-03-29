@@ -68,8 +68,6 @@ public class TestFrom1To5 {
 
         List<WebElement> languages = driver.findElements(By.className("form-check-label"));
 
-
-
         if(languages.get(0).isDisplayed()  && languages.get(1).isDisplayed() && languages.get(2).isDisplayed()){
             System.out.println("test passed");
 
@@ -90,11 +88,7 @@ public class TestFrom1To5 {
         }
 
 */
-
-        }
-
-
-
+    }
 
 
     // Test case #3
@@ -104,6 +98,11 @@ public class TestFrom1To5 {
     // Step 4. Verify that warning message is displayed:
     // “first name must be more than 2 and less than 64 characters long"
 
+    @Test
+    public void testCase3(){
+        driver.findElement(By.linkText("Registration Form")).click();
+
+    }
 
 
     // Test case #4

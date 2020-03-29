@@ -177,7 +177,12 @@ Advantages of XPath:
 - navigation in both directions: back and forward
 - ability to find element by text
 
+-------------------------------------------------------------------------------------------------------------
+XPath:
 
+//div[@class='example']/div - go to div element, that is direct child of this element (only one step down)
+//div[@class='example']//div - go to div element, that is any child (grand child, grand grand child) of this
+                               element (no limit for stepping down)
 
 
 

@@ -78,3 +78,16 @@ in xpath, we can use [index]
 all about css selector: https://www.w3schools.com/cssref/css_selectors.asp
 all about xpath: https://www.w3schools.com/xml/xpath_syntax.asp
 
+----------------------------------------------------------------------------------------------------------
+In CSS Selector you can move from parent to child element (node),but you cannot
+mode from child to parent, like in xpath.
+
+div[class='example'] > div  --> go to div element, that is direct child of this element (only one step down)
+div[class='example'] div  --> go to div element, that is any child (grand child, grand grand child) of this
+                                                             element (no limit for stepping down). Just space.
+----------------------------------------------------------------------------------------------------------
+XPath:
+
+//div[@class='example']/div - go to div element, that is direct child of this element (only one step down)
+//div[@class='example']//div - go to div element, that is any child (grand child, grand grand child) of this
+                               element (no limit for stepping down)
