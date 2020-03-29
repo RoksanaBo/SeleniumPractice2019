@@ -20,10 +20,17 @@ public class PracticeTest {
     private WebDriver driver;
 
 
-    /**
-     * we put test annotation to make methods
-     * executable as tests.
-     */
+    // we put test annotation to make methods
+    // executable as tests.
+
+
+    // create a test called loginTest
+    // go to "Form Authentication" page
+    // enter valid credentials:
+    //     username: tomsmith
+    //     password: SuperSecretPassword
+    // verify that following sub-header message is displayed:
+    // "Welcome to the Secure Area. When you are done click logout below."
 
     @Test
     public void loginTest(){
@@ -43,6 +50,8 @@ public class PracticeTest {
     }
 
 
+
+
     /**
      * Given user is on the practice landing page
      * When user navigates to "Forgot password" page
@@ -50,8 +59,6 @@ public class PracticeTest {
      * And clicks "Retrieve password" button
      * Then user verifies that message "Your e-mail's been sent!" is displayed
      */
-
-
 
     @Test
     public void forgotPassword(){
@@ -89,11 +96,6 @@ public class PracticeTest {
     }
 
 
-
-
-
-
-
     @BeforeMethod
     public void setup(){
         WebDriverManager.chromedriver().version("79").setup();
@@ -109,7 +111,7 @@ public class PracticeTest {
 
         // provide chromeOptions object into chromeDriver constructor
 
-        driver =new ChromeDriver();
+        driver =new ChromeDriver(chromeOptions);
         driver.get("http://practice.cybertekschool.com/");
         driver.manage().window().maximize();
     }

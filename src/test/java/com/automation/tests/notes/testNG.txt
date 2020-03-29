@@ -35,9 +35,44 @@ and we can create lots of tests in one class.
 Assert org.testng  its coming from testing, JUnit also has this class.
 
 
-Assert.assertEquals(actual, expected) --> to vefify if expected result is equals to actual
+Assert.assertEquals(actual, expected) --> to verify if expected result is equals to actual
 
 If there is an error, it will throw exception.
 
 You can compare any data types here: strings,primitives,arrays,objects
 
+
+Hard assertion - if assertion fails, it stops the execution (due to exception).
+
+----------------------------------------------------------------------------------------------
+
+ @BeforeMethod --> runs before every test automatically, works as a pre-condition or setup.
+                   used when we need to run some test before everything. Or something has to be
+                   set up before every test.Something that should happen before everything
+                   automatically. It's coming from testng also.
+
+
+ @AfterMethod -->  something that should be done only once. It runs automatically after every test.
+
+-----------------------------------------------------------------------------------------------
+ @BeforeClass --> runs  only once before any test
+
+ @AfterClass --> runs only once in after all tests
+
+ ----------------------------------------------------------------------------------------------
+
+ @BeforeTest -->runs only once before @BeforeClass and @BeforeMethod
+
+ @AfterTest -->runs once after @AfterClass
+
+ --------------------------------------------------------------------------------------------
+
+ SUITE - it's a collection of tests. For example: regression suite.
+
+ TestNG has 2 types of assertions: hard and soft.
+ Assert class provides hard assertions.
+ What's the difference? If hard assertion fails - test execution stops due to exception.
+ In case of soft assertion - test execution doesn't stop. For soft assertions you can use the class - SoftAssert.
+ But, common practice is to use only hard assertions. Junit, for example, has only hard assertions.
+
+ We use annotation to create tests and organize them.

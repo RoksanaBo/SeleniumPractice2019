@@ -1,0 +1,13 @@
+
+"Your connection is not private " :  <--SSL Issue. How to handle it:
+
+use:
+
+ChromeOptions chromeOptions = new ChromeOptions();
+chromeOptions.setAcceptInsecureCerts(true);
+
+driver =new ChromeDriver(chromeOptions) --> provide chromeOptions object into chromeDriver constructor
+
+
+ChromeOptions - use to customize browser for tests
+--------------------------------------------------------------------------------------------------

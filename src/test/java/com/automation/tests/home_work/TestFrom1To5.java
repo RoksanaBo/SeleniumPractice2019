@@ -1,13 +1,54 @@
 package com.automation.tests.home_work;
 
+import com.automation.utilities.BrowserUtils;
+import io.github.bonigarcia.wdm.WebDriverManager;
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
+
 public class TestFrom1To5 {
+
+    private WebDriver driver;
+
+    @BeforeMethod
+    public void setup(){
+
+        WebDriverManager.chromedriver().setup();
+        driver=new ChromeDriver();
+        driver.get("https://practice-cybertekschool.herokuapp.com/");
+        BrowserUtils.wait(3);
+    }
+
 
     //Test case #1
     // Step 1. Go to "https://practice-cybertekschool.herokuapp.com/"
     // Step 2. Click on "Registration Form"
     // Step 3. Enter "wrong_dob" into date of birth input box.
     // Step 4. Verify that warning message is displayed: "The date of birth is not valid"
+    @Test
+    public void testCase1(){
 
+        driver.findElement(By.linkText("Registration Form")).click();
+
+
+        BrowserUtils.wait(2);
+        driver.findElement(By.name("birthday")).sendKeys("wrong_dob");
+
+        BrowserUtils.wait(2);
+
+        String expected = "The date of birth is not valid";
+        String actual = driver.findElement(By.xpath("//*[@id='registrationForm']/div[8]/div/small[2]")).getText();
+
+        System.out.println(actual);
+        Assert.assertEquals(actual,expected,"incorrect");
+
+
+    }
 
 
 
@@ -17,6 +58,10 @@ public class TestFrom1To5 {
     // Step 3. Verify that following options for programming languages
     // are displayed: c++, java, JavaScript
 
+    @Test
+    public void testCase2(){
+
+    }
 
 
     // Test case #3
@@ -60,5 +105,10 @@ public class TestFrom1To5 {
     // Select.html or, please watch short video about dropdowns that is posted on canvas.
 
 
+
+    @AfterMethod
+    public void teardown(){
+        driver.quit();
+    }
 
 }

@@ -54,3 +54,15 @@ try{
 9. How to handle dynamic element (xpath)
 
 10.Unbalanced web table, how to handle
+
+----------------------------------------------------------------------------------------------------
+11.How to handle SSL issues in selenium?   ex: "Your connection is not private"
+   - use :
+     ChromeOptions chromeOptions = new ChromeOptions();
+     chromeOptions.setAcceptInsecureCerts(true);
+
+     driver =new ChromeDriver(chromeOptions) --> provide chromeOptions object into chromeDriver constructor
+
+ChromeOptions - use to customize browser for tests
+
+-----------------------------------------------------------------------------------------------------

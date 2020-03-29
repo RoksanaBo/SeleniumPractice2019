@@ -62,7 +62,9 @@ AFTER SUITE
 SUITE - it's a collection of tests. For example: regression suite.
 TestNG has 2 types of assertions: hard and soft.
 Assert class provides hard assertions.
-What's the difference? If hard assertion fails - test execution stops due to exception. In case of soft assertion - test execution doesn't stop. For soft assertions you can use the class - SoftAssert. But, common practice is to use only hard assertions. Junit, for example, has only hard assertions.
+What's the difference? If hard assertion fails - test execution stops due to exception.
+In case of soft assertion - test execution doesn't stop. For soft assertions you can use the class - SoftAssert.
+But, common practice is to use only hard assertions. Junit, for example, has only hard assertions.
 
 
 
