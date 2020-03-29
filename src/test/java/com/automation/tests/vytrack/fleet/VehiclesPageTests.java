@@ -72,11 +72,14 @@ public class VehiclesPageTests {
 
 
 
+        // actions class object
          Actions actions = new Actions(driver);
 
          // move to element instead of click
          actions.moveToElement(driver.findElement(fleetBy)).perform();
 
+         // moveToElement --> hover mouse on web element
+         // findElement() --> web element target
          // perform() --> to execute command
          // Every action should end with perform()
 
@@ -90,6 +93,11 @@ public class VehiclesPageTests {
          // find subtitle element
          WebElement subTitleElement = driver.findElement(subtitleBy);
          System.out.println(subTitleElement.getText());
+
+         String expected = "All Cars";
+         String actual = subTitleElement.getText();
+
+         Assert.assertEquals(actual,expected);
 
 
 
