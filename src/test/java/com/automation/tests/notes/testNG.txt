@@ -7,7 +7,9 @@ We used this tools to:
 - provide assertions for verify
 - it can generate report
 - for visual representation for your test results
+--------------------------------------------------------------------------------------------------------
 
+Assertions - helps to verify your test. If test passed or failed.
 
 assertTrue:
   assertTrue(true);
@@ -15,6 +17,12 @@ assertTrue:
   assertTrue(element.isDisplayed());
 
 
+assertEquals():
+  assertEquals(1, 1)
+  assertEquals("a","a")
+  assertEquals(driver.getTitle(),"Google)
+
+------------------------------------------------------------------------------------------------------------
   Where to find assertions:
   mvnrepository.com --> testng --> version 6.14 for example --> copy maven dependency -->
   --> add it in pom.xml file between <dependencies>    </dependencies>
@@ -28,8 +36,8 @@ assertTrue:
     }
 
 
-@Test annotation used to create a test. Put it on top of the method. In case we don't use main method
-and we can create lots of tests in one class.
+@Test annotation used to create a test. They change the behavior of the method.
+ Put it on top of the method. In case we don't use main method and we can create lots of tests in one class.
 
 
 Assert org.testng  its coming from testing, JUnit also has this class.
@@ -45,6 +53,7 @@ You can compare any data types here: strings,primitives,arrays,objects
 Hard assertion - if assertion fails, it stops the execution (due to exception).
 
 ----------------------------------------------------------------------------------------------
+Annotations: used to develop more complex framework,
 
  @BeforeMethod --> runs before every test automatically, works as a pre-condition or setup.
                    used when we need to run some test before everything. Or something has to be
@@ -55,9 +64,9 @@ Hard assertion - if assertion fails, it stops the execution (due to exception).
  @AfterMethod -->  something that should be done only once. It runs automatically after every test.
 
 -----------------------------------------------------------------------------------------------
- @BeforeClass --> runs  only once before any test
+ @BeforeClass --> runs  only once before any other methods
 
- @AfterClass --> runs only once in after all tests
+ @AfterClass --> runs only once in after all methods in this class
 
  ----------------------------------------------------------------------------------------------
 
@@ -76,3 +85,6 @@ Hard assertion - if assertion fails, it stops the execution (due to exception).
  But, common practice is to use only hard assertions. Junit, for example, has only hard assertions.
 
  We use annotation to create tests and organize them.
+
+
+ TestNg - is a testing framework. You can execute batch/bunch of test cases. Or execute optional.

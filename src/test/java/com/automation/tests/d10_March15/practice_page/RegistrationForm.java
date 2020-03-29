@@ -1,4 +1,4 @@
-package com.automation.tests.d9.practice_page;
+package com.automation.tests.d10_March15.practice_page;
 
 import com.automation.utilities.BrowserUtils;
 import io.github.bonigarcia.wdm.WebDriverManager;

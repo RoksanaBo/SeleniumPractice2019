@@ -9,6 +9,10 @@ In my framework, we group test scripts based on modules. So for every module we 
 with test scripts.
 
 
+  test Suite - collection of certain test cases.
+
+
+
 https://qa1.vytrack.com/user/login
 https://qa2.vytrack.com/user/login
 https://qa3.vytrack.com/user/login

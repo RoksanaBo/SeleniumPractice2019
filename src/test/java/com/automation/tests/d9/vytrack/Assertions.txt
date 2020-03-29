@@ -1,5 +1,0 @@
-Assertions helps to verify your test.They will determine the test status.If test passed or failed.
-
-      assertTrue(), assertEquals(),
-
-Annotations --> change behavior of the method.

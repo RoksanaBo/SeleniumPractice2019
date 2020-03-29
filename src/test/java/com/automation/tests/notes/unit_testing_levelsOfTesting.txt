@@ -68,7 +68,7 @@ But, common practice is to use only hard assertions. Junit, for example, has onl
 
 
 
-TestNG - it's a unit testing,functional testing, e2e testing tool. In test automation we use TestNG
+TestNG - it's a unit testing,functional testing, end 2 end testing tool. In test automation we use TestNG
 along with Selenium WebDriver to develop UI test automation scripts. TestNG was inspired by Junit(another very popular unit testing fremework).
 
 TestNG has:

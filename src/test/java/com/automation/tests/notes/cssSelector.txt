@@ -19,7 +19,7 @@ WebElement cheese = driver.findElement(By.cssSelector(“span[class=‘dairy age
 
 . -  class name
 # - id
-
+>  means direct child
 
 cssSelector :                            xpath:
 tagName[attribute='value']      //tagName[@attribute='value']

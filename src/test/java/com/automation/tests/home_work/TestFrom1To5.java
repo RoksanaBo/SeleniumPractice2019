@@ -5,11 +5,14 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+
+import java.util.List;
 
 public class TestFrom1To5 {
 
@@ -61,7 +64,37 @@ public class TestFrom1To5 {
     @Test
     public void testCase2(){
 
-    }
+        driver.findElement(By.linkText("Registration Form")).click();
+
+        List<WebElement> languages = driver.findElements(By.className("form-check-label"));
+
+
+
+        if(languages.get(0).isDisplayed()  && languages.get(1).isDisplayed() && languages.get(2).isDisplayed()){
+            System.out.println("test passed");
+
+        }else{
+            System.out.println("test failed");
+        }
+
+        /*
+        for(WebElement each:languages){
+
+            if(each.isDisplayed()){
+                System.out.println("Test passed");
+            }else{
+                System.out.println("test failed");
+            }
+
+
+        }
+
+*/
+
+        }
+
+
+
 
 
     // Test case #3

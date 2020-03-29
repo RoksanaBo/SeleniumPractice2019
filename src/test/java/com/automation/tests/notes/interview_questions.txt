@@ -66,3 +66,11 @@ try{
 ChromeOptions - use to customize browser for tests
 
 -----------------------------------------------------------------------------------------------------
+
+12.You have 500 test cases but the client asked you to run only 40 of them for smoke test. How will you do this?
+
+    So we use xml runners to create suites of tests and we already have xml runner for the smoke test.
+    In my framework, we group test scripts based on modules. So for every module we have a corresponding package
+    with test scripts.
+-------------------------------------------------------------------------------------------------------
+
