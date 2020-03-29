@@ -1,0 +1,13 @@
+
+ Actions actions = new Actions(driver);
+
+ if we want to move to element, use:
+
+ actions.moveToElement(driver.findElement(fleetBy)).perform();
+
+
+ Actions class is used for more advanced browser interactions. Instead of click we can move to element.
+ Класс Actions используется для более сложных взаимодействий браузера.
+
+
+ perform - to execute command    выполнить команду.Every action should end with perform()
