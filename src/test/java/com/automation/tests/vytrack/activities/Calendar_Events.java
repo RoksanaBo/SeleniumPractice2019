@@ -6,19 +6,18 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-public class Calls {
-
-    //   Scenario 1 : Verify for Store Manager:
+public class Calendar_Events {
+    //   Scenario 2 : Verify for store manager
     //   Login as store manager
-    //   Go to Activities --> Calls
-    //   Verify that Log Call button is displayed
+    //   Go to Activities --> Calendar Events
+    //   Verify that Create Calendar Event button is displayed
+
 
     private By usernameBy = By.id("prependedInput");
     private By passwordBy = By.id("prependedInput2");
@@ -29,20 +28,20 @@ public class Calls {
 
     private  By activitiesBy = By.xpath("//span[@class='title title-level-1' and contains(text(),'Activities')]");
 
+    private By createCalendarEventsBtnBy = By.cssSelector("a[title='Create Calendar event']");//because <a> is a title
+
     private WebDriver driver;
     private Actions actions;
-    private By logCallBtnBy = By.cssSelector("a[title='Log call']");//because <a> is a title
 
 
     @BeforeMethod
     public void setup(){
-
         driver = DriverFactory.createDriver("chrome");
         driver.get("https://qa2.vytrack.com/user/login");
         driver.manage().window().maximize();
 
         actions = new Actions(driver);  //  if we wanna use actions class we have to provide (driver)
-                                        //  without driver ,we cannot use actions class
+        //  without driver ,we cannot use actions class
         BrowserUtils.wait(3);
 
         driver.findElement(usernameBy).sendKeys(storeManagerUserName);
@@ -52,28 +51,28 @@ public class Calls {
 
         actions.moveToElement(driver.findElement(activitiesBy)).perform();
 
-        driver.findElement(By.linkText("Calls")).click();
+        driver.findElement(By.linkText("Calendar Events")).click();
 
         BrowserUtils.wait(5);
     }
 
 
+    @Test
+    public void verifyCreateButton(){
+
+        WebElement createCalendarEventBtn = driver.findElement(createCalendarEventsBtnBy);
+
+        // verify that Create Calendar Event button is displayed:
+        Assert.assertTrue(createCalendarEventBtn.isDisplayed());
+
+    }
+
 
     @AfterMethod
     public void teardown(){
+
         driver.quit();
     }
-
-
-
-    @Test
-    public void verifyLogCallButton(){
-
-        WebElement logCallBtnElement = driver.findElement(logCallBtnBy);
-
-        Assert.assertTrue(logCallBtnElement.isDisplayed());
-
-    }
-
-
 }
+
+
