@@ -1,4 +1,4 @@
-package com.automation.tests.d11;
+package com.automation.tests.practice_page;
 
 import com.automation.utilities.BrowserUtils;
 import com.automation.utilities.DriverFactory;
@@ -11,7 +11,7 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-public class ActionsTests {
+public class Hovers {
 
     private WebDriver driver;
     private Actions actions;
@@ -35,7 +35,9 @@ public class ActionsTests {
         // actions.moveToElement(img1).perform();
 
         // build() is needed when we have couple of actions
-        // always ends with perform()
+
+        // always end with perform()
+
         // pause(1000). - like Thread.sleep(1000)
         actions.moveToElement(img1).
                 pause(1000).
@@ -45,8 +47,6 @@ public class ActionsTests {
                 build().perform();
 
         BrowserUtils.wait(3);
-
-
 
 
         // Task:
@@ -59,8 +59,6 @@ public class ActionsTests {
 
         // verify that WebElement that contains the text is visible
         Assert.assertTrue(imgText1.isDisplayed());
-
-
 
 
         // move to the second image

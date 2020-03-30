@@ -1,5 +1,9 @@
 
-
+Actions class is coming from Selenium. Used for advanced actions. продвинутые действия
+Like drag and drop, mouse events,
+building pattern -like design pattern in OOP. You can chain actions together and then
+perform them as one event.
+-----------------------------------------------------------------------------------------------------
  if we want to move to element, use:
 
  Actions actions = new Actions(driver);
@@ -7,7 +11,7 @@
 
 
 every action should ends with perform();
-
+---------------------------------------------------------------------------------------------------------------
  Actions class is used for more advanced browser interactions. Instead of click we can move to element.
  Класс Actions используется для более сложных взаимодействий браузера.
 
@@ -17,10 +21,26 @@ We use Actions class:
  - context click
  - move mouse to web element or some point
 
-
-
-perform() -->  to execute command    выполнить команду.Every action should end with perform()
+----------------------------------------------------------------------------------------------------------
 
 moveToElement()  --> hover mouse on web element
 
 findElement() --> web element target
+
+build() --> is needed when we have couple of actions
+
+perform() -->  to execute command    выполнить команду.Every action should end with perform()
+
+---------------------------------------------------------------------------------------------------------------------
+
+This is called "builder pattern". You can chain methods together:
+
+ actions.moveToElement(img1).
+                pause(1000).
+                moveToElement(img2).
+                pause(1000).
+                moveToElement(img3).
+                build().perform();
+
+---------------------------------------------------------------------------------------------------------------------
+
