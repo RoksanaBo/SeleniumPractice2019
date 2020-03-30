@@ -1,0 +1,12 @@
+
+date:
+   String expectedDate = LocalDate.now().format(DateTimeFormatter.ofPattern("MMM dd, yyyy"));
+
+
+time:
+   String expectedTime = LocalTime.now(ZoneId.of("GMT-7")).format(DateTimeFormatter.ofPattern("h:m a"));
+
+   *************************************************************************************************************
+
+date time syntax:
+   https://www.journaldev.com/17899/java-simpledateformat-java-date-format

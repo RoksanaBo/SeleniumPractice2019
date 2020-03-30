@@ -1,6 +1,8 @@
 
 Selenium WebDriver --> is used to develop test automation scripts for web based applications.
 
+Selenium is bad in synchronization.
+
 Web based applications - type of applications that are used in a browser.
 
 Popular browsers:
