@@ -88,7 +88,7 @@ public class ActionsTests {
                 pause(1000).
                 moveToElement(downloads).
                 pause(1000).
-                moveToElement(pdf).
+                click(pdf).
                 build().perform();
 
     }
