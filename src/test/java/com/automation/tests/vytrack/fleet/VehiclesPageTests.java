@@ -70,9 +70,7 @@ public class VehiclesPageTests {
         // click on fleet
         // driver.findElement(fleetBy).click();
 
-
-
-        // actions class object
+         // actions class object
          Actions actions = new Actions(driver);
 
          // move to element instead of click
@@ -82,7 +80,7 @@ public class VehiclesPageTests {
          // findElement() --> web element target
          // perform() --> to execute command
          // Every action should end with perform()
-
+//-----------------------------------------------------------------------------------------------------------
          BrowserUtils.wait(2);
 
          // click on Vehicles
