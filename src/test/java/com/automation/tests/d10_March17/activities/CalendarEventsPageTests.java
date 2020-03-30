@@ -1,4 +1,4 @@
-package com.automation.tests.d10.activities;
+package com.automation.tests.d10_March17.activities;
 
 import com.automation.utilities.BrowserUtils;
 import com.automation.utilities.DriverFactory;

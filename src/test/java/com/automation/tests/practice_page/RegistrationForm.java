@@ -1,4 +1,4 @@
-package com.automation.tests.d10_March15.practice_page;
+package com.automation.tests.practice_page;
 
 import com.automation.utilities.BrowserUtils;
 import io.github.bonigarcia.wdm.WebDriverManager;
@@ -15,9 +15,17 @@ import org.testng.annotations.Test;
 public class RegistrationForm {
 
     private String URL = "http://practice.cybertekschool.com/registration_form";
+
     private WebDriver driver;
+
     // p tag name of success message
-    // one xpath for all inputs: //label[text()='Label name']/..//input
+    // one xpath for all inputs: //label[text()='Last name']/..//input
+    //                           //label[text()='First name']/..//input
+    //                           //label[text()='Username']/..//input
+    //                           //label[text()='Email']/..//input
+    //                           //label[text()='Password']/..//input
+    //                           //label[text()='Phone number']/..//input
+    // or:
     private By firstNameBy = By.name("firstname");
     private By lastNameBy = By.name("lastname");
     private By usernameBy = By.name("username");
@@ -33,10 +41,12 @@ public class RegistrationForm {
     private By departmentBy = By.name("department");
     private By jobTitleBy = By.name("job_title");
 
-    //languages
+    //languages                   siblings.
     private By cplusplusBy = By.xpath("//label[text()='C++']/preceding-sibling::input");
     private By javaBy = By.xpath("//label[text()='Java']/preceding-sibling::input");
     private By javascriptBy = By.xpath("//label[text()='JavaScript']/preceding-sibling::input");
+
+
     //sign up button
     private By signUpBy = By.id("wooden_spoon");
 
@@ -52,9 +62,11 @@ public class RegistrationForm {
         driver.findElement(maleBy).click();
         driver.findElement(dateOfBirthBy).sendKeys("01/02/1940");
 
+        // Department / Office :  dropdown
         Select departmentSelect = new Select(driver.findElement(departmentBy));
         departmentSelect.selectByVisibleText("Department of Agriculture");
 
+        // Job title:       dropdown
         Select jobTitleSelect = new Select(driver.findElement(jobTitleBy));
         jobTitleSelect.selectByVisibleText("SDET");
 
@@ -74,14 +86,21 @@ public class RegistrationForm {
         driver.findElement(firstNameBy).sendKeys("a");
         BrowserUtils.wait(3);
         WebElement warningMessage = driver.findElement(By.xpath("//small[text()='first name must be more than 2 and less than 64 characters long']"));
+
+        //  error message  сообщение должно быть видно:
         Assert.assertTrue(warningMessage.isDisplayed());
     }
 
     @Test
     public void verifyAlphabeticLettersOnlyTest(){
         driver.findElement(firstNameBy).sendKeys("123");
+
         BrowserUtils.wait(3);
+
+        //                                                          tag name
         WebElement warningMessage = driver.findElement(By.xpath("//small[text()='first name can only consist of alphabetical letters']"));
+
+        // warning message  сообщение должно быть видно:
         Assert.assertTrue(warningMessage.isDisplayed());
     }
 
