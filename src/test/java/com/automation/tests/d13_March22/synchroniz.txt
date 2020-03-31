@@ -123,7 +123,7 @@ For explicit wait, polling time is always 500 milliseconds. In fluent wait, we c
         driver.findElement(By.name("username")).sendKeys("tomsmith");
         driver.findElement(By.name("password")).sendKeys("SuperSecretPassword");
         submitBtn.click();
-##############################
+
 Synchronization - one of the biggest issues in selenium webdriver. To resolve wait issues, we have:
     Thread.sleep()
     implicit wait
