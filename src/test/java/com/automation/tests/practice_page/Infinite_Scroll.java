@@ -1,4 +1,4 @@
-package com.automation.tests.d11_March18;
+package com.automation.tests.practice_page;
 
 import com.automation.utilities.BrowserUtils;
 import io.github.bonigarcia.wdm.WebDriverManager;
@@ -10,14 +10,15 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-public class JavaScriptExecutor {
+public class Infinite_Scroll {
+
 
     private RemoteWebDriver driver;
 
 
     @BeforeMethod
     public void setup(){
-   //     driver = DriverFactory.createDriver("chrome");
+        //     driver = DriverFactory.createDriver("chrome");
         WebDriverManager.chromedriver().version("79").setup();  // всегда первым шагом является webDriver
         driver = new ChromeDriver();
     }
@@ -65,7 +66,6 @@ public class JavaScriptExecutor {
     public void scrollToElementTest(){
         driver.get("http://practice.cybertekschool.com/");
         driver.manage().window().maximize();
-
         BrowserUtils.wait(2);
 
         WebElement link = driver.findElement(By.linkText("Cybertek School"));

@@ -1,0 +1,23 @@
+Selenium RC was created based on JavaScript commands.
+
+Every single website supports JavaScript. Because browsers support JS natively.
+
+What can we do with JS:
+- click on elements, get their values
+- write functions instead of methods
+- JS is very useful with scroll
+
+
+By casting the WebDriver instance to a JavaScriptExecutor interface, we can execute the JavaScript
+code in Selenium WebDriver:
+
+JavaScriptExecutor js = (JavaScriptExecutor) driver;
+
+In the following example, a single line of JavaScript code is executed to return the title of the page
+displayed in the driver.
+The JavaScriptExecutor interface provides the executeScript() method to which we need to pass the JavaScript code:
+
+String title = (String) js.executeScript("return document.title");
+
+We use console for JS
+
