@@ -21,6 +21,8 @@ public class BrowserUtils {
 
     }
 
+
+
     /**
      *
      * @param elements represents collection of WebElements

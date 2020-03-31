@@ -13,6 +13,7 @@ easiest way:
 -------------------------------------------------------------------------------------------------------------
 Web tables - used to store tabular data in HTML.
 Structure of web table:
+
 table
     thead
         tr
@@ -30,7 +31,7 @@ table
             td
 table - beginning of web table
 thead - table header, use to specify column names
-tbody - table body, main content
+tbody - table body, main content    <tbody>
 tr - table row
 th - table header data
 td - table data

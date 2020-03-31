@@ -1,4 +1,4 @@
-package com.automation.tests.d12_March21;
+package com.automation.tests.practice_page;
 
 import com.automation.utilities.BrowserUtils;
 import com.automation.utilities.DriverFactory;
@@ -13,7 +13,8 @@ import org.testng.annotations.Test;
 import java.util.Arrays;
 import java.util.List;
 
-public class WebTables {
+public class Sortable_DataTables {
+
 
     // td - table data
     // tr - table row
@@ -33,7 +34,8 @@ public class WebTables {
         driver.manage().window().maximize();
         BrowserUtils.wait(2);
 
-        //  how to run browser without GUI , Makes browser invisible. (Interface)
+        //  how to run brouser without GUI , Makes browser invisible. (Interface)
+        //
         //  WebDriverManager.chromedriver().version("79").setup();
         //  ChromeOptions chromeOptions = new ChromeOptions();
         //  chromeOptions.setHeadless(true);
@@ -42,7 +44,10 @@ public class WebTables {
         // headless mode makes execution twice faster
         // it does everything except file uploading
         // set it to true to make it work
- }
+
+
+
+    }
 
     @AfterMethod
     public void teardown() {
@@ -54,14 +59,8 @@ public class WebTables {
 
     @Test
     public void getColumnNames() {
-        //th - represents table header cells     cells means data
-
-
-        // if we wanna do Assertions:
+        //th - represents table header cells
         List<String> expected = Arrays.asList("Last Name", "First Name", "Email", "Due", "Web Site", "Action");
-
-        //------------------------------------------------------------------------------------------------------------
-
         List<WebElement> columnNames = driver.findElements(By.xpath("//table[1]//th"));// table 1 all table headers
 
         //just to print
@@ -187,6 +186,5 @@ public class WebTables {
 
 
     }
-
 
 }
