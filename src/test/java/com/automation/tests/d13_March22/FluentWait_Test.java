@@ -32,8 +32,8 @@ public class FluentWait_Test {
         Wait<WebDriver> wait = new FluentWait<>(driver).
                  withTimeout(Duration.ofSeconds(10)).
                 pollingEvery(Duration.ofSeconds(3)).
-                ignoring(NoSuchElementException.class);
-
+                ignoring(NoSuchElementException.class).
+                ignoring(ElementClickInterceptedException.class);
         // 10, TimeUnit.SECONDS = Duration.ofSeconds(10)
 
 
@@ -46,7 +46,9 @@ public class FluentWait_Test {
             }
         });
 
-
+        driver.findElement(By.name("username")).sendKeys("tomsmith");
+        driver.findElement(By.name("password")).sendKeys("SuperSecretPassword");
+        submitBtn.click();
     }
 
 
