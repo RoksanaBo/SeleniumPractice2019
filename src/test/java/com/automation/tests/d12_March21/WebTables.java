@@ -42,7 +42,7 @@ public class WebTables {
         // headless mode makes execution twice faster
         // it does everything except file uploading
         // set it to true to make it work
- }
+    }
 
     @AfterMethod
     public void teardown() {
@@ -121,6 +121,7 @@ public class WebTables {
 
     @Test
     public void deleteRowTest() {
+
         String xpath = "//table[1]//td[text()='jsmith@gmail.com']/..//a[text()='delete']";
         driver.findElement(By.xpath(xpath)).click();
 
@@ -132,17 +133,15 @@ public class WebTables {
         Assert.assertEquals(rowCount, 3);
 
         List<WebElement> emails = driver.findElements(By.xpath("//table[1]//td[text()='jsmith@gmail.com']"));
-
+        // check if jsmith@gmail.com is empty
         Assert.assertTrue(emails.isEmpty());
     }
 
 
 
-    /**
-     * Let's write a function that will return column index based on column name
-     */
 
-    @Test
+    //Let's write a function that will return column index based on column name
+   @Test
     public void getColumnIndexByName(){
 
         String columnName = "Email";
@@ -153,12 +152,14 @@ public class WebTables {
         for (int i = 0; i < columnNames.size(); i++) {
 
             String actualColumnName = columnNames.get(i).getText();
-            System.out.println(String.format("Column name: %s, position %s", actualColumnName, i ));
 
+            //                                 %s will be replaced with actualColumnName,
+            //                                 position %s will be replaced with i
+            System.out.println(String.format("Column name: %s, position %s", actualColumnName, i ));
 
             if(actualColumnName.equals(columnName)){
                 index = i+1; // in xpath index starts with 1   , in java with 0
-                break;
+                break; // once we found column, no need to continue
             }
 
         }
@@ -170,14 +171,15 @@ public class WebTables {
 
 
 
-
+    //
 
     @Test
     public void getSpecificCell(){
 
-        String expected = "http://www.jdoe.com";
+        String expected = "http://www.jdoe.com"; // row 3, column 5
         int row = 3;
         int column = 5;
+        //                                         3                  5
         String xpath = "//table[1]//tbody//tr[" + row + "]//td[" + column+ "]";
 
         WebElement cell = driver.findElement(By.xpath(xpath));
