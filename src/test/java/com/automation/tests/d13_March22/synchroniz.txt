@@ -94,12 +94,22 @@ Current title: "Google" (tried for 10 second(s) with 500 milliseconds interval)
 When condition fails, it throws TimeoutException.
 ---------------------------------------------------------------------
 
-org.openqa.selenium.ElementClickInterceptedException: element click intercepted: Element <button type="submit" class="btn btn-primary">...</button> is not clickable at point (97, 480).
-Other element would receive the click: <div class="loadingoverlay" style="box-sizing: border-box; position: fixed; display: flex; flex-flow: column nowrap; align-items: center; justify-content: space-around; background: rgba(255, 255, 255, 0.8); top: 0px; left: 0px; width: 100%; height: 100%; z-index: 2147483647; opacity: 1;">...</div>
-ElementClickInterceptedException - means that something else was clicked instead of your element.
+org.openqa.selenium.ElementClickInterceptedException: element click intercepted: Element <button type="submit"
+class="btn btn-primary">...</button> is not clickable at point (97, 480).
 
-###Fluent wait - it's a custom explicit wait. With Fluent wait we can define the maximum amount of wait time for condition and element as well as frequency with which to check for the condition (polling time).
+---------------------------------------------------------------------
+
+
+ElementClickInterceptedException - means that something else was clicked instead of your element.
+----------------------------------------------------------------------
+
+
+
+FLUENT WAIT - it's a custom explicit wait. With Fluent wait we can define the maximum amount of wait time
+for condition and element as well as frequency with which to check for the condition (polling time).время опроса
+
 For explicit wait, polling time is always 500 milliseconds. In fluent wait, we can change it.
+
  Wait<WebDriver> wait = new FluentWait<>(driver).
                 withTimeout(Duration.ofSeconds(10)).
                 pollingEvery(Duration.ofSeconds(5)).
@@ -107,7 +117,8 @@ For explicit wait, polling time is always 500 milliseconds. In fluent wait, we c
                 ignoring(ElementClickInterceptedException.class);
         WebDriverWait  webDriverWait = new WebDriverWait(driver, 15);
         webDriverWait.until(ExpectedConditions.invisibilityOfElementLocated(By.className("loadingoverlay")));
-        //Anonymous - class without name
+
+//Anonymous - class without name
         WebElement submitBtn = wait.until(driver -> driver.findElement(By.xpath("//button[text()='Submit']")));
         driver.findElement(By.name("username")).sendKeys("tomsmith");
         driver.findElement(By.name("password")).sendKeys("SuperSecretPassword");
