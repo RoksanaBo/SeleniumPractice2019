@@ -5,8 +5,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.ElementClickInterceptedException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.FluentWait;
-import org.openqa.selenium.support.ui.Wait;
+import org.openqa.selenium.support.ui.*;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -34,10 +33,14 @@ public class FluentWait_Test {
                 pollingEvery(Duration.ofSeconds(3)).
                 ignoring(NoSuchElementException.class).
                 ignoring(ElementClickInterceptedException.class);
+
         // 10, TimeUnit.SECONDS = Duration.ofSeconds(10)
 
+        WebDriverWait webDriverWait =new WebDriverWait(driver,15);
+        webDriverWait.until(ExpectedConditions.invisibilityOfElementLocated(By.className("loadingoverlay")));
 
-        //new Function<WebDriver --> anonymous class анонимный класс - class without name
+
+        // new Function<WebDriver --> anonymous class анонимный класс - class without name
 
         WebElement submitBtn = wait.until(new Function<WebDriver, WebElement>() {
             @Override
