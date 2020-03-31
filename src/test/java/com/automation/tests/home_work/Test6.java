@@ -1,5 +1,7 @@
 package com.automation.tests.home_work;
 
+import org.openqa.selenium.WebDriver;
+
 public class Test6 {
 
     // Test case #6
@@ -18,5 +20,8 @@ public class Test6 {
     // Step 12. Verify that email is from: “do-notreply@practice.cybertekschool.com”
     // Step 13. Verify that subject is: “Thanks for subscribing to practice.cybertekschool.com!”
 
+
+    private WebDriver driver;
+    private String URL = "https://www.tempmailaddress.com/";
 
 }

@@ -1,4 +1,4 @@
-package com.automation.tests.d12;
+package com.automation.tests.d12_March21;
 
 import com.automation.utilities.BrowserUtils;
 import com.automation.utilities.DriverFactory;
@@ -133,6 +133,8 @@ public class JSExecutor {
 
         @Test
         public void scrollTest() {
+
+        // navigate().to() --> calls get() method
             driver.navigate().to("http://practice.cybertekschool.com/infinite_scroll");
             JavascriptExecutor js = (JavascriptExecutor) driver;
             for (int i = 0; i < 15; i++) {
