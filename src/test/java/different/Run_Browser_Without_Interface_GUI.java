@@ -13,12 +13,14 @@ private WebDriver driver;
         //  how to run browser without GUI , Makes browser invisible. (Interface)
         WebDriverManager.chromedriver().version("79").setup();
         ChromeOptions chromeOptions = new ChromeOptions();
-        chromeOptions.setHeadless(true);
+        chromeOptions.setHeadless(true); // to run browser without GUI. Makes browser invisible.
         driver = new ChromeDriver(chromeOptions);
 
         // headless mode makes execution twice faster
         // it does everything except file uploading
         // set it to true to make it work
+
+        // GUI - Graphical User Interface
 
     }
 }
