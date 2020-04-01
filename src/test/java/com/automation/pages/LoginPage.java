@@ -28,6 +28,10 @@ public class LoginPage {
     private WebElement forgotPassword;
 
 
+    @FindBy(css = "[class='alert alert-error']")   // Method that returns a text of warning message webElement.
+    private WebElement warningMessage;             // Call it in the test class.
+
+
 
     public LoginPage(){
         // to connect our webDriver, page class and page factory.
@@ -36,6 +40,12 @@ public class LoginPage {
         PageFactory.initElements(Driver.getDriver(),this);
     }
 
+
+
+
+    public String getWarningMessageText(){
+        return warningMessage.getText();
+    }
 
     /**
      * Method to login, version #1
