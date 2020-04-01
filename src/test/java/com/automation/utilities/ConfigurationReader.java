@@ -4,6 +4,13 @@ import java.io.FileInputStream;
 import java.util.Properties;
 // this static block will be executed only once when class will be loaded.
 
+// Static block has the highest priority in terms of execution order
+// Стат. блок имеет самый высокий приоритет с точки зрения порядка выполнения
+
+//static block
+// instance block
+// constructor
+
 public class ConfigurationReader {
 
     private static Properties configFile;
@@ -44,5 +51,9 @@ public class ConfigurationReader {
     public static String getProperty(String keyName) {
         return configFile.getProperty(keyName);
     }
+
+    // call this method and provide a key name to get a value.
+    // for example:
+    // ConfigurationReader.getProperty("browser") <-- chrome or other browser
 
 }
