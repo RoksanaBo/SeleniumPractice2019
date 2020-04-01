@@ -21,7 +21,11 @@ Key Meaning
 just use System.getProperty("property_name") ---> property as a string
 System.getProperties() ---> list of all properties
 ###################################################
-.properties files are mainly used in Java programs to maintain project configuration data, database config or project settings etc. Each parameter in properties file are stored as a pair of strings, in key-value pair format, where each key is on one line. You can easily read properties from some file using object of type Properties. This is a utility provided by Java itself.
+.properties files are mainly used in Java programs to maintain project configuration data,
+database config or project settings etc. Each parameter in properties file are stored as a
+pair of strings, in key-value pair format, where each key is on one line. You can easily read
+properties from some file using object of type Properties. This is a utility provided by Java itself.
+
 ConfigurationReader - to read project configuration from properties file:
     - URLs
     - browser type
