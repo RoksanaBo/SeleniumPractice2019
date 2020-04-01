@@ -1,0 +1,21 @@
+
+Design pattern - it's like reusable solution for commonly occurring problem.
+Its about how to put all codes together.
+
+There are 3 categories of patterns:
+- creational patterns  - singleton
+- structural patterns
+- behavior patterns
+
+Singleton - easiest design pattern ever. We use Singleton to define our web driver object in the one place
+and use it everywhere.
+
+
+
+
+----------------------------------------------------------------
+the design is very simple:
+- you create public static object,
+- make your constructor private
+- and create public static getter method to get that instance
+-----------------------------------------------------------------
