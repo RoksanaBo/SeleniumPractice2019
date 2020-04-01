@@ -15,7 +15,7 @@ import org.testng.annotations.Test;
 import static org.testng.Assert.*;
 
 
-public class LoginPageTest {
+public class LoginTest {
 
     private WebDriver driver;
     private String URL = "https://qa2.vytrack.com/user/login";

@@ -22,7 +22,7 @@ In this class, we initialize WebDriverWait, Actions class objects and open the b
 Should be stored under tests package or some kind of base package. But not under utilities package.
 We can also add @Before/After test, class, suit methods if needed.
 
-
+------------------------------------------------------------------------------------
 package com.automation.tests.vytrack;
 
 import com.automation.utilities.ConfigurationReader;
@@ -54,13 +54,12 @@ public abstract class TestBase {
         Driver.closeDriver();
     }
 }
-
+ ------------------------------------
 It's a blueprint for all test classes.
 
 ----------------------------------------------------------------------------------------------
 
 pages package - used to store a collection of page classes.
-
 
  /**
    * As {@link org.openqa.selenium.support.PageFactory#initElements(org.openqa.selenium.WebDriver,
@@ -70,25 +69,38 @@ pages package - used to store a collection of page classes.
    * @param page   The object with WebElement and List&lt;WebElement&gt; fields that
    *               should be proxied.
    */
+  ----------------------------------------------------------------------------------------------
 package com.automation.pages;
+
 import com.automation.utilities.Driver;
 import org.openqa.selenium.support.PageFactory;
 public class LoginPage {
     public LoginPage(){
-        //to connect our webdriver, page class and page factory
+        //to connect our webDriver, page class and page factory
         //PageFactory - used to use @FindBy annotations
         //PageFactory - helps to find elements easier
         PageFactory.initElements(Driver.getDriver(), this);
     }
 }
+
+---------------------------------------------------------------------------------
 FindAll==>or
 FindBys==>and
-According to Page Object Model, we should keep our tests and element locators separately, this will keep code clean and easy to understand and maintain.
+---------------------------------------------------------------------------------
+According to Page Object Model, we should keep our tests and element locators separately,
+this will keep code clean and easy to understand and maintain.
 The Page Object approach makes test automation framework programmer friendly, more durable and comprehensive.
-Another important advantage is our Page Object Repository is Independent of Automation Tests. Keeping separate repository for page objects helps us to use this repository for different purposes with different frameworks like, we are able to integrate this repository with other tools like JUnit as well as with TestNG/Cucumber/etc.
+Another important advantage is our Page Object Repository is Independent of Automation Tests.
+Keeping separate repository for page objects helps us to use this repository for different purposes
+with different frameworks like, we are able to integrate this repository with other tools like JUnit
+as well as with TestNG/Cucumber/etc.
+
 Test cases become short and optimized as we are able to reuse page object methods in the POM classes.
 Any change in UI can easily be implemented, updated and maintained into the Page Objects and Classes.
-PageFactory - used to improve page object model. It helps to find webelements with @FindBy, @FindBys, @FindAll
+
+PageFactory - used to improve page object model. It helps to find web elements with @FindBy, @FindBys, @FindAll
+
+-------------------------------------------------------------------------------------------------------------
 pages
     AbstractPageBase
         LoginPage
@@ -104,14 +116,27 @@ utilities
     DateTimeUtilities *optional
     StringUtilities   *optional
     DataBaseUtilities *optional
-        AbstractPageBase - works as basement for all/most of the page class
+
+
+    AbstractPageBase - works as basement for all/most of the page class
          - Contains common element/locators
          - Initializes page factory --> to use @FindBy in all sub-classes
-         AbstractTestBase - works as a basement for all test classes.
+
+
+    AbstractTestBase - works as a basement for all test classes.
          - contains @Before and @After methods, no tests at all
          - opens browser
          - closes browser
+
+  ---------------------------------------------------------------------------------
 Why they are Abstract?
+
  - because, they have to be extended. If class is abstract, it must be extended, otherwise you cannot use it.
+ -----------------------------------------------------------------------------------
 Why WebElement are private in page classes?
-- so there is no way to use the directly in the tests. We have to separate page logic from the test. Otherwise, we will have too much logic in the test classes. test classes, are not responsible for find element and their interaction. It's a role of page classes.  In test classes, we just create a page objects and call methods to interact with page to perform testing. Also, we use assertions in the test classes.
+
+- so there is no way to use the directly in the tests. We have to separate page logic from the test.
+  Otherwise, we will have too much logic in the test classes. test classes, are not responsible for
+  find element and their interaction. It's a role of page classes.  In test classes, we just create
+  a page objects and call methods to interact with page to perform testing. Also, we use assertions
+  in the test classes.

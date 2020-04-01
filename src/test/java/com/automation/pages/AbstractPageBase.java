@@ -47,5 +47,9 @@ public abstract class AbstractPageBase {
                 click(moduleElement).
                 build().perform();
 
+        // increase this wait time if still failing
+        // увеличить это время ожидания, если все еще не удается
+        BrowserUtils.wait(4);
+
     }
 }

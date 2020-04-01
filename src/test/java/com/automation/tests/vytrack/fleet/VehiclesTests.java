@@ -13,7 +13,7 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-public class VehiclesPageTests {
+public class VehiclesTests {
 
     // create BeforeMethod with setup and @AfterMethod
     // with teardown part. Use LoginPageTests class as a reference
@@ -23,11 +23,7 @@ public class VehiclesPageTests {
     // verify that page subtitle is equals to "All Cars"
     // user assertions for validation.
 
-
-
     //*[class='title title-level-1' and contains(text(),'Customers')]
-
-
 
     private String URL = "https://qa2.vytrack.com/user/login";
 
