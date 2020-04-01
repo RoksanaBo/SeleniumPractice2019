@@ -9,7 +9,7 @@ import org.testng.annotations.BeforeMethod;
 
 // this class provides setup and clan up part for all our test
 
-public abstract class TestBase {  // abstract --> not concrete.
+public abstract class AbstractTestBase {  // abstract --> not concrete.
                                   // this class has to be extended! этот класс должен быть расширен!
 
     protected WebDriverWait wait; // protected will be visible within package or within subclass
