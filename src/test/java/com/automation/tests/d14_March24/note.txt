@@ -62,6 +62,7 @@ There are lots of design patterns and 3 categories:
 - Behavioral
 
 One of the most simplest creational design pattern is a Singleton.
+
 Singleton - means single instance/object for entire project.
 
 Rules:

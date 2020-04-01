@@ -1,0 +1,21 @@
+
+PageFactory - enhancement (усовершенствование) for page object model. It helps to find web elements
+a little bit easier. Syntax to find web elements will be a little bit shorter.
+
+PageFactory allows you to find web elements with @FindBy annotation.
+
+-------------------------------------------------------------------------------------------------------
+PageFactory Class in selenium is an extension to the Page Object design pattern.
+It is used to initialize the elements of the Page Object or instantiate the Page Objects itself.
+It is used to initialize elements of a Page class without having to use "FindElement" or "FindElements".
+
+Класс PageFactory является расширением шаблона проектирования объекта Page.
+Он используется для инициализации элементов объекта Page или создания самих объектов Page.
+Он используется для инициализации элементов класса Page без необходимости использовать
+«FindElement» или «FindElements».
+
+-----------------------------------------------------------------------------------------------------
+
+To be able to use @FindBy annotations we create a constructor , and then we call PageFactory
+and initElements() method. And then we say which driver we gonna use to find elements, and then
+ -where is the page class.
