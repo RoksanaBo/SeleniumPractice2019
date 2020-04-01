@@ -1,0 +1,2 @@
+Page Object Model is a design that is applicable to Object Oriented Languages.
+
