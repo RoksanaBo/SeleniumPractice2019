@@ -1,11 +1,5 @@
 package com.automation.pages;
 
-// This class will be extended by page classes.
-// Any common web elements/locators can be stored here.
-// Since navigation menu doesn't belong to particular page,
-// we cannot really create a dedicated page class to store
-// elements from that menu
-
 import com.automation.utilities.BrowserUtils;
 import com.automation.utilities.Driver;
 import org.openqa.selenium.By;
@@ -17,6 +11,12 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+// This class will be extended by page classes.
+// Any common web elements/locators can be stored here.
+// Since navigation menu doesn't belong to particular page,
+// we cannot really create a dedicated page class to store
+// elements from that menu
 
 public abstract class AbstractPageBase {
    protected WebDriver driver = Driver.getDriver();

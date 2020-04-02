@@ -1,0 +1,3 @@
+
+Object Repository - pages package --> where is your page classes --> from page classes you create page objects.
+
