@@ -9,10 +9,10 @@ import org.testng.annotations.Test;
 
 public class NewCalendarEventsTests extends AbstractTestBase {
 
-     LoginPage loginPage = new LoginPage();
+    LoginPage loginPage = new LoginPage();
      CalendarEventsPage calendarEventsPage = new CalendarEventsPage();
 
-    // Test Case: Default options
+    // Test Case 1: Default options
     // Login as sales manager
     // Go to Activities --> Calendar Events
    //  Click on Create Calendar Event
@@ -21,19 +21,41 @@ public class NewCalendarEventsTests extends AbstractTestBase {
 
     @Test
     public void defaultOptionsTest() {
+
         loginPage.login();
         calendarEventsPage.navigateTo("Activities", "Calendar Events");
         calendarEventsPage.clickToCreateCalendarEvent();
-
         Assert.assertEquals(calendarEventsPage.getOwnerName(), calendarEventsPage.getCurrentUserName());
 
-     //   String actualStartDate = calendarEventsPage.getStartDate();
-     //   String expectedStartDate = DateTimeUtilities.getCurrentDate("MMM dd, yyyy");
-
-      //  Assert.assertEquals(actualStartDate, expectedStartDate);
+        String actualStartDate = calendarEventsPage.getStartDate();
+        String expectedStartDate = DateTimeUtilities.getCurrentDate("MMM dd, yyyy");
+        Assert.assertEquals(actualStartDate, expectedStartDate);
 
     }
 
 
+    // Test Case 2: Time difference
+    // Login as sales manager
+    // Go to Activities --> Calendar Events
+    // Click on Create Calendar Event
+    // Verify that difference between start and end time is 1 hour
+
+    @Test
+    public void timeDifferenceTest(){
+
+        loginPage.login();
+        calendarEventsPage.navigateTo("Activities", "Calendar Events");
+        calendarEventsPage.clickToCreateCalendarEvent();
+
+        String startTime = calendarEventsPage.getStartTime();// get start time
+        String endTime = calendarEventsPage.getEndTime(); // get end time
+        String format = "h:mm a"; // format 5:15 AM for example
+
+        long actual = DateTimeUtilities.getTimeDifference(startTime, endTime, format);
+
+        Assert.assertEquals(actual,1,"Time difference is not correct");
+
+
+    }
 
  }

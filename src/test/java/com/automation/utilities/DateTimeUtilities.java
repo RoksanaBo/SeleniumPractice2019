@@ -31,6 +31,8 @@ public class DateTimeUtilities {
 
 
 
+
+
     /**
      * This method returns difference between end and start time
      * @param start time
@@ -39,8 +41,10 @@ public class DateTimeUtilities {
      * @return difference between end time and start time as a long
      */
     public static long getTimeDifference(String start, String end, String format){
+
         LocalTime startTime = LocalTime.parse(start, DateTimeFormatter.ofPattern(format));
         LocalTime endTime = LocalTime.parse(end, DateTimeFormatter.ofPattern(format));
+
         return ChronoUnit.HOURS.between(startTime, endTime);
     }
 }

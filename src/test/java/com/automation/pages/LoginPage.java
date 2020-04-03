@@ -56,6 +56,7 @@ public class LoginPage {
     public void login(String usernameValue, String passwordValue){
         username.sendKeys(usernameValue);
         password.sendKeys(passwordValue, Keys.ENTER);
+        //BrowserUtils.waitForPageToLoad(10);
         BrowserUtils.wait(3);
     }
 
