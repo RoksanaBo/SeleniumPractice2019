@@ -27,13 +27,21 @@ later on attach to the HTML report. Report it's our evidence file. Especially, w
 running big suits of tests, like regression, it's gonna be very difficult to demonstrate test
 results without HTML report.
 
+-----------------------------------------------------------------
+ Extent Reporting Framework website:
 
  http://extentreports.com/docs/versions/4/java/
+-----------------------------------------------------------------
+
  <dependency>
     <groupId>com.aventstack</groupId>
     <artifactId>extentreports</artifactId>
     <version>4.1.3</version>
 </dependency>
 
+Control button  Ctrl+space  --> to see the latest version
 
 Choose latest version....
+
+----------------------------------------------------------------------
+
