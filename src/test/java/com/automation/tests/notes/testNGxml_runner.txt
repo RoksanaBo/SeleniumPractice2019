@@ -1,0 +1,25 @@
+
+TestNG xml runners : xml file that is used to create test suits.
+
+xml --> file extension, for example: pom.xml file
+
+what's the name of testgn xml runner file? - name can be anything, like: smoke.xml, regression.xml,
+fleet.xml, but default name is : testng.xml
+
+How many xml runners we can create? As many as we need.
+
+What are the requirements for xml runner file?
+ first of all, it should start with one line, that specifies document type:
+
+-----------------------------------------------------------------------
+the beginning of xml file:
+
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+
+------------------------------------------------------------------------
+source: https://testng.org/doc/documentation-main.html#parameters-dataproviders
+
+ElementClickInterceptedException - something was clicked instead of your element. Put more wait time.
+
+NoSuchSessionException - web driver object was called but not created.
+For tomorrow, please install maven, I am gonna share instructions later. There are short videos for mac and windows.

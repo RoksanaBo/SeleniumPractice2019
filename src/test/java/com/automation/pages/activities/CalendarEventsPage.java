@@ -29,15 +29,83 @@ public class CalendarEventsPage extends AbstractPageBase {
     private WebElement startTime;
 
 
+
     @FindBy(css = "[id^='time_selector_oro_calendar_event_form_end']")
     private WebElement endTime;
-
 
 
 
     @FindBy(className = "grid-header-cell_label")
     private List<WebElement> columnNames;
 
+
+
+    @FindBy(css = "iframe[id^='oro_calendar_event_form_description-uid']")
+    private WebElement descriptionFrame;
+
+
+
+    @FindBy(css = "[id^='oro_calendar_event_form_title-uid']")
+    private WebElement title;     // to enter Calendar Event title
+
+
+
+    @FindBy(id = "tinymce")
+    private WebElement descriptionTextArea;
+
+
+
+    @FindBy(css = "[class='btn-group pull-right'] > button")
+    private WebElement saveAndClose;
+
+
+
+    @FindBy(xpath = "(//div[@class='control-label'])[1]")
+    private WebElement generalInfoTitle;
+
+
+
+    @FindBy(xpath = "//label[text()='Description']/following-sibling::div//div")
+    private WebElement generalInfoDescription;
+
+
+
+    public void enterCalendarEventTitle(String titleValue) {
+        BrowserUtils.waitForPageToLoad(20);
+        wait.until(ExpectedConditions.visibilityOf(title)).sendKeys(titleValue);
+    }
+
+
+
+    public void enterCalendarEventDescription(String description) {
+        //wait until frame is available and switch to it
+        wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(descriptionFrame));
+        descriptionTextArea.sendKeys(description);
+        driver.switchTo().defaultContent();//exit from the frame
+    }
+
+
+
+    public void clickOnSaveAndClose() {
+        wait.until(ExpectedConditions.elementToBeClickable(saveAndClose)).click();
+    }
+
+
+
+    public String getGeneralInfoTitleText() {
+        BrowserUtils.waitForPageToLoad(20);
+        return generalInfoTitle.getText();
+    }
+
+
+
+    public String getGeneralInfoDescriptionText() {
+        BrowserUtils.waitForPageToLoad(20);
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//label[text()='Description']/following-sibling::div//div")));
+        return generalInfoDescription.getText();
+    }
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
     public List<String> getColumnNames(){

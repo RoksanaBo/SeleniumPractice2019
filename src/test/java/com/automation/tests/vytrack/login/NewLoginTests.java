@@ -21,8 +21,12 @@ public class NewLoginTests extends AbstractTestBase {
         test = report.createTest("Verify page title");
         LoginPage loginPage = new LoginPage();
         loginPage.login();
+        // like system.out, but it goes to report as well
+        test.info("Login as store manager");// log some steps
         Assert.assertEquals(Driver.getDriver().getTitle(),"Dashboard");
         // if assertion passed, it will set test status in report to passed
+
+
         test.pass("Page title Dashboard was verified");
     }
 
@@ -31,6 +35,7 @@ public class NewLoginTests extends AbstractTestBase {
     // Enter wrong credentials and verify warning message:
     @Test
     public void verifyWarningMessage(){
+        test = report.createTest("Verify warning message");
 
         LoginPage loginPage = new LoginPage();
         loginPage.login("wrong","wrong");
@@ -38,19 +43,34 @@ public class NewLoginTests extends AbstractTestBase {
 
         // take a screenshot
         BrowserUtils.getScreenShot("warning_message");
+        test.info("Warning message is displayed");
     }
 
 
 
-    public void loginWithDDT(){
 
+
+    @Test(dataProvider = "credentials")
+    public void loginWithDDT(String userName, String password) { // DDT --> Data Driven Testing
+
+        test = report.createTest("Verify page title as " + userName);
+
+        LoginPage loginPage = new LoginPage();
+        loginPage.login(userName, password);
+        test.info("Login as " + userName);//log some steps
+        BrowserUtils.wait(2);
+        Assert.assertEquals(Driver.getDriver().getTitle(), "Dashboard");
+        test.pass("Page title Dashboard was verified");
     }
+
+
+
 
 
     // Object[][] or Object[] or Iterator<Object[]>
-    // Object[] -1 column with a data
-    // Object[][] - 2+
-    /*
+    // Object[]  -->  1 column with a data
+    // Object[][]  -->  2+
+
     @DataProvider
     public Object[][] credentials(){
         return new Object[][]{
@@ -61,5 +81,5 @@ public class NewLoginTests extends AbstractTestBase {
 
     }
 
-     */
+
 }

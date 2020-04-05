@@ -19,7 +19,7 @@ import java.io.IOException;
 // this class provides setup and clan up part for all our test
 
 public abstract class AbstractTestBase {  // abstract --> not concrete.
-                                  // this class has to be extended! этот класс должен быть расширен!
+    // this class has to be extended! этот класс должен быть расширен!
 
     protected WebDriverWait wait; // protected will be visible within package or within subclass
     protected Actions actions;
@@ -32,20 +32,20 @@ public abstract class AbstractTestBase {  // abstract --> not concrete.
 
     @BeforeTest // to create a report
     public void setupTest(){
-       report = new ExtentReports();
-       String reportPath = "";
+        report = new ExtentReports();
+        String reportPath = "";
 
-       // location of report file
-       if(System.getProperty("os.name").toLowerCase().contains("win")){
-          reportPath = System.getProperty("user.dir")+"\\test-output\\report.html";
-       }else {
-           reportPath = System.getProperty("user.dir")+"/test-output/report.html";
-       }
-       // is a HTML report itself
-       htmlReporter = new ExtentHtmlReporter(reportPath);
-       // add it to the reporter
-       report.attachReporter(htmlReporter);
-       htmlReporter.config().setReportName("VYTRACK Test Automation Results");
+        // location of report file
+        if(System.getProperty("os.name").toLowerCase().contains("win")){
+            reportPath = System.getProperty("user.dir")+"\\test-output\\report.html";
+        }else {
+            reportPath = System.getProperty("user.dir")+"/test-output/report.html";
+        }
+        // is a HTML report itself
+        htmlReporter = new ExtentHtmlReporter(reportPath);
+        // add it to the reporter
+        report.attachReporter(htmlReporter);
+        htmlReporter.config().setReportName("VYTRACK Test Automation Results");
     }
 
 
@@ -73,15 +73,23 @@ public abstract class AbstractTestBase {  // abstract --> not concrete.
 
         // ITestResult class describes the result of a test.
         // if test failed, take a screenshot
+        // no failure-no screenshot
         if(iTestResult.getStatus() == ITestResult.FAILURE){
             //screenshot will have a name of the test
             String screenshotPath = BrowserUtils.getScreenShot(iTestResult.getName());
-            BrowserUtils.getScreenShot(iTestResult.getName());
-            test.addScreenCaptureFromPath(screenshotPath);// attach screenshot
+
             test.fail(iTestResult.getName()); // attach test name that failed
+            BrowserUtils.wait(2);
+            test.addScreenCaptureFromPath(screenshotPath, "Failed");// attach screenshot
+
             test.fail(iTestResult.getThrowable()); // attach console output
         }
+
+        //BrowserUtils.wait(1);
         Driver.closeDriver();
     }
 
 }
+
+
+
