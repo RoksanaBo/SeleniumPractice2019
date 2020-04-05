@@ -42,7 +42,7 @@ public class CalendarEventsPage extends AbstractPageBase {
 
     public List<String> getColumnNames(){
         BrowserUtils.waitForPageToLoad(20);
-      // wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("[title='Create Calendar event']")));
+      //  wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("[title='Create Calendar event']")));
         return BrowserUtils.getTextFromWebElements(columnNames);
     }
 

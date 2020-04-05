@@ -1,0 +1,19 @@
+Data Driven Testing (DDT) - it's when your test data is separate from your code.
+Basically you don't store test data in variables. Where this date cab be stored?
+In excel, csv files, in databese . In terms of cucumber bdd framework - feature files.
+
+To read excel files, there is java library that calls apache poi. We gonna cover it in
+this course. In terms of csv files, it's a plain text file where values are separated by comma.
+To read it, you can use Scanner. But, there are more advanced libraries, like Open CSV.
+
+To connect from java to data base, there is JDBC api. (Java Data Base Collection)
+
+Why do we need DDT? It allows us to run same script with different test data.
+
+TestNG natively supports DDT through Data Provider.
+
+Data Provider - allows to run same test multiple times with different test sets.
+
+For example: you have test cases where you to create cars. And you need to create like 20 of them.
+Steps are the same, the only difference is - test data. So instead of creating 20 identical test scripts,
+we can just

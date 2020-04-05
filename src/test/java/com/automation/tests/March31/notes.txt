@@ -22,7 +22,7 @@ Agenda:
  TakesScreenshot --> only one method, getScreenshotAs.
 
 This method, will be used to take a screenshot whenever something fails in our code.
-We can put a condition into @Aftermethod --> if test fails -> take a screenshot, save it and
+We can put a condition into @AfterMethod --> if test fails -> take a screenshot, save it and
 later on attach to the HTML report. Report it's our evidence file. Especially, when we are
 running big suits of tests, like regression, it's gonna be very difficult to demonstrate test
 results without HTML report.
