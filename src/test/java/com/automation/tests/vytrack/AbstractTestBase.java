@@ -9,10 +9,7 @@ import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.ITestResult;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.BeforeTest;
+import org.testng.annotations.*;
 
 import java.io.IOException;
 
@@ -30,16 +27,26 @@ public abstract class AbstractTestBase {  // abstract --> not concrete.
     protected ExtentTest test;
 
 
-    @BeforeTest // to create a report
-    public void setupTest(){
+    //@Optional -to make parameter optional
+    // if you don't specify it, testng will require to specify
+    // this parameter for every test, in xml runner.
+
+    @BeforeTest
+    @Parameters("reportName")  // to create a report
+    public void setupTest(@Optional String reportName){
+        String reportNameString = reportName == null? "report.html": reportName + " .html";
+        System.out.println("Report name: " + reportName);
+
         report = new ExtentReports();
+
+
         String reportPath = "";
 
         // location of report file
         if(System.getProperty("os.name").toLowerCase().contains("win")){
-            reportPath = System.getProperty("user.dir")+"\\test-output\\report.html";
+            reportPath = System.getProperty("user.dir")+"\\test-output\\" + reportName;
         }else {
-            reportPath = System.getProperty("user.dir")+"/test-output/report.html";
+            reportPath = System.getProperty("user.dir")+"/test-output/" + reportName;
         }
         // is a HTML report itself
         htmlReporter = new ExtentHtmlReporter(reportPath);

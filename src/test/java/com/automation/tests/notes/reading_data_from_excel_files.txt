@@ -1,0 +1,17 @@
+April, 7
+
+Reading data from excel files.
+------------------------------
+
+To open excel files we use Microsoft Office Excel or we can open them in google driver,
+but you cannot open excel file as a simple text file.
+
+In java there is a library that calls Apache POI that stands for reading and writing operations
+with excel files.
+It's just a jar file, that we need to add. Since we are using Maven, it's gonna be dependency.
+
+Apache POI does not rely on Microsoft Office Excel. Its purely standalone tool.
+Apache POI не зависит от Microsoft Office Excel. Это чисто автономный инструмент.
+
+
+https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml

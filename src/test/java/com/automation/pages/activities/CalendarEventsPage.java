@@ -115,8 +115,7 @@ public class CalendarEventsPage extends AbstractPageBase {
     }
 
 
-
-    public String getStartTime(){
+    public String getStartTime() {
         BrowserUtils.waitForPageToLoad(20);
         wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("[id^='time_selector_oro_calendar_event_form_start']")));
         wait.until(ExpectedConditions.visibilityOf(startTime));

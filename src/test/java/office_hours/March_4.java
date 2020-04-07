@@ -47,17 +47,22 @@ public class March_4 {
     WebElement error = driver.findElement(By.xpath("//p[@class='alert alert-warning']"));
 
     String errorText = error.getText();
-         // .getText() doesn't take any value ,but
-        // it returns String(text)from the element
+
+        // .getText() doesn't take any value ,but
+        // it returns String (text) from the element
+
         System.out.println("Error message: " + errorText);
+
         // NoSuchElementException - it means we couldn't locate the element.
 
 
 
         search_box = driver.findElement(By.id("search_query_top"));
         search_box.clear();
+
         // .clear() - void method,doesn't return anything,
         // it will delete any values from input box
+
         search_box.sendKeys("t-shirt",Keys.ENTER);
         // StaleElementReferenceException: --> element is old/stale -->
         // --> we want to find this element again OR refresh page
@@ -89,7 +94,7 @@ public class March_4 {
         addToCart.click();
 
 
-        driver.quit();
+     //   driver.quit();
 
 
 

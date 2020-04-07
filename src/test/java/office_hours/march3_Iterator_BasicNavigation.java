@@ -10,25 +10,28 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 
-public class March_3 {
+public class march3_Iterator_BasicNavigation {
     public static void main(String[] args) {
 
     /*
         - Iterator
-            - List, Set, Map, and other types of collections can use Iterator class to iterate over that collection
+            - List, Set, Map, and other types of collections can use Iterator class to iterate повторять over that collection
             - List has indexes (for i, for each, while, Iterator)
             - Map (for each, Iterator - to loop through keys)
         - Basic Selenium Navigation -
      */
 
-    // Create arrayList of Strings - iterate over it
+    // Create arrayList of Strings - iterate over it  перебирать
+
 
             ArrayList<String> keysToSearch = new ArrayList<>();
             keysToSearch.add("fruits");
             keysToSearch.add("veggies");
             keysToSearch.add("berries");
+
             Iterator <String> iterator = keysToSearch.iterator();
             //iterator() - return Iterator type which we can use with all iterator methods
+
             //[fruits, veggies, berries]
             while (iterator.hasNext()){
                 System.out.println(iterator.next());
@@ -45,6 +48,8 @@ public class March_3 {
                 System.out.println("*" + item);
             }
 
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
             //create a map with <String, String>
             HashMap<String, String> personalInfo = new HashMap<>();
 
@@ -58,8 +63,10 @@ public class March_3 {
                 System.out.println(key + ":" + personalInfo.get(key));
             }
 
-            //=================================================================
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
             //SELENIUM
+
         /*
             id - unique (it is not always available) - we always want to use it when it is available
             class - classname
@@ -67,7 +74,7 @@ public class March_3 {
             tag - every element will have a tag
 
 
-            linkText   will only work with the link
+            linkText -->  will only work with the link
             partial linkText
 
 
