@@ -1,0 +1,94 @@
+TestNg and JUnit tools --> shortcuts
+
+Begun with unit testing approach.
+
+
+Easily test in a framework which integrates perfectly with Selenium.
+
+
+TestNG Advantages:
+1. Annotations to use and understand when building test scripts
+2. Test cases can be grouped (we can group by class)
+3. Generate Reports (the reporting for testng, instead we use different tool)
+4. Parallel testing ( run several tests at the same time)
+5. Simple verifications (Assert class)
+
+--------------------------------------------------------------------------------------
+
+@Annotations:
+are instructions for our JVM. They carry information and some procedure for how a test should run.
+
+
+@Test:
+The method below is a test case. This way we can run test case. Make it runnable.
+
+
+@BeforeMethod, @AfterMethod (Scope is locked inside a class unless inherited)
+We use them with every test case. Before or after every test case run the following code.
+
+
+
+@BeforeTest, @AfterTest
+Require knowledge of testNG xml testing
+
+
+@BeforeClass, @AfterClass
+Before every class run the following code.
+
+
+
+@BeforeGroup, @AfterGroup
+Before or after every group run the following code.
+
+
+
+@BeforeSuite, @AfterSuite
+Require knowledge of testNG xml testing
+
+--------------------------------------------------------------------------------------------------
+Clarification:
+
+@BeforeMethod   vs    @BeforeGroup:
+
+               @Test
+               public void test1(){
+                  sout("Hello")
+               }
+
+
+               @Test
+               public void test2(){
+                  sout("World")
+               }
+
+
+               @BeforeMethod
+               public void setup(){
+                   sout("Test 1")
+               }
+
+                                                             @BeforeGroup
+                                                             public void groupSetup(){
+                                                             sout("Testing group 1")
+                                                             }
+
+
+               Console output: @BeforeMethod:
+               Test 1
+              (test1) Hello
+
+               Test 1
+               (test2) World
+           -------------------------
+               Console output: @BeforeGroup:
+               Testing group 1
+               Test 1
+               (test1) Hello
+
+               Test 1
+               (test2) World
+
+
+
+
+

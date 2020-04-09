@@ -2,15 +2,21 @@
 Xpath {
 
  1. Absolute Xpath (this is not recommended)
-    begin with single aslash
+    begin with a single slash
     /
     Found the first button with absolute Xpath
     /html/body/div/div[2]/div/div[1]/button[1]
 
- 2. Relative Xpath
+--------------------------------------------------------------------
+
+ 2. Relative Xpath   - (your computer doing work for you)
+
     begins with double slash
     //
+
+    ----------------------
     Start a designated tag   Начать назначенный тег
+
     //tagName[@attribute='value']
     <button class="btn btn-primary" onclick="button2()" name="button2">Button 2</button>
 
@@ -18,20 +24,27 @@ Xpath {
     //button[@class='btn btn-primary']
     //button[@onclick='button2()']
 
+-----------------------------------------------------------------------------------------------------------------
 
-    Dynamic Elements --dynamic(changing)     Динамические элементы - динамические (меняющиеся)
+    *Dynamic Elements --dynamic(changing)     Динамические элементы - динамические (меняющиеся)
+
     1. Any tag:
-       tagName will be replaced with a *
+
+         tagName will be replaced with a *
+
        //*tagName[@attribute='value']
 
 
-    2. Operator 'and'  (&&)
-       combine two different attributes to find a single Elements
+    2. Operator 'and'  (&& - in java)
+       combine two different attributes to find a single elements
+
        First way:
-       //tagName[@attribute='value' and @attribute2='value2']
+          //tagName[@attribute='value' and @attribute2='value2']
 
        Second way:  (use this one)
-       //tagName[@attribute='value'][@attribute2='value2'
+          //tagName[@attribute='value'][@attribute2='value2'
+
+                     ------EXAMPLE------------
 
        <button class="btn btn-primary" onclick="button2()" name="button2">Button 2</button>
 
@@ -39,8 +52,10 @@ Xpath {
        //button[@class='btn btn-primary'][@onclick='button2()']
 
 
+
     3. Operator 'or':
           //button[@class='btn btn-primary' and @onclick='button2()']
+
 
 
     4. Attribute 'starts-with':
@@ -53,17 +68,20 @@ Xpath {
        //button[(starts-with(text(),'Button'))]
 
 
+
     5. Attribute 'ends-with':
        //tagName[ends-with(@attribute,'value')]
+       //button[ends-with(text(),'3')]
 
 
     6. Attribute 'contains':
        //tagName[contains(@attribute,'value')]
-       //tagName[contains(text(),'5')]
+       //tagName[contains(text(),'TEXT')]
+
 
 
     7. Any attribute:
-       attribute is perlace with *
+       attribute is replace with *
        //tagName[@*='value']
 
 
