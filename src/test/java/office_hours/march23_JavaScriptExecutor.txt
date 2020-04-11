@@ -1,0 +1,34 @@
+
+JavaScriptExecutor --> Add-on to Selenium. We use it when Selenium does not react well with the web page.
+
+Alternative way to interact with the browser
+
+JavaScriptExecutor is an INTERFACE for the Driver
+
+      ---------------------------------------------------------------
+
+1. SendKeys
+   document.getElementById('element id').value='Send these characters'
+
+2. click a button click()
+   document.getElementById('element id').click();
+
+3. get the title of the page
+   document.title
+
+4. get the URL of the page
+   document.URL
+
+5. getText()
+   document.getElementById('element id').innerHTML
+
+6. scroll down & scroll to view an element (Scroll into view of an element)
+     -(Scroll down) --> window.scrollBy(0, 500)
+
+     -(Scroll element into view)--> document.getElementById('element id').scrollIntoView();
+
+
+
+
+
+
