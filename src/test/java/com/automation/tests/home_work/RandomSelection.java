@@ -32,6 +32,8 @@ public class RandomSelection {
 
         while (counter < 3){
             Random random = new Random();
+
+            // gives you a number from 0 to bound (exclusive)
             int checkboxToSelect = random.nextInt(checkboxes.size());
 
             if (checkboxes.get(checkboxToSelect).isEnabled()) {
@@ -48,10 +50,11 @@ public class RandomSelection {
             }
         }
 
-
         driver.quit();
 
        }
+
+
 
 
 
