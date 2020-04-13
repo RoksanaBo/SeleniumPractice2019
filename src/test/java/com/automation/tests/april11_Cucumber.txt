@@ -1,0 +1,27 @@
+
+
+
+
+
+TDD Test Driven Development --> about the whole development process.
+BDD Behavior Driven Development
+BDT Behavior Driven Testing
+
+They are both about development and automated testing.
+
+In both cases test will be written before dev-t process/code implementation.
+
+
+In case of TDD we are dealing with the raw code.
+BDD/BDT = testing the functionality from end-user perspective. So we are not
+dealing with raw code.
+
+BDD != TDD
+
+BDD it's about UI user Interface point of view.
+-----------------------------------------------------------------------------------------
+
+Unit testing is also automated testing(developers).
+
+Java unit testing tools/frameworks:  TestNG  and JUnit
+
