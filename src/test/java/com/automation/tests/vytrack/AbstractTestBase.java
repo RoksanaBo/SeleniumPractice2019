@@ -3,6 +3,7 @@ package com.automation.tests.vytrack;
 import com.automation.utilities.BrowserUtils;
 import com.automation.utilities.ConfigurationReader;
 import com.automation.utilities.Driver;
+import com.automation.utilities.ExcelUtil;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
@@ -27,6 +28,8 @@ public abstract class AbstractTestBase {  // abstract --> not concrete.
     protected ExtentHtmlReporter htmlReporter;
     protected ExtentTest test;
 
+    protected static int row = 1;
+    protected ExcelUtil excelUtil;
 
 
     //@Optional -to make parameter optional
@@ -92,6 +95,12 @@ public abstract class AbstractTestBase {  // abstract --> not concrete.
             test.addScreenCaptureFromPath(screenshotPath, "Failed");// attach screenshot
 
             test.fail(iTestResult.getThrowable()); // attach console output
+
+            //if excelUtil object was created
+            // set value of result column to "FAILED"
+            if(excelUtil != null){
+                excelUtil.setCellData("FAILED","result", row++);
+            }
         }
 
         //BrowserUtils.wait(1);

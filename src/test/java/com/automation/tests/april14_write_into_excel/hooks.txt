@@ -1,0 +1,30 @@
+
+in TestNG we used @BeforeMethod and @AfterMethod to execute some code before and after every test scenario.
+
+In Cucumber we have hooks for exactly same purpose.
+
+How to create a hook:
+its just a public void method with @Before or @After annotations. Before hook runs automatically
+after every test scenario. After hook - runs automatically after every test scenario.
+
+What di we put into @Before hook?:
+   some code to setup a connections (api, db, ...)maximize window,  etc..
+
+  What di we put into @After hook?:
+   some code to close connections ,close browser, etc.
+   also to take a screenshot in case of failure.
+
+   Where do we store hooks?:
+   we keep it under step_definitions package. We can create a separate class that calls Hooks.
+
+   We can create hooks that will be running only for specific scenarios, based on tags.
+
+   Hook without any tags will still executed for every single scenario.
+
+   We can change order of hooks priority.
+
+   Lower number - higher priority.
+
+   Cucumber is not autonomous. не автономен  .It has to work with jUnit or TestNG. Like in any car there
+   is an engine and transmission (except electric cars, I know someone will tell me this).
+

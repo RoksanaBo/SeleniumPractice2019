@@ -1,0 +1,73 @@
+
+Office Hour 04/03/2020 Nurullah
+
+
+
+
+
+Exercise Project {
+                 We will create a calculator
+                    Two functions
+                        1. Add
+                        2. Subtract  --> JIRA ticket number:  CALC-1212
+​
+        }
+​
+--------------------------------
+git rebase ==> same as git merge
+
+-----------------------------------​
+
+TERMINAL & GIT BASH commands {
+       a. cd
+             To navigate to a directory in terminal :
+                ' cd <directoryName> '
+             Example to navigate to desktop from user:  'cd Desktop'
+​
+       b. ls
+          Show all files and folders inside the directory(folder) that are visible
+​
+          ls -a
+          Show all files including hidden ones in the directory
+​
+}
+​
+Git {
+              'origin' keyword in git is referring to remote repository (Github, BitBucket)
+               Example usage --> git push origin <remoteLocation> or <branchName>
+                  Which pushes to the indicated location or indicated branch.
+​
+   Adding files to stage in git
+    {
+      git add <FileName>
+        - Add the indicated file into the stage
+
+      git add .
+        - Add ALL files into the stage
+    }
+​----------------------------------------------------------
+      How to MERGE in git examples:
+--------------------
+     Example 1.  Merging into master
+
+            First Way: We use merge:
+                To merge a branch into master: (Adding new code into master)
+                Step 1: Make sure you are on master  branch
+                Step 2: Write the following :   git merge <BranchName>
+                **This will merge <branchName> into master (master is changing)
+
+            Second Way:  We use rebase:
+                To merge a branch into master: (Adding new code into master)
+                Step 1: Make sure you're on <branchName>  branch
+                Step 2: Write the following :   git rebase master
+                **This will merge <branchName> into master  (master is changing)
+​
+---------------------
+      Example 2. Merging master into another branch
+​
+           To merge master into a different branch : (Getting code from master)
+              Step 1: Make sure youre on the <branchName>
+              Step: Write the following : git merge master
+              **This will merge master into <branchName>  (<branchName> is changing)
+
+}
