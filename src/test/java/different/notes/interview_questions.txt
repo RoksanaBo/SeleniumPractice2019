@@ -74,3 +74,9 @@ ChromeOptions - use to customize browser for tests
     with test scripts.
 -------------------------------------------------------------------------------------------------------
 
+13. HOW TO DO PARALLEL TESTING?/ how to run test in parallel?
+- make your driver ThreadLocal and make the getter method synchronized
+
+--------------------------------------------------------------------------------------------------
+
+

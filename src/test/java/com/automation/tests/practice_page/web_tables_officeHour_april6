@@ -1,0 +1,30 @@
+
+Web Tables     04/06/2020
+
+Two types of tables (in terms of selenium)
+  1. Static tables
+     Constant, having a FIXED number of rows and columns
+     Examples: A regular calendar
+
+  2. Dynamic tables
+     Changing, the rows and columns may change.
+     Example: appointments
+     Make our code generic so it does not fail every time the rows
+     and columns change.
+
+  When we refer to dynamic tables we are NOT talking about its data!
+-------------------------------
+     In HTML a table is defined with a <table> tag
+
+     HTML for table{
+     <table>
+        <tr>
+          <th> --> header
+       <tbody> --> refers to the body of the table( everything except header and/or footer)
+          <tr> --> row )from left to right)
+            <td> --> columns (from top to bottom)
+
+     }
+
+For tables we will usually use Xpath --> easier to see the pieces
+

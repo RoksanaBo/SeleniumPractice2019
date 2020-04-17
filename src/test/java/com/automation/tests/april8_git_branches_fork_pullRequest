@@ -1,0 +1,73 @@
+Today is April 8, 2020
+           ------------------------------------------
+	Agenda:
+		git branches, fork and pull request
+
+git push --set-upstream origin sdet
+
+To create a remote branch on github that corresponds to your newly created local branch.
+
+clone - it’s when you are getting a copy of the project from remote repository (github)
+        to local repository (on your laptop)
+
+from server --> laptop
+
+fork - it’s when your are getting a copy of someone’s repository on your github account.
+
+from someone’s github account ---> my github account
+
+and these repositories will be linked, so you can create pull requests later on.
+
+fork some project to our account --> clone project from our account --> to our laptop
+
+when people use forks?
+
+when you want to be a contributor of some public open source project.
+
+In case of linux project, there are thousands of contributors, and only one branch - master.
+
+Because, every contributor has forked project to their account.
+               ------------------------------------------------------------
+
+::::Remember:::: whenever you import new project:
+
+	1. Setup SDK
+	2. If it’s maven project, add project as maven - right click on pom.xml file --> select add as
+	   maven project.
+
+We forked project to our github account. Then, we cloned this project to our laptop.
+
+Then, we add a new utility method. And, it’s time to commit changes:
+
+git commit -a -m “added utility for switching windows”
+
+this command will stage and commit files in the one shot.
+
+git push --- to deliver these updates to the github repo. Our account yet.
+
+
+---------------------------------------------------------------------------
+
+Parallel testing - when 2 or more tests getting executed at the same time.
+
+To make it possible, your driver must be capable to handle multiple threads.
+
+If driver just singleton - it cannot be in 3 places at the same time.
+
+To resolve this issue, we made a web driver object ThreadLocal.
+
+ThreadLocal allows to create a copy of the object at the run time for every thread.
+
+Also, we need to make a getDriver method synchronized to prevent a crash.
+
+So 2 or more threads won’t conflict. It calls - thread safety.
+------------------------------
+
+To run data provider tests in parallel, add parameter:
+
+@DataProvider(parallel = true) // to execute all tests in parallel
+
+
+
+
+
