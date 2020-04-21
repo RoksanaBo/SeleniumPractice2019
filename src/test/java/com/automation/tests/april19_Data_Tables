@@ -1,0 +1,92 @@
+Data Tables
+Scenario Outline --> Data Driven Testing (similar to @DataProvider in TestNG)
+     ------------------------------------------------------------------------------------
+Data Tables in cucumber simply used to extend test step.
+
+When user logs in as "driver" | value in double quotes is a parameter
+
+
+When user logs in as "admin" --> @When (user logs in as {string} )
+                                  public void user_logs_in_as(String string){
+                                    // turn this phrase into action
+                                  }
+Then user creates a new car with "testplates" car plates and "black" color "Toyota" make, "Camry" model.
+@Then (user creates a new car with {string} car plates and {string} color {string} make, {string} model)
+
+public void user_creates_a_new_car_with_car_plates_and_color_make_model( String string, String string2,
+                                                               String string3, String string4){
+
+}
+Instead of this we can use DataTable:
+
+Data table can make it look better and expand test step:
+
+Then user creates a new car with following info:
+
+   key:          value:
+
+ |car_plates  | testplates|
+ |color       | black     |
+ |make        | Toyota    |
+ |model       | Camry     |
+
+
+default step defenition method:
+
+ @Then (user creates a new car with following info:"")
+ public void user_creates_a_new_car_with_following_info (DataTable dataTable){
+
+ }
+
+ we can change DataTable to something else, so cucumber will automatically transform it into some
+ other data structure.
+
+#After -- we changed DataTable into the Map
+
+@Then (user creates a new car with following info:"")
+public void user_creates_a_new_car_with_following_info (Map<String, String> data){
+     dataTable.get("color"); --> black
+     dataTable.get("car_plates"); --> testplates
+}
+
+REMEMBER: Data table must be specified immediately after the test step.
+
+Can we have multiple data tables in one scenario? - Yes.
+
+
+Given user logs in with following credentials:
+ |username|storemanager85|
+ |password|UserUser123   |
+
+Then user creates a new car with following info:
+ |car_plates  | testplates|
+ |color       | black     |
+ |make        | Toyota    |
+ |model       | Camry     |
+
+
+If values were modified in scenario, it will affect on step definition.
+Step definition gets data from the scenario.
+
+Can we have 3 or 4 columns? -Yes.
+How to manage step definition with more than 2 columns in the test step?
+
+Then user creates a new car with following info:
+  |car_plates|color   | make   | model |  <--- always reserved for key names( List<Map<String, String>> )
+  | sdet     | red    | Mazda  | RX8   |0
+  | driver   | purple | Toyota | Camry |1
+  | racer    | blue   | Lincoln| MKS   |2
+
+
+
+@Then (user creates a new car with following info:"")
+public void user_creates_a_new_car_with_following_info (List<Map<String, String>> data){
+
+data.get(0) --> get data from first row (skipping column names)
+
+data.get(0).get("color") --> red
+data.get(1).get("make") --> Mazda
+
+To line up feature file, use option + command + L (for Mac)
+                             windows users Control + Alt + L
+
