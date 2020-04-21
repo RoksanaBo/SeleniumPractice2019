@@ -108,6 +108,8 @@ To change remote git URL: git remote set-url origin URL
  how to send changes from IntelliJ to github:
  click green button.
 
+ ------------------------------------------------------------------------
+
 
 
 

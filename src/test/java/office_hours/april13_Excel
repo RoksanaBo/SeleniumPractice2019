@@ -1,0 +1,27 @@
+
+Data Driven Testing (DDT)  --> Not hard coding the variables into the code
+
+Example : You do not store login credentials into your test script
+
+   ** A best practice in testing is to separate test data from test script
+   ------------------------------------------------------------------------------
+
+   1000 credentials we have to test:
+
+    {Less Favorable} Way 1: Form a variable and constantly change the variable and run the test
+    {Less Favorable} Way 2: Creating 1000 test classes
+    {More Favorable} Way 3: Separate Test data and call into the test script:
+
+          1. Data provider ---> one test case being fed all the different credentials in a
+                                sequential order
+          2. Excel File --> one test case being fed all the data
+          3. CSV --> one test case being fed all the data
+          3. Database  --> one test case being fed all the data
+          4. Cloud Storage --> one test case being fed all the data
+
+  Excel Connection is done by a third-party add-on --> Apache
+
+  (DO NOT RE-INVENT THE WHEEL)(PICK FROM A RELIABLE SOURCE)
+  ---------------------------
+      To make the excel connection without reinventing the wheel
+      we will import the apache excel library

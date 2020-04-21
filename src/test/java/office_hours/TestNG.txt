@@ -1,23 +1,88 @@
-TestNG and JUnit (tools)--> shortcuts.
+TestNG and JUnit (tools)--> shortcut
 
-Begun with unit testing approach.
 
-Easily test in a framework which integrates perfectly with Selenium.
-(TestNG) Advantages:
+ Begun with unit testing approach
+
+Easily test in a framework which integrates perfectly with Selenium
+
+(TestNG) Advantages
 1. Annotations to use and understand when building test scripts
-2. Test cases can be grouped. (We can group by class)
-3. Generate Reports (The reporting for TestNG, instead we use  different tool)
-4. Parallel testing.
-
-
-@Annotations -->
-- are instructions for our JVM
-- carry information and some procedure for how a test should instructions
-
-@Test --> the method below is a test case(this way we can run the test case, make it runable)
-
-@BeforeMethod, @AfterMethod( scope is locked inside a class unless inherited )
-Before or After every test case run the following code.
-
+2. Test cases can be grouped. (We usually group by class)
+3. Generate Reports
+(The reporting for TESTNG, instead we use a different tool)
+4. Parallel testing
+5. Simple verifications (Assert class)
+@Annotations
+Are actually instructions for our JVM.
+Carry information and some procedure for how a test should instructions
+@Test
+The method below is a test case
+(This way we can run the test case, make it runnable)
+@BeforeMethod, @AfterMethod (Scope is locked inside a class unless inherited)
+Before or After every test case run the following code
+@BeforeTest, @AfterTest(Require knowledge of testNG xml testing)
 @BeforeClass, @AfterClass
-Before every class run the following code.
+Before or After every class run the following code
+@BeforeGroup, @AfterGroup
+Before or After every group run the following code
+@BeforeSuite, @AfterSuite(Require knowledge of testNG xml testing)
+Clarification:
+@BeforeMethod vs @BeforeGroup
+          @Test (group = "Test Group 1")
+          public void test1(){
+             sout("Hello")
+          }
+          @Test (group = "Test Group 1")
+          public void test2(){
+            sout("World")
+          }
+          @BeforeMethod
+          public void setUp(){
+            sout("Test 1")
+          }
+          @BeforeGroup
+          public void groupSetUp(){
+             sout(" Testing Group 1")
+          }
+          Console output @BeforeMethod output:
+           Test 1
+          (test1) Hello
+           Test 1
+          (test2) World
+           Console output with @BeforeGroup :
+           Testing Group 1
+           Test 1
+          (test1) Hello
+           Test 1
+          (test2) World
+  Annotation Parameters:
+      (description ="Detail about your test ",
+      priority = 0, order of cases , lower # comes first,
+      dataProvider ="exact name of your data provider")
+
+  DataProvider:
+   returns data in form of single dimensional Object array (Object [])
+   or 2 dimensional object array (Object [] [])
+        Object [] --> When you have only 1 parameter
+        Object [] [] --> When you have 2+ parameters
+     */
+     Two Problem:
+       1. We want to run more than 1 method in a className
+          Solution --> We used testNG annotations (@Test)
+       2. We want to be able to run more than 1 class at the same time
+          Solution --> TestNG Xml
+     testNG XMl Runner {
+            --> It can run several classes in a sequencial order -->
+            One place to run all test that you want to
+           -->  We can also do parallel  testing --> Running 2 or more test at the SAME time
+           How to create an XML runner {
+              Step 1 . We create a file with an xml extension
+                        (Optional) within the project folder
+                        <fileName>.xml
+              Step 2. Define DocType and connect to testNG
+                    <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+              Step 3. Create suite
+                     <suite></suite>
+           }
+           XML is a file type (similar to HTML standards)
+           }

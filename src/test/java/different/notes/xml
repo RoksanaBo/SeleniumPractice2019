@@ -3,3 +3,5 @@ xml runner --> created to develop test suites(like sweets)
 
 test suit --> collection of tests
 
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" > --> this line is mandatory for
+                                                                every xml runner

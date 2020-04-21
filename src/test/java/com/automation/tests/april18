@@ -1,0 +1,128 @@
+
+    Agenda:
+         Background
+         Parameters --> strings and integers
+         Maven Cucumber HTML Report
+         Data tables
+################################
+    Background - common steps for all scenarios in one particular feature file. Similar to @Before hook, but not the same.
+    For example:
+  @sales_manager
+  Scenario: Login as sales manager and verify that title is Dashboard
+    Given user is on the login page
+    When user logs in as a sales manager
+    Then user should verify that title is a Dashboard
+  @store_manager
+  Scenario: Login as store manager and verify that title is Dashboard
+    Given user is on the login page
+    When user logs in as a store manager
+    Then user should verify that title is a Dashboard
+  @driver @dashboard
+  Scenario: Login as driver and verify that title is a Dashboard
+    Given user is on the login page
+    When user logs in as a driver
+    Then user should verify that title is a Dashboard
+With a background, it will look like this:
+Background: open login page
+    Given user is on the login page
+@sales_manager
+  Scenario: Login as sales manager and verify that title is Dashboard
+    When user logs in as a sales manager
+    Then user should verify that title is a Dashboard
+  @store_manager
+  Scenario: Login as store manager and verify that title is Dashboard
+    When user logs in as a store manager
+    Then user should verify that title is a Dashboard
+  @driver @dashboard
+  Scenario: Login as driver and verify that title is a Dashboard
+    When user logs in as a driver
+    Then user should verify that title is a Dashboard
+Order of execution:
+    Before hook --> Background steps --> Scenario --> After hook
+If hook applies on all feature files, Background will be applied only for the feature feature, where it was declared.
+Background - can take as many steps as you need.
+Usually, it's used when you are keep repeating Given step in some feature file.
+In Jira Xray, Background is equals to Precondition.
+############################################################################
+Anything in double quotes becomes a parameter (string).
+#In feature file
+    When user enters "storemanager85" username and "UserUser123" password
+#In step definition class
+    @When("user enters {string} username and {string} password")
+    public void user_enters_username_and_password(String string, String string2) {
+
+    }
+string - will have value "storemanager85"
+string2 - will have value "UserUser123"
+Once we have implemented steps, we can change values in double quotes. Because - it's a parameter.
+%s - string
+order is from left right always!
+Step definitions independent from steps; can be reused by other scenarios as well. Cucumber goes into steps and then goes to step definitions looks for matching steps.
+Cucumber take step definitions as blocks.
+But for same step 2 different implementation is not possible !!
+sometimes, webdriver performs text input very slow. To fit it, we use explicit wait:
+wait.until(ExpectedConditions.attributeToBe(element, "value", text));
+value attribute stores text input, so we just wait until it will receive entire text input.
+#################################################
+JavaScript Object Notation (JSON, pronounced /ˈdʒeɪsən/; also /ˈdʒeɪˌsɒn/[note 1]) is an open standard file format, and data interchange format, that uses human-readable text to store and transmit data objects consisting of attribute–value pairs and array data types (or any other serializable value)
+JSON - javascript object notation. Contains only properties, objects and collections. There is no methods. Very popular type of document to transmit information between 2 programs --> used for API.
+JSON natively supported by javascript, because it derives from it.
+Java as well as other languages have lots of libraries that allow to work with JSON files.
+JSON - looks like a plain text file.
+    {
+        property: value
+    }
+Example of simple JSON file.
+    {
+        user: [
+            name: "John"
+            age: 25
+            jobTitle: "SDET"
+        ]
+    }
+Cucumber, is able to generate JSON report. Then, that json file, can be used by 3rd party plugins to generate some fancy HTML report. (not that ugly as default one)
+One of the most popular is Maven Cucumber HTML report. To add it, we just need to insert it into pom.xml file as a plugin.
+github of the report: https://github.com/damianszczepanik/maven-cucumber-reporting
+we need to add maven-surefire plugin, to execute our tests with maven command.
+to generate report, we need to run verify maven goal.
+either:
+mvn verify
+or from intellij --> maven --> life cycle --> verify
+also, clean before running tests:
+mvn clean verify
+clean - to delete target folder.
+report will be generate only with verify goal. If you will run CucumbeRunner class manually, this report won't be generated.
+mvn clean verify -q
+-q - quite execution. minimizes maven console log
+If mvn command gives error, that means maven is no installed. Still you can use maven from intellij, but you won't be able to use outside of intellij, as CLI tool.
+##############################################
+Cucumber Data Table - is used to extend test step. It allows to attach table to test step.
+Cucumber data table:
+        // Write code here that turns the phrase above into concrete actions
+        // For automatic transformation, change DataTable to one of
+        // E, List<E>, List<List<E>>, List<Map<K,V>>, Map<K,V> or
+        // Map<K, List<V>>. E,K,V must be a String, Integer, Float,
+        // Double, Byte, Short, Long, BigInteger or BigDecimal.
+        //
+        // For other transformations you can register a DataTableType.
+1 column - List<String>
+2 columns - Map<String, String> - where keys will be always on the left, and values on the right.
+2+ columns - List<Map<String, String>> - where keys will be always on the first row.
+2+ columns - Map<String, List<String>>
+If you specified data type as a Map, use get("keyName") to read values:
+        dataTable.get("description");
+        dataTable.get("title");
+By default, any step definition method with data table will have a parameter - io.cucumber.datatable.DataTable dataTable;
+
+DataTable - data structure from Cucumber BDD. Can be transformed into something more commonly used like: List, Map, List<Map>, etc.. depends on how many columns do you have in the data table.
+Don't use DataTable, change it to something else....
+if you specify non-existing key name, you will get - NULL.
+make sure, that key name is correct.
+#########################################
+    Background - common steps in the beginning
+    Parameters - used to make test steps more flexible. To provide a parameter surround some phrase with double quotes, then it will be injected into step definition as a parameter.
+    Cucumber HTML report - 3rd party reporting plugin, not officially developed by cucumber team. To use it, add plugin into pom.xml file. Make sure you also have maven-surefire/maven-failsafe plugin to trigger CucumberRunner class. Also, don't forget to specify in runner class json report:
+    "json:target/cucumber.json"
+    to get the report, execute verify maven goal.
+    Data table
+        is used to extend some test step. It allows to fit more test data into one step. Data will stored as a table. Values reside in between pipes |values|.
