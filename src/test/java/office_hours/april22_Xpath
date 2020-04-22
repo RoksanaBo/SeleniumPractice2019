@@ -1,0 +1,22 @@
+xpath
+	absolute
+	must start from root element:
+		/html/body/div/
+	relative
+		you can start from any node
+		//tagName[@attribute=‘value’]
+		if there are couple of children with same parameters, we can use indexes,
+		to get specific one.
+		//tagName[@attribute=‘value’][index]
+		indexes start with 1
+		if there are couple of elements, under same xpath, and they are not siblings, use following xpath:
+		(//tagName[@attribute=‘value’])[index]
+		to find element by text:
+		//tagName[text()=‘Some text’]
+		partial text:
+		//tagName[contains(text(),‘Partial’)]
+		//span[@title=‘Date’]/following-sibling::div[1]
+		//span[@title=‘Type’]//following-sibling::div[1]
+		//div[@class=‘main-ui-select-inner-label’ and text()=‘Posts’]
+		To go to parent element:
+		/..

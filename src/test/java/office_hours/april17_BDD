@@ -1,0 +1,48 @@
+
+Behavior Driven Development (BDD) --> Communication between business and technical aspects
+
+Cucumber is syntax/procedure/protocol for BDD
+------------------------------------------------
+
+Cucumber :
+   1. Features
+    --> The user stories
+    --> Represented in simple language  (Gherkin language)
+    --> Reference for the business side   Ссылка для бизнеса
+
+
+   2. Step Definitions
+     --> Is the code behind the feature
+     --> Technical aspect of cucumber
+--------------------------------------------------------
+
+Gherkin Language:
+   Syntax for cucumber features
+   Keyword:
+      1. Feature: --> User Story
+      2. (Example)Scenario: --> Acceptance Criteria, Test cases
+      3. Given --> Precondition of your test cases
+      4. When --> An event / or an action being taken
+      5. Then --> Outcome. Validation step.
+      6. And, But, * (any)
+      7. Background: --> Precondition of all scenarios of *A* Feature (only 1 single feature)
+      8. (Scenario Template)Scenario Outline: --> A set of scenarios that will be repeated
+         * Scenario Outline will always require an Examples: portion
+           План сценария всегда будет требовать часть:
+      9. Rule:
+
+      -------------------------------------------------------------------------
+
+   HOOK:
+
+   Group them under a class called Hook {
+      @Before (The one from CUCUMBER)
+      @After  (The one from CUCUMBER)
+      * Like TestBase class without the need of inheritance
+      }
+
+
+    Junit, actually use TestNG{
+     Cucumber Runner class to help us run our cucumber features
+    }
+
