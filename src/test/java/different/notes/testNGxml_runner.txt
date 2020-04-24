@@ -22,4 +22,5 @@ source: https://testng.org/doc/documentation-main.html#parameters-dataproviders
 ElementClickInterceptedException - something was clicked instead of your element. Put more wait time.
 
 NoSuchSessionException - web driver object was called but not created.
-For tomorrow, please install maven, I am gonna share instructions later. There are short videos for mac and windows.
+For tomorrow, please install maven, I am gonna share instructions later.
+ There are short videos for mac and windows.

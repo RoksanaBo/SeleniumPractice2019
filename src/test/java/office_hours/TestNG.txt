@@ -20,7 +20,7 @@ Easily test in a framework which integrates perfectly with Selenium
 
 @Annotations
 Are actually instructions for our JVM.
-Carry information and some procedure for how a test should instructions
+Carry information and some procedure for how a test should run
 
 @Test
 The method below is a test case

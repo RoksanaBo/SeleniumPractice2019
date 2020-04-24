@@ -248,6 +248,7 @@ public class homework4 {
     //6. verify default quantity of items is 1
     //7. verify that the name and the price is the same as the one from step 5
     //8. verify button "Add to Cart" is visible
+
     @Test
     public void cart(){
 

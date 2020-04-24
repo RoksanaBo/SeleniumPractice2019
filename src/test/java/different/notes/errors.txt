@@ -11,3 +11,8 @@ driver =new ChromeDriver(chromeOptions) --> provide chromeOptions object into ch
 
 ChromeOptions - use to customize browser for tests
 --------------------------------------------------------------------------------------------------
+
+ElementClickInterceptedException - something was clicked instead of your element. Put more wait time.
+
+
+NoSuchSessionException - web driver object was called but not created.
