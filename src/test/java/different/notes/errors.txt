@@ -16,3 +16,5 @@ ElementClickInterceptedException - something was clicked instead of your element
 
 
 NoSuchSessionException - web driver object was called but not created.
+
+NotOLE2FileException: Invalid header signature; -- no excel file found

@@ -1,7 +1,7 @@
 	Agenda:
 		TestNG
 		Locators: Xpath CSS Selector
-####################################
+
  Question?
 You have 500 test cases but the client asked you to run only 40 of them for smoke test. How will you do this?
 So we use xml runners to create suites of tests and we already have xml runner for the smoke test.
@@ -11,11 +11,6 @@ with test scripts.
 
   test Suite - collection of certain test cases.
 
-
-
-https://qa1.vytrack.com/user/login
-https://qa2.vytrack.com/user/login
-https://qa3.vytrack.com/user/login
 under tests package create a package called “vyTrack” -->
 under this package create a package called “login”
 

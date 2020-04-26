@@ -1,0 +1,211 @@
+
+    Agenda: Parallel testing in Cucumber
+            Smoke test
+            Regression testing
+            Rerun failed test cases in Cucumber
+            Cucumber with TestNG
+            Summary of Cucumber framework
+
+        Cucumber supports parallel testing by default. Everything happens through maven-surefire plugin or maven-failsafe plugin. In our project we use maven-surefire plugin. There are 2 options how parallelization is done:
+            - runners classes
+            - feature file
+        with junit, scenarios are not running in parallel within same feature file. But, with TestNG we can run test scenarios in parallel.
+
+        What is required? First of all, webdriver has to support parallel execution. For this we use ThreadLocal java class.
+        Each thread holds an implicit reference to its copy of a thread-local
+        * variable as long as the thread is alive and the {@code ThreadLocal}
+        * instance is accessible; after a thread goes away, all of its copies of
+        * thread-local instances are subject to garbage collection (unless other
+        * references to these copies exist).
+        Option #1 Running cucumber runner classes in parallel. Include all your cucumber classes and specify how many threads do you need.
+             1 thread = 1 test = 1 opened browser
+        By increasing number of threads you can finish test execution faster. But don't forget that if you have only 2 runner classes, you cannot run more than 2 tests at the same time -->
+        <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.0.0-M4</version>
+                <configuration>
+                    <!-- for parallel running Cucumber-->
+                    <parallel>classes</parallel>
+                    <threadCount>2</threadCount>
+                    <perCoreThreadCount>false</perCoreThreadCount>
+                    <forkCount>2C</forkCount>
+                    <includes>
+                        <!-- for  run class or classes-->
+                        <include>**/*Runner.java</include>
+                    </includes>
+                    <testFailureIgnore>true</testFailureIgnore>
+                </configuration>
+            </plugin>
+        don't forget to run tests with maven goal:
+        mvn test or mvn verify or mvn install
+        Without ThreadLocal driver, we would need to create separate fork for every thread to completely isolate resource and to be able to run tests in parallel.
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.0.0-M4</version>
+                <configuration>
+                    <!-- for parallel running Cucumber-->
+                    <parallel>methods</parallel>
+                    <useUnlimitedThreads>true</useUnlimitedThreads>
+                    <includes>
+                        <!-- for  run class or classes-->
+                        <include>**/CucumberRunner*.java</include>
+                    </includes>
+                    <testFailureIgnore>true</testFailureIgnore>
+                </configuration>
+            </plugin>
+(JUnit 4.7 provider) Supports values {@code classes}, {@code methods}, {@code both} to run
+both is old use classesAndMethods
+        <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.0.0-M4</version>
+                <configuration>
+                    <!-- for parallel running Cucumber-->
+                    <parallel>classesAndMethods</parallel>
+                    <useUnlimitedThreads>true</useUnlimitedThreads>
+                    <includes>
+                        <!-- for  run class or classes-->
+                        <include>**/CucumberRunner*.java</include>
+                    </includes>
+                    <testFailureIgnore>true</testFailureIgnore>
+                </configuration>
+            </plugin>
+
+    Smoke test - test suit that is always executed after deployment to ensure that environment is up and running and main functionality is working fine.
+    Sanity test - lightweight version of smoke test, even smaller than smoke test.
+###How do we create a smoke test?
+    Smoke test can be created as an independent feature file that calls "SmokeTest.feature" --> this is how it was done in my project.
+    Or, we can select specific scenarios among exiting feature files by using tag @smoke_test. Based on tags, in cucumber, we group test. Smoke test - it's just another group of tests.
+### How many tests should be included into Smoke Test?
+    There is no concrete number, I've seen from 20 to 60 test cases in smoke test. In my project it was around 28.
+    Duration should be from 5 to 15 minutes.
+    For vytrack it's like 30 test cases. Check all components and that's it.
+nobody can verify your number
+    Duration - about 10 minutes
+    How it should be triggered? It should be triggered from CI/CD not from IDE (Intellij)
+CI/CD - continues integration/continues delivery and continues deployment. For example - Jenkins. This is what we are covering in the course. Also very famous CI/CD tools are - Bamboo, TravisCI, GitLab, TimCity, etc.....
+The most popular is a Jenkins.
+Jenkins - can automatically execute your tests based on some triggers.
+Periodically - every morning , every hour
+After deployment - new build was deployed to test environment, smoke test must be triggered automatically without human intervention.
+Also, usually smoke test is running every morning, and should be completed before everyone comes to work. If something fails, whole team should receive an email notification with report.
+Who is gonna fix it? not you, devops fix environment, developers fix code if something is broken because of bad code.
+DevOps - person who builds code and also responsible for operations with code deployment.
+mvn clean verify -Dcucumber.options="--tags @smoke_test" -q
+-Dcucumber.options - are use to specify or override cucumber options that were specified in runner class.
+-Dcucumber.options="--tags @smoke_test" - means run only test scenarios with tag @smoke_test
+*Optional
+-q - quiet execution, will make maven print less into the console.
+maven profile - is used to create alternative build configurations. Currently - we have only one. By using profiles. we can have couple build presets. In my project, we have profiles for smoke and regression tests.
+How to create profile for SmokeTest?
+<profiles>
+        <profile>
+            <id>Smoke</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-compiler-plugin</artifactId>
+                        <version>3.8.1</version>
+                        <configuration>
+                            <source>12</source>
+                            <target>12</target>
+                        </configuration>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-surefire-plugin</artifactId>
+                        <version>3.0.0-M4</version>
+                        <configuration>
+                            <!-- for parallel running Cucumber-->
+                            <parallel>methods</parallel>
+                            <useUnlimitedThreads>true</useUnlimitedThreads>
+                            <includes>
+                                <!-- for  run class or classes-->
+                                <include>**/SmokeTestRunner.java</include>
+                            </includes>
+                            <testFailureIgnore>true</testFailureIgnore>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+This particular profile is triggering SmokeTestRunner class. In that runner class, we predefined setup for smoke test: included all test scenarios and specified report name.
+package com.vytrack.runners;
+import io.cucumber.junit.Cucumber;
+import io.cucumber.junit.CucumberOptions;
+import org.junit.runner.RunWith;
+@RunWith(Cucumber.class)
+@CucumberOptions(
+        glue = "com/vytrack/step_definitions",
+        features = "src/test/resources",
+        dryRun = false,
+        strict = false,
+        tags = "@smoke_test",
+        plugin = {
+                "html:target/smoke_test_default-report",
+                "json:target/cucumber1.json"
+        }
+)
+public class SmokeTestRunner {
+}
+ mvn clean test -P Smoke
+-P <profile_id>
+In our project we have a feature file with smoke test scenarios:
+@smoke_test
+Feature: Smoke test
+  Scenario Outline: Go to <module> and verify title: <title>
+    Given user is on the login page
+    When user logs in as "<user_type>"
+    And user navigates to "<tab>" and "<module>"
+    Then user verifies that page title is "<title>"
+    Examples:
+      | user_type     | tab        | module          | title                                                              |
+      | sales manager | Fleet      | Vehicles        | All - Car - Entities - System - Car - Entities - System            |
+      | sales manager | Fleet      | Vehicles Model  | All - Vehicles Model - Entities - System - Car - Entities - System |
+      | sales manager | Customers  | Accounts        | All - Accounts - Customers                                         |
+      | sales manager | Customers  | Contacts        | All - Contacts - Customers                                         |
+      | sales manager | Activities | Calendar Events | All - Calendar Events - Activities                                 |
+#####################################################
+    Regression testing - it's type of functional testing that is performed before release. Regression suit includes all tests cases, so we are covering entire application.
+    suite - collection of things. Bunch of tests cases in case of regression suit.
+    What is release? When new version of application is delivered to the end-user.
+When something fails during maven build, we can use -X parameter for debugging.
+It helps to investigate root cause of the problem.
+mvn clean verify -X
+Regression testing is done to make sure that new feature didn't brake existing functionality.
+How often is your release?
+In gov projects, release cycle is kind of slow. In case of my project, we have a release every 3 months.
+In case of private companies, it can be weekly - like Capital One, or every 2 weeks, (for examples Asurion)
+how many test cases you write per day? It depends on test case complexity. Sometimes 1, sometimes I need couple of day for one script, sometimes I can write couple of test scenarios per day.
+How many test cases in your regression suite?
+    Test case = test scenario , 1 Test case != 1 feature file
+    1 test case  * (number rows in examples table - 1 ) = 1 scenario outline
+    1 feature file is it 1 user story? not always, 1 feature can have scenarios from couple of user stories, if feature was updated after certain time. Because it's gonna be new jira story.
+    In some companies, SDETs they strictly create 1 feature file per user story.
+    for example: There is a jira story: VYT-1241 User should be able to cancel events.
+    in our project --> VYT-1241.feature file ---> all related test scenarios.
+    1 feature can have 1 + test scenarios.
+    WHat's number of test cases in regression suite?
+    from 500 to 2500 test cases.
+    How long it takes to execute them? couple of hours, I would say 3-6 hours.
+    Regression is always running from the server, not your laptop. Never ever from your laptop.
+    Plus, it happens with Selenium Grid or some alternative cloud platform like SauceLabs or BrowserStack.
+##################
+    How to rerun failed tests in Cucumber?
+        this plugin -->   "rerun:target/rerun.txt" will generate text file with list of failed test scenarios at the end of test execution.
+file:src/test/resources/features/activities/ViewCalendarEvents.feature:5
+This line means that in feature file ViewCalendarEvents, some scenario on the line # 5 failed.
+A Build Lifecycle is Made Up of Phases
+Each of these build lifecycles is defined by a different list of build phases, wherein a build phase represents a stage in the lifecycle.
+For example, the default lifecycle comprises of the following phases (for a complete list of the lifecycle phases, refer to the Lifecycle Reference):
+validate - validate the project is correct and all necessary information is available
+compile - compile the source code of the project
+test - test the compiled source code using a suitable unit testing framework. These tests should not require the code be packaged or deployed
+package - take the compiled code and package it in its distributable format, such as a JAR.
+verify - run any checks on results of integration tests to ensure quality criteria are met
+install - install the package into the local repository, for use as a dependency in other projects locally
+deploy - done in the build environment, copies the final package to the remote repository for sharing with other developers and projects.
