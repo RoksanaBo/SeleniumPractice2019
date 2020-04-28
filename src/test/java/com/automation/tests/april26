@@ -1,0 +1,58 @@
+
+Today is April 26, 2020
+Agenda:
+
+SonarQube - program that qualifies code quality.Scans code from top to bottom.
+Tells what's wrong with your code. It also can compare with previous version.
+Testers don't use it, mostly developers.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        CI/CD and Jenkins
+server - computer that is used to serve other computers.
+Environment - place where server is running application. All environments have dummy data (fake data) except production.
+dev --> test --> stage --> production || in theory
+dev        - used by developers only
+test       - used for functional testing, used by us and for non-functional testing like performance.
+stage      - UAT (User Acceptance Testing)
+production - the real  application, used by end-users.
+There could be other environments, not every single company has only these 4.
+when new build is deployed to any environments, smoke test should automatically executed.
+daily, smoke test is running on the test environment. If something happened with test environment, we have a blocker. We cannot do our work. That's why, if test environment is down everybody should be aware of it asap. That's why we run smoke test after new build (because new changes could broke something), and periodically (every morning), because something could happened overnight that caused server problems.
+after release, we do smoke test in production environment 100%.
+Continues Integration - build + unit test + integration tests + code analysis
+Continues Delivery - Continues Integration + smoke testing + regression testing + performance testing + deployment to Staging environment. Everything is automated except release.
+Continues Deployment - Continues Delivery  + automatic release.
+Most of the companies just stick with Continues Delivery, and prefer to trigger release manually.
+Break until 3 PM
+Create AWS account: https://aws.amazon.com/console/
+personal account
+any role
+any purpose
+anything
+AWS - amazon web services
+username and password is admin.
+enter into search box ip:8081 or ip:8080 to find jenkins.
+default port for jenkins is 8080. In our case, it was switched to 8081.
+web application - any application used over the browser.
+Steps to create a smoke test job:
+    1. Go to dashboard --> new item --> Smoke test | freestyle project
+    2. Select git as a VCS and insert project URL: https://github.com/CybertekSchool/Fall2019OnlineCucumberSelenium.git
+    3. Build -->> Invoke Top-level maven targets --> clean test -P Smoke
+    or, if you don't have a profile, use: clean test -Dcucumber.options="--tags @smoke_test"
+    4. Proceed to Post Build actions --> Select cucumber report
+    5. Click build now!!!

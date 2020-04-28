@@ -26,10 +26,13 @@ Gherkin Language:
       5. Then --> Outcome. Validation step.
       6. And, But, * (any)
       7. Background: --> Precondition of all scenarios of *A* Feature (only 1 single feature)
+         The scope of Background is limited to the Feature File or (A Rule)
       8. (Scenario Template)Scenario Outline: --> A set of scenarios that will be repeated
          * Scenario Outline will always require an Examples: portion
            План сценария всегда будет требовать часть:
       9. Rule:
+
+
 
       -------------------------------------------------------------------------
 
@@ -42,7 +45,7 @@ Gherkin Language:
       }
 
 
-    Junit, actually use TestNG{
+
      Cucumber Runner class to help us run our cucumber features
-    }
+
 

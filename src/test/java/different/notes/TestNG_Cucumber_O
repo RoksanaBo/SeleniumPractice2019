@@ -1,0 +1,43 @@
+
+TestNG with Cucumber
+
+1. git status
+2. git branch
+3. git checkout -b testng       --> create another branch(testng)
+4. git branch testng   -->  switch testng branch
+
+5. pom.xml--> add cucumber-testng dependencies (mvnrepository website)
+       <dependency>
+           <groupId>io.cucumber</groupId>
+           <artifactId>cucumber-testng</artifactId>
+           <version>5.6.0</version>
+       </dependency>
+
+https://mvnrepository.com/artifact/io.cucumber/cucumber-testng
+
+instead of cucumber-junit  --> put cucumber-testng in pom.xml dependencies
+
+6. git branch
+7. go to runner class (everything will turn to red)
+8. delete @RunWith(Cucumber.class)
+9. instead of --> public class CucumberRunner{}
+   put --> public class CucumberRunner extends AbstractTestNGCucumberTests{}
+10. change runner classes in same way
+11. run smoke test runner to see if its working
+--------------------------------------------------------
+
+Running test scenarios in parallel in TestNG:
+
+1. we need to override @DataProvider. Go to smoke test runner class and
+
+                @Override
+                @DataProvider(parallel = true)
+                public Object[][] scenarios(){
+                return super.scenarios();
+                }
+2. run it
+
+
+
+
+
