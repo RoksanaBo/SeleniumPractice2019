@@ -1,0 +1,43 @@
+
+ Apache - company ,organization.
+ AMI - preconfigured operation system. Or machine image. Cloud virtual server.
+
+ Amazon Machine Image - an Amazon Machine Image (AMI) is a special type of virtual appliance
+ that is used to create a virtual machine within the Amazon Elastic Compute Cloud ("EC2").
+ It serves as the basic unit of deployment for services delivered using EC2.
+
+ Kernel - the core of computer program.
+
+ Jenkins - continues integration,continues delivery ,continues deployment tool. We use jenkins as a testers
+ to run tests. Application development - the process that starts from version control system, starting from
+ repository and up until the production env-t. There is a whole pipeline of events that are happening on that
+ application. The code has to be tested, scanned for some kind of issues, then code will be turned into the build.
+ Build will be deployed to the test env-t. Functional testing will be done.Then smoke test,runs immediately after
+ build was deployed.And we have regression, performance testing, then build goes to testing and development team
+ to the staging env-t, to get ready for the release. And in the staging env-t UAT testing should be done and then
+ it will go to the production where the end-user can see the application and use it, and if it's a web application,
+ we target web applic-s. Web application is available over the browser. Jenkins is also web applic-n.
+
+Apache - company ,organization.
+
+windows server - operation system
+selenium grid - program for remote test execution
+jenkins - CI/CD tool
+they related to each other through Windows operation system, that makes possible to execute .
+
+Role of jenkins: jenkins takes the code ,runs maven command to turn it into the application and returns it to the
+server. So it takes that file and send it to server.And then you go to the browser,for example qa3.vytrack.com
+
+Jenkins can run your test as IntelliJ. For this,we need to execute maven command: mvn test
+
+--------------------------------------------------------
+
+Job - one project that jenkins must do. There can be
+ -testing jobs(we use for automation)
+ -development jobs (jobs that deploy application)(задания, которые развертывают приложение)
+
+ Also there could be pipelines .Jenkins supports free plugins. plugin - some edition to jenkins.
+ even cucumber-report is a plugin.
+Install plugins: menu-> manage jenkins -> manage plugins
+
+

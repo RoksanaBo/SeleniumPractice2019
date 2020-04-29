@@ -1,0 +1,5 @@
+How smoke test and regression test are done with Selenium WebDriver:
+
+-we perform functional testing and and to automate it we use selenium WebDriver.Selenium Web driver
+ interacts with browser. So we write commands to manipulate with web browser. Selenium webDriver makes
+ it possible.

@@ -5,6 +5,119 @@ Agenda:
 SonarQube - program that qualifies code quality.Scans code from top to bottom.
 Tells what's wrong with your code. It also can compare with previous version.
 Testers don't use it, mostly developers.
+--------
+Jenkins takes everything from github, not from your computer. It doe not have enough power.
+Jenkins is installed in server. Server runs 24/7. Server also a computer but much bigger and powerful.
+
+Server serves other computers.
+
+Build is - an application.
+-----------
+User Acceptance testing - in some projects done by PO. Opening application, cheking if everything is
+fine.
+Performance testing -one tester runs suit of tests,then tester rens same application with 100 people.
+Then he compares - results when 1 user runs it, and when 100 users. Differences.Nobody can use
+application at that time. We cannot do functional and performance testings at the same time.
+Results will not be accurate.
+Perform. testing is done in Stage env-t, Regression also in stage env-t.
+In test environment we just run smoke test once build is deployed. Build is deploying every day in
+some projects.
+When some developer commits the code, code should be verified automatically.This is called-->
+continues integration. And then it should go to test environment automatically.
+
+Pre-production - copy of production version.Like a mirror of production env-t.Whats the purpose:
+if something happens in production env-t ,we cannot test it in production env-t. So if some bug happens in
+production, we can go to pre-production and check if the bug is real.
+
+Test env--> UAT --> release --> production env
+
+Environments:
+- Dev - used by developers only.
+- Test: We perform functional testing in test env-t.Once new build is deployed to test
+        env-t we run Smoke test.
+    * build
+    * code analysis
+    * unit tests
+    * CI tests(continues integration tests)
+
+- Stage: performance testing and  regression testing before release
+- UAT user acceptance testing
+- Production
+
+GitHub-->Test--> Stage-> UAT -->release --> Production
+
+JENKINS DOES ALL THIS PROCESS. This is the entire CI/CD process.
+--------------------------
+CI/CD and Jenkins
+
+Environment - place where server is running application. All environments have dummy data (fake data)
+except production.
+
+dev --> test --> stage --> production || in theory
+
+dev        - used by developers only
+test       - used for functional testing, used by us and for non-functional testing like performance.
+stage      - UAT (User Acceptance Testing)
+production - the real  application, used by end-users.
+
+There could be other environments, not every single company has only these 4.
+When new build is deployed to any environments, smoke test should automatically executed.
+Daily, smoke test runs on the test environment.If new build is deployed, how do we ensure that this
+build is ok and the major functionality is working? --> Smoke test!! If something happened with test
+environment, we have a blocker. We cannot do our work. That's why, if test environment is down,everybody
+should be aware of it asap. That's why we run smoke test after new build (because new changes could broke
+something), and periodically (every morning), because something could happened overnight that caused
+server problems. After release we do smoke test in production environment,100%.
+
+Production Pipeline is stored in jenkins. it's look like a script with lots of commits.
+
+Pipeline - set of processes that take the code from version control and compile,build,test and deploy to
+production in automation fashion. The pipeline breaks down the software delivery process into stages.
+Each stage is made of different tasks which can be carried out in parallel. When all tasks in a stage
+passes, next stage is triggered (следующий этап запущен).
+
+Jenkins slave (раб) machine --> it also called Agent.
+
+Code must be in place, where it's available always. That's why it is stored in gitHub.
+Specially server. If server needs the code,your laptop shouldn't be open 24/7 to give that code.
+
+Continues Integration stimulates developer to continuesly commit changes.Every day.Because it's easier
+to digest small changes, test, scan by code analysis tools. And if everything is ok, code goes to the
+jenkins.And jenkins will create a build and deploy to Test env-t. If come changes are not ok, jenkins
+will indicate it and will send email immediately to devoloper who committed this changes.
+
+Continues Integration - an automated build and execution of at unit and integration tests, performing
+code analysis. Usually continues integr. does not involve testing the functionality of the application.
+
+Continues Integration --> build + unit test + integration tests + code analysis
+
+Continues Delivery - process that includes continues integration.It's all kind of steps that are done
+automatically up until stage env-t. ->One step from the release.In continue delivery releasing to end
+users is a manual process.
+
+Continues Delivery -> Continues Integration + smoke testing + regression testing + performance testing +
+deployment to Staging environment. Everything is automated except release.
+
+Continues Deployment - Continues Delivery  + automatic release.It's an ENTIRE PROCESS.
+Most of the companies just stick with Continues Delivery, and prefer to trigger release manually.
+
+Create AWS account: https://aws.amazon.com/console/
+AWS - amazon web services
+username and password is admin.
+enter into search box ip:8081 or ip:8080 to find jenkins.
+default port for jenkins is 8080. In our case, it was switched to 8081.
+------------
+web application - any application used over the browser.
+-------------
+Steps to create a smoke test job:
+    1. Go to dashboard --> new item --> Smoke test | freestyle project
+    2. Select git as a VCS and insert project URL:
+       https://github.com/CybertekSchool/Fall2019OnlineCucumberSelenium.git
+    3. Build -->> Invoke Top-level maven targets --> clean test -P Smoke
+       or, if you don't have a profile, use: clean test -Dcucumber.options="--tags @smoke_test"
+    4. Proceed to Post Build actions --> Select cucumber report
+    5. Click build now!!!
+
 
 
 
