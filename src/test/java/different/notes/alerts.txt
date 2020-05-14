@@ -28,3 +28,5 @@ driver.switchTo().alert().getText()--> to get the text from popup message
 If we gonna use alert several times, we can create alert object:
 
  Alert alert = driver.switchTo().alert();
+
+ PRIVET
