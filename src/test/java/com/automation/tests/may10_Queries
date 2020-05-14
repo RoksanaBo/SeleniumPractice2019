@@ -106,7 +106,7 @@ For this we use WHERE clause:
 SELECT *
 FROM table name
 WHERE salary > 4000;
----------------------------------------------------
+------------------------------------------------------
 
 Regular expression - REGEX - represents some text pattern.
 
