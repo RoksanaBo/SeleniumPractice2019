@@ -30,3 +30,4 @@ If we gonna use alert several times, we can create alert object:
  Alert alert = driver.switchTo().alert();
 
  PRIVET
+
