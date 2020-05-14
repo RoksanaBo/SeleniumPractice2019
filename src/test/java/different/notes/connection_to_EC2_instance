@@ -1,0 +1,284 @@
+Today is May 2, 2020
+
+Connection to ec2 instance:
+
+------FOR MAC-----------
+
+Open terminal and type:
+    cd ~/Downloads
+
+Your key must not be publicly viewable for SSH to work. Use this command if needed:
+    chmod 400 myserver.pem
+
+Your pem file can have different name. Take this name from ec2-console by selecting
+your server and clicking on connect button.
+
+::: example :::
+    ssh -i "myserver.pem" root@ec2-3-93-147-220.compute-1.amazonaws.com | address is different for every user
+change root to ec2-user :
+
+   ssh -i "myserver.pem" ec2-user@ec2-3-93-147-220.compute-1.amazonaws.com | address is different for every user
+Please note that in most cases the username above will be correct, however please ensure that you
+read your AMI usage instructions to ensure that the AMI owner has not changed the default AMI username
+
+    ssh -i "myserver.pem" ec2-user@ec2-3-93-147-220.compute-1.amazonaws.com
+
+If it will ask you: Are you suer you want to continue? Enter "yes" and hit return button.
+
+docker-compose scale chrome=2
+
+nano docker-compose.yml  - to edit the file. To exit - press control + X
+
+cat docker-compose.yml   - to view the file
+
+http://34.236.36.95:4444/wd/hub
+
+http://ip:4444/wd/hub
+----------------------------------------------------------------------------------------------------
+
+
+	light weight - requires not too much of memory to run.
+	 Docker with Selenium Grid
+	 Docker it’s a containerization tool. Container - it’s an isolated very light weight VM. Container can be based on linux or windows host. 99% images are linux based. Docker can be installed on windows, mac and linux.
+	 Why do we use docker? It helps to resolve configuration issues. Let’s say locally or in one the environments application/program works fine but in other environment - don’t. Also, it takes time to setup new environment. Even for selenium grid we need: jdk, browser and selenium-standalone jar file. Docker container contains all things that are required to launch the program. Also, you can very easily and very fast bootstrap or shutdown setup. Wheres VM requires more resources and more time to start/stop.
+	 To run selenium grid on docker we are using docker-compose up -d command, and configuration is written in docker-compose.yml file:
+# The purpose of this -scales example is to run 1 hub, N chromes, N firefox
+#
+#
+# How to scale it:
+#  docker-compose scale hub=1 chrome=2 firefox=1
+version: ‘3’
+services:
+  hub:
+    image: elgalu/selenium
+    ports:
+      - 4444:4444
+    volumes:
+      - /dev/shm:/dev/shm
+    privileged: true
+    environment:
+      - SELENIUM_HUB_HOST=hub
+      - SELENIUM_HUB_PORT=4444
+      - GRID=true
+      - CHROME=false
+      - FIREFOX=false
+  chrome:
+    image: elgalu/selenium
+    depends_on:
+      - hub
+    volumes:
+      - /dev/shm:/dev/shm
+    privileged: true
+    environment:
+      - SELENIUM_HUB_HOST=hub
+      - SELENIUM_HUB_PORT=4444
+      - SELENIUM_NODE_HOST={{CONTAINER_IP}}
+      - SCREEN_WIDTH=1300
+      - SCREEN_HEIGHT=999
+      - VIDEO=false
+      - AUDIO=false
+      - GRID=false
+      - CHROME=true
+      - FIREFOX=false
+  firefox:
+    image: elgalu/selenium
+    depends_on:
+      - hub
+    volumes:
+      - /dev/shm:/dev/shm
+    privileged: true
+    environment:
+      - SELENIUM_HUB_HOST=hub
+      - SELENIUM_HUB_PORT=4444
+      - SELENIUM_NODE_HOST={{CONTAINER_IP}}
+      - SCREEN_WIDTH=1300
+      - SCREEN_HEIGHT=999
+      - VIDEO=false
+      - AUDIO=false
+      - GRID=false
+      - CHROME=false
+      - FIREFOX=true
+Hub and nodes are running in separate isolated containers. To increase number of containers use command scale:
+	docker-compose scale chrome=5
+	docker-compose scale firefox=5
+(1 container = 1 node = 1 browser = 1 tests at the time)
+to stop grid use command:
+	docker-compose down
+to view running containers use:
+	docker container ps
+to view all containers use:
+	docker container ps	-a
+Our servers are located on AWS and to connect to the server we use SSH connection. SSH - stands for Secure Shell connectivity. It ensures encrypted private connection between server and client (you). To perform connection, we need to get .pem file. PEM file contains RSA encrypted private key.
+Example of connection command:
+	ssh -i “myserver.pem” ec2-user@ec2-34-236-36-95.compute-1.amazonaws.com
+make sure you connect as ec2-user not as a root user.
+Selenium Grid is running inside docker. We are using docker to easily setup selenium grid and dynamically change number of nodes. Every node runs only 1 browser. Without docker, 1 selenium grid node can run more browsers.
+Selenium Grid - used for remote test execution. We can create a grid of servers, that are based on different platforms and OS. Also, we can achieve better performance since we can combine computational power of multiple servers:
+More power = more tests in parallel = faster regression = faster release.
+Currently, in this project,  we are using 1 ec2 server that is running docker with selenium grid. We can run up to 30 tests in parallel.
+From the framework, we need to add a case for remote-chrome:
+ 				case “chrome-remote”:
+                    try {
+                        //we create object of URL and specify
+                        //selenium grid hub as a parameter
+                        //make sure it ends with /wd/hub
+                        URL url = new URL(“http://34.236.36.95:4444/wd/hub”);
+                        //desiredCapabilities used to specify what kind of node
+                        //is required for testing
+                        //such as: OS type, browser, version, etc...
+                        DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
+                        desiredCapabilities.setBrowserName(BrowserType.CHROME);
+                        desiredCapabilities.setPlatform(Platform.ANY);
+                        driverPool.set(new RemoteWebDriver(url, desiredCapabilities));
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                    break;
+desiredCapabilities - used to specify what kind of node is needed in this test execution.
+Please install SQL Developer, it’s like intellij for data base.
+
+-------------------------------------------------------------------------
+
+
+::::::::::: MAC ::::::::::::
+Connection to ec2 instance:
+Open terminal and type:
+    cd ~/Downloads
+Your key must not be publicly viewable for SSH to work. Use this command if needed:
+    chmod 400 myserver.pem
+Your pem file can have different name. Take this name from ec2-console by selecting your server and clicking on connect button.
+::: example :::
+    ssh -i "myserver.pem" root@ec2-3-93-147-220.compute-1.amazonaws.com     | address is different for every user
+change root to ec2-user :
+    ssh -i "myserver.pem" ec2-user@ec2-3-93-147-220.compute-1.amazonaws.com | address is different for every user
+Please note that in most cases the username above will be correct, however please ensure that you read your AMI usage instructions to ensure that the AMI owner has not changed the default AMI username
+    ssh -i "myserver.pem" ec2-user@ec2-3-93-147-220.compute-1.amazonaws.com
+If it will ask you: Are you suer you want to continue? Enter "yes" and hit return button.
+docker-compose scale chrome=2
+nano docker-compose.yml  - to edit the file. To exit - press control + X
+cat docker-compose.yml   - to view the file
+http://34.236.36.95:4444/wd/hub
+http://ip:4444/wd/hub
+####################################################
+
+light weight - requires not too much of memory to run.
+---------------------------------------------------------------------
+Docker with Selenium Grid
+
+Docker it's a containerization tool. Container - it's an isolated very light weight VM. Container can be
+based on linux or windows host. 99% images are linux based. Docker can be installed on windows, mac and linux.
+Why do we use docker? It helps to resolve configuration issues. Let's say locally or in one the environments
+application/program works fine but in other environment - don't. Also, it takes time to setup new environment.
+Even for selenium grid we need: jdk, browser and selenium-standalone jar file. Docker container contains all
+things that are required to launch the program. Also, you can very easily and very fast bootstrap or shutdown
+setup. Wheres VM requires more resources and more time to start/stop. To run selenium grid on docker we are
+using docker-compose up -d command, and configuration is written in docker-compose.yml file:
+
+
+# The purpose of this -scales example is to run 1 hub, N chromes, N firefox
+#
+#
+# How to scale it:
+#  docker-compose scale hub=1 chrome=2 firefox=1
+version: '3'
+services:
+  hub:
+    image: elgalu/selenium
+    ports:
+      - 4444:4444
+    volumes:
+      - /dev/shm:/dev/shm
+    privileged: true
+    environment:
+      - SELENIUM_HUB_HOST=hub
+      - SELENIUM_HUB_PORT=4444
+      - GRID=true
+      - CHROME=false
+      - FIREFOX=false
+  chrome:
+    image: elgalu/selenium
+    depends_on:
+      - hub
+    volumes:
+      - /dev/shm:/dev/shm
+    privileged: true
+    environment:
+      - SELENIUM_HUB_HOST=hub
+      - SELENIUM_HUB_PORT=4444
+      - SELENIUM_NODE_HOST={{CONTAINER_IP}}
+      - SCREEN_WIDTH=1300
+      - SCREEN_HEIGHT=999
+      - VIDEO=false
+      - AUDIO=false
+      - GRID=false
+      - CHROME=true
+      - FIREFOX=false
+  firefox:
+    image: elgalu/selenium
+    depends_on:
+      - hub
+    volumes:
+      - /dev/shm:/dev/shm
+    privileged: true
+    environment:
+      - SELENIUM_HUB_HOST=hub
+      - SELENIUM_HUB_PORT=4444
+      - SELENIUM_NODE_HOST={{CONTAINER_IP}}
+      - SCREEN_WIDTH=1300
+      - SCREEN_HEIGHT=999
+      - VIDEO=false
+      - AUDIO=false
+      - GRID=false
+      - CHROME=false
+      - FIREFOX=true
+Hub and nodes are running in separate isolated containers. To increase number of containers use command scale:
+    docker-compose scale chrome=5
+    docker-compose scale firefox=5
+(1 container = 1 node = 1 browser = 1 tests at the time)
+to stop grid use command:
+    docker-compose down
+to view running containers use:
+    docker container ps
+to view all containers use:
+    docker container ps -a
+Our servers are located on AWS and to connect to the server we use SSH connection. SSH - stands for Secure
+Shell connectivity. It ensures encrypted private connection between server and client (you). To perform
+connection, we need to get .pem file. PEM file contains RSA encrypted private key.
+
+Example of connection command:
+    ssh -i "myserver.pem" ec2-user@ec2-34-236-36-95.compute-1.amazonaws.com
+
+make sure you connect as ec2-user not as a root user.
+
+Selenium Grid is running inside docker. We are using docker to easily setup selenium grid and dynamically
+change number of nodes. Every node runs only 1 browser. Without docker, 1 selenium grid node can run more
+browsers.
+
+------------------------------
+Selenium Grid - used for remote test execution. We can create a grid of servers, that are based on different
+platforms and OS. Also, we can achieve better performance since we can combine computational power of multiple servers:
+More power = more tests in parallel = faster regression = faster release.
+Currently, in this project,  we are using 1 ec2 server that is running docker with selenium grid. We can run up to 30 tests in parallel.
+From the framework, we need to add a case for remote-chrome:
+                case "chrome-remote":
+                    try {
+                        //we create object of URL and specify
+                        //selenium grid hub as a parameter
+                        //make sure it ends with /wd/hub
+                        URL url = new URL("http://34.236.36.95:4444/wd/hub");
+                        //desiredCapabilities used to specify what kind of node
+                        //is required for testing
+                        //such as: OS type, browser, version, etc...
+                        DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
+                        desiredCapabilities.setBrowserName(BrowserType.CHROME);
+                        desiredCapabilities.setPlatform(Platform.ANY);
+                        driverPool.set(new RemoteWebDriver(url, desiredCapabilities));
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                    break;
+desiredCapabilities - used to specify what kind of node is needed in this test execution.
+Please install SQL Developer, it's like intellij for data base.
+
+
+

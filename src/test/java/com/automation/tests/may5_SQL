@@ -1,0 +1,44 @@
+
+queries - запросы
+retrieve - извлекать
+
+In order to retrieve information from data base we use SQL.
+
+SQL is a language.
+
+SQL Developer - it's a tool, where we write queries.
+
+To retrieve data:
+SELECT <column name>
+FROM <table name>
+
+Comparison operators:
+=  equals
+>  greater
+< less than
+>= , <=
+
+<> not equal to
+BETWEEN value AND value 2
+
+IN
+NOT
+LIKE
+------------------------------------------
+
+
+
+
+
+
+
+   Alias - to rename column in the
+
+
+
+
+
+
+
+
+

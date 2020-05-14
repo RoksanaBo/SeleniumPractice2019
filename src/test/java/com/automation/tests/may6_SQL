@@ -1,0 +1,100 @@
+Today May 6, 2020SQL day 3String methodsAggregate functions, GROUP BY, HAVINGJOINS,
+ ################################Task:
+ Display all employees who:-
+ IT programmers
+ - hired in 2006
+ - Salary 4000-90002
+
+ types of functions:
+ 1. single row
+ 2. multi row, aggregate functions single row function, it's when you are getting result of every row
+    multi row function, it's when you are getting single result from multiple rows.
+
+ Aggregate functions: AVG, MIN, MAX, SUM , COUNT
+
+ - when we need to find number of something how many people are getting commission?
+
+ SELECT COUNT(*)
+ FROM employees
+ WHERE commission_pct IS NOT NULL;
+
+
+ WHERE commission_pct IS NOT NULL; -- filter results, and leave only those with a commission_pct
+
+ MAX - returns maximum valuelongest name?
+
+ MAX(LENGTH(first_name))
+
+ SELECT MAX(LENGTH(first_name)) AS longest_name
+ longest_name- alias, to rename column in the response. Doesn't modify anything in database.
+
+in java indexOf('a'), SQL we have INSTR('column_name', 'string') --> return position of string
+
+if there is no such string, it returns 0
+
+AND INSTR(first_name, ' ') = 0; --> get records, that don't  have a space in the first name
+
+space it's also a character
+
+----------------------------------------
+if result is positive, character/string exists.
+
+-- print all names, along with position of letter in every name
+SELECT first_name, INSTR(first_name, 'e') as position_of_a_letterFROM employees;
+
+
+ ------------
+ in java, we use following methods to replace something in string
+ replace("string", "new string")
+ replaceAll("regex", "new string")
+
+ in SQL, we can use REPLACE()
+ REPLACE(column name,'target','new value')
+
+ SELECT phone_number, REPLACE(phone_number,'515','***')
+
+ encrypted_numbersFROM employees;Number functions:
+ ROUND() TRUNC()
+
+ TRUNC - used to get rid off decimals and just a whole number
+ ROUND - to round number, < 0,5 then round to lower,  >=0,5 round to higher number.
+
+  SELECT AVG(salary) as just_avg, ROUND(AVG(salary)) as round, TRUNC(AVG(salary)) as with_trunc
+  FROM employees;
+
+  6461.831775700934579439252336448598130841  6462  6461
+ ---------------------------------------------------------
+
+GROUPING
+Before, we used aggregate functions to get single value/result for a column.for example we have a column with
+salaries, and we want to compute average, maximum, minimum, salary --> always one value. But, how about if we
+want to compute same things but for the groups. For example: average salary for every job id. In this case, we
+can group employees by job_id and find average salary for every group.
+
+
+WHERE --> for single row functions
+HAVING --> for multi row functions
+
+
+SELECT job_id, AVG(salary)
+FROM employees
+GROUP BY job_id
+HAVING AVG(salary) > 7000;
+
+with single row functions, we use WHERE clause to filter results.
+with MULTI row functions, we use HAVING clause to filter results.
+
+we use GROUP BY col_name to create sub-groups from a column.
+---------------------------------------------------------------------------
+LET'S FIND MIN AND MAX salary for each job_id
+Display department ids, number of people working in that department , show only departments with more than 2 people.
+
+---------------------------------
+JOIN --> When you want to display(get) information from multiple tables in 1 query.
+
+-INNER and OUTER joins
+--from top to bottom = left - right table
+--c - short name of countries table
+--r - short name of regions table
+SELECT c.country_name, r.region_name
+FROM countries cJOIN regions r ON c.region_id=r.region_id;

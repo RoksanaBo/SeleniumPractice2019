@@ -1,0 +1,152 @@
+
+
+DDT - Data Definition Language : CREATE TRUNCATE DROP ALTER commands        dealing with data within tables
+DML - Data Manipulation Language : SELECT INSERT UPDATE DELETE commands     dealing with data within tables
+
+ALTER --> means modify something. to change existing table structure.
+
+Backup - copy of your data base.In case of some kind of mistake database developers can replace database information
+and all kind of structure with the saved image,with backup.
+
+JOINS - used to combine data from 2 tables that have relations. Joins happens based on primary key.
+
+When we need to retrieve info from couple of related tables we use join.
+
+There are 4 types of joins:
+   (INNER) JOIN - to get only matching results from both tables. For example: if some record in table 1 doesn't
+          have a corresponding record in table 2, it won't appear in the result set.
+   LEFT JOIN   - matching records from both tables, plus non-matching records from LEFT table
+   RIGHT JOIN  - matching records from both tables, plus non-matching records from RIGHT table
+   SELF JOIN (JOIN) - join table with itself. For example: in the employees table, we ha column called "manager_id".
+                      Where is the information about managers? Answer: in the same table! Manager_id corresponds
+                      to employee_id. That means, to get manager's information we need to do self join.
+
+
+Primary key -> column with unique values.(when we see id, most likely it is a primary key)
+There should be only one primary key.
+
+There are several kinds of joins including INNER JOIN, OUTER JOIN amd SELF JOIN.
+
+When we want to join tables, we have to look at schema and find columns that connect tables as primary and
+foreign key. To get data from both tables we use the INNER JOIN clause in the SELECT statement .
+
+INNER - only matching values from tables!  JOIN means INNER!
+
+Using - shortcut
+
+alias name is optional. It's up to you.
+
+we have to specify table name to avoid "ambiguous statement exception"
+
+Since inner join returns data only that is matching from left and right table. If some employee doesn't have job
+history record, we will not see him in the result set.
+We have to specify table name to avoid "ambiguous statement exception".
+
+-----------------------------------------
+
+LEFT OUTER JOIN --> all information will be included in result.From both tables,even if the information does not match.
+Everything from the left table + matching data.
+
+left is always first,(from top to bottom) top=left, bottom=right
+
+
+
+FULL OUTER JOIN --> means combine everything from left and right.
+
+
+JOIN/INNER JOIN --> only matching records. Ex: display info about customers and they address only for matching records.
+
+RIGHT OUTER JOIN --> same as inner join + everything from the right table.
+
+LEFT OUTER JOIN --> same as inner + everything from the left table.
+
+FULL OUTER JOIN --> to combine 2 tables, regardless on non-matching records. Entire information from both tables
+                    will be displayed.
+
+------------------------------------------------------
+SELF JOIN -> used to join table with itself.What's the purpose?Example:
+How we can display manager name for every employee? we need to map employee_id with manager_id.
+----------------------------------------------------
+
+UNION and UNION All --> used to combine result sets of 2 different queries. The only thing is that number of columns
+and their data must be the same. Data will be merged vertically.
+------------
+UNION vs UNION ALL   объединение
+Union   -->returns sorted result without duplicates. sorted, no duplicates. Make sure that both queries return
+           same number of columns with a same data types. Result set will sorted and won't contain duplicates.
+
+Union all --> not sorted and with duplicates.  not sorted,with duplicates.
+
+Purpose of UNION -->  combine or merge output of 2 different queries.If queries return same amount of columns
+with the same data type. Union will eliminate ликвидировать duplicates from the result set and sort output in
+alphabetic order. Tables can not be related at all. For both functions it is required to have same number of
+columns (and same data type ) but not same number of rows.
+
+
+If something present in 2nd query from 1st, it will subtract first from second.
+
+-------------------------------------------------
+
+MINUS - RESULT OF FIRST QUERY MINUS RESULT OF SECOND QUERY. первый важнее
+
+INTERSECT - opposite of minus. Returns matching data in both queries. Intersection пересечение- similar to INNER JOIN
+Output will be sorted.
+INTERSECT - intersection between 2 queries.     пересечение между 2 запросами
+
+----------------------------
+
+DML - data manipulation language --> used to manipulate with a data in SQL.
+
+SELECT, INSERT, UPDATE,DELETE
+
+Why it calls "data manipulation language"? because these commands don't modify database structure. They just used to
+interact with data: retrieve, add, update or delete.
+How about commands that are used to create database,tables, users, create or update columns, delete columns, delete
+tables  etc.. This commands are called DDL - Data Definition Language. CREATE, TRUNCATE, DROP, ALTER
+
+Why it calls Data Definition Language- because these commands are not used to deal with a data. They are used to
+deal with tables, columns, users. It's about where data is stored. Also the difference between DML and DDL commands:
+- DML commands can be reverted      команды могут быть отменены
+- DDL commands cannot be reverted   команды не могут быть отменены
+
+ROLLBACK - can be used to revert changes that you have made in database with DML commands. Unless, you committed
+           changes.
+
+COMMIT - to permanently apply all changes that you have done with DML commands. Once you commit, rollback
+         will not undo (отменить) changes. COMMIT - makes UNDO impossible
+
+
+ROLLBACK -- COMMAND + Z / CONTROL + Z  UNDO.
+
+DROP - to delete table, column or view
+
+TRUNCATE - wipe out data from the table.   уничтожить данные из таблицы
+
+TRUNCATE TABLE <table name>; -- to delete data but keep the table
+--------------------------------------------------------
+
+VIEW - virtual table that was created from query
+
+--to create a VIEW
+CREATE VIEW full_name (employee_id, full_name) AS SELECT employee_id, first_name || ' ' || last_name FROM employees;
+
+Result set of the query is a view content.
+-- to delete a VIEW
+
+DROP VIEW full_name;
+
+Mostly, view is used to store information that is coming from multiple tables in one place.
+Plus it's faster than run query and get the data from result set.
+
+
+
+
+
+
+
+
+
+
+
+
+

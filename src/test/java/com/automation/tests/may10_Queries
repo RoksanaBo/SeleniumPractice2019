@@ -1,0 +1,138 @@
+May 10
+
+Web application has 2 sides: front-end and back-end. Front-end is used to display information to the end user.
+You can see front-end in browser. When you open some website. End-user never face back-end. Because back-end is for
+business logic, for storing data. It's not useful for user.
+
+Database - used to store electronic information.
+
+3 Tier Architecture:
+ -  presentation layer - presents information --> Client  (UI) we use HTML,CSS, JavaScript
+ -  application layer - business logic        --> server           Java, C# , C++, Python, Ruby
+ -  data layer - used to store information.   --> database         Oracle, Mongo, MySQL
+    If its relational database, info is stored in tables. Because there are 2 types of database:
+    relational and non-relational. In non-relational - info is stored in JSon files, xml files,
+
+API is whats between these 3 layers.
+
+Any kind of info is data. It should be stored somewhere, where it is secure, easy to read, easy and fast to update.
+In databases we store data in an organized manner. Database is a systematic collection of data.
+
+Relational database system - data is stored in tables. In rows and columns. Tables are relate to each other .
+Primary key - unique value of every table. Based on primary key we can join tables, when we need to get data
+from 2 or more tables. Tables are related to each other using primary and foreign keys.
+
+In non-relational database there is no tables.
+
+
+in case of json- json can have different structure. Json is mostly used for web services . Communication between
+UI and web services is done by json. Json - java script object notation language. Json is used to describe object.
+
+whats the different between json and javaScript:
+- json has only properties (objects, arrays, first name,last name etc.  ),no functions(no methods)
+- in java object can have properties and behaviour.
+
+If you wanna convert your java object into json- it calls serialization. For this there are specific libraries.
+Json is a plain text file,easy to read. There are some libraries to convert json into object.
+
+Database Management System - software(program) that creates maintains and organize database. We can communicate with
+tables . It takes query , process them and gives us back  some data, result. It can update, delete, add, etc. It's
+like a manager of our information. Database Man. System has very important functions: it responsible for backups.
+If something goes wrong, and data will be lost, we can get it from backup.
+
+RDBMS - category of database management system, that are for relational databases.
+RDBMS - relational database management system. It supports SQL. SQL - language that we use to interact with database.
+------------------------------------------------
+SQL - structured query language, used to
+- retrieve data from a database
+- write data into a database
+- update/delete data
+- create/update /delete tables
+- create/update /delete users ...
+
+SQL is used to interact with RDBMS(SQL Server, Oracle) We write query (command) to get something from db , to add,
+update, delete, change db structure, add new table, columns, users..
+
+SQL is a hybrid language:
+- Data Query Language DQL
+- Data Definition Lang. DDL
+- Data Control Lang. DCL
+- Data Manipulation Lang. DML - used to manipulate with data
+
+Query - a set of instructions. Tells database what to do.
+-----------------------------------------------------------------------------
+
+DML - according to some sources- SELECT command belongs to DQL (Data Query Language).
+
+commands:
+SELECT - (belongs to DQL) - used to retrieve data from database. not to delete or insert.just to get some data.
+SELECT clause -used to specify what kind od data you want to retrieve from database.Also we can filter search results.
+SELECT DISTINCT - returns only unique values.
+SELECT WHERE - to filter result set,
+SELECT COUNT - returns number of some things,
+ORDER BY : ASC -ascending or DSC - descending.
+BETWEEN - to specify range in search   указать диапазон в поиске
+ROUND - how many digits after dot (select round(avg(salary), 2)-> how many decimal we wanna see.If you don't spacify
+        any number, output will be without decimals
+SUM - add all rows and shows sum
+GROUP BY - to calculate min man average sum for each group individually
+HAVING - when we use group by we need to use having to filter results
+MINUS - anything that is present in both queries will be removed, and result set will contain only data
+        that is left from first query. Nothing from second query will go to output.
+INTERSECT - only values that are present in both queries (same) will be displayed in result set.
+--------------------------------------------------------------------------
+CREATE TABLE - command to create out own table.
+       CREATE TABLE cybertekb15 (
+           student_id number(4) PRIMARY KEY,
+           first_name varchar2(50) NOT NULL,-- 50 characters allowed maximum
+           last_name varchar2(60) NOT NULL, -- 60 characters maximum
+           start_date date,
+           gender char(1) CHECK (COL IN ('M', 'F'))
+
+---------------------------------------------------------------------
+INSERT - command will add people to the table.
+        INSERT INTO cybertekb15 (student_id, first_name, last_name, start_date, gender)
+        VALUES ('1', 'Andrea', 'Krizbai', SYSDATE, 'F');
+
+DELETE - specify what exactly must be deleted and then delete.
+
+DDL
+
+
+DML
+
+
+For this we use WHERE clause:
+SELECT *
+FROM table name
+WHERE salary > 4000;
+---------------------------------------------------
+
+Regular expression - REGEX - represents some text pattern.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

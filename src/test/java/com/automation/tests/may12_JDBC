@@ -1,0 +1,13 @@
+may 12
+
+
+JDBC - Java Batabase Connectivity
+JDBC API - stands for connectivity between java program and database (relational database).
+Do I need to install JDBC? No , it comes with JDK. There is a package java.sql. It comes from there.
+API - application programing interface
+
+
+3 important steps in jdbc:
+- connection
+- statement - to write and execute query
+- resultSEt - result of your query.

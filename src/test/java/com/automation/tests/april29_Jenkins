@@ -1,0 +1,80 @@
+Jenkins is used not only for application deployment, but also for running automation scripts. Because our
+project is based on maven. And Maven has a lifecycle.Jenkins use Maven to build your code. And it use git
+to pull your project from gitHub. Jenkins doesn't have its oun tools. We need to install them. Jenkins and
+intelliJ can run project.Both of them use java. in Jenkins we can schedule our test. jenkins can continuously
+listen to your commands and then start test. It has triggers. Jenkins doesn't interact with intelliJ. Jenkins
+requires JDK to execute java projects. Jenk is very flexible built automation tool. the main explanation-
+Jenkins is Continuous Integration, Cont Depl. and Cont.Delivery.
+
+Continues Integration: dev-r committed some comments to github. Jenkins is continuesly listens to devs project.
+Once new code was committed, jenkins takes that code and runs Unit,Integration tests,sonarQube(program scanning),
+If everything was successful, jenkins will deploy new build to Test environment.Here we run smoke, regression and
+performance tests. Then goes Staging Ent-t. Then UAT test and then Production environment-->Release.
+
+Once new build is deployed,smoke test runs automatically.
+
+VPN - virtual private network .All servers will be always within vpn.
+VPC - virtual private cloud(it's about AWS)
+
+Application Server - program that runs a web application and makes it available over the browser.
+For example: Tomcat, Jetty, Jboss, Apache
+--------------------------------
+Question: what is the main advantage of making it available on the browser if we all have it on github?
+
+
+Jenkins - used for CI/CD. Jenkins is a CI/CD tool.
+CI - Continues Integration
+CD - Continues Delivery & Continues Deployment
+
+Continues Deployment = Continues Delivery + Continues Integration
+
+Continues Delivery = Continues Integration + automated execution of end-to-end tests,
+                     performance tests and delivering build to the staging environment.
+----------------------------------------------------------------------------
+        String env = "qa2"; <<< by default we use qa2 env for tests
+        if, we specify different command with maven goal -Denv=qa3
+        if (System.getProperty("env") != null) {
+            //read env type from terminal  -Denv=qa1
+            env = System.getProperty("env"); // qa1
+        }
+        String URL = ConfigurationReader.getProperty(env); //qa1
+------------------------------------------------------------
+If property wasn't created, it will null.
+
+In our project, we use Jenkins as a CI/CD tool.
+
+::: QUESTION ::: How often do you run regression?
+Before release. / Once per sprint
+
+::: QUESTION ::: When is release?/ What's release cycle?
+Every sprint (every 2 weeks), every month or every 2 months or every 3 months or
+every spring and fall months, in case of my project.
+
+my project was 500.000 lines of code
+mac os 80 million lines of code
+windows xp - 40 million lines of code
+
+Underpinning the F-35’s unrivaled capabilities is more than 8 million lines of software code
+----------------------------------------------------
+The purpose of regression test suit is to make sure that newly developed features didn't brake
+existing code.That's why regression suit contains all test cases (except smoke test scripts).
+Regression testing is must before release to ensure that application is working properly from
+the functional perspective. Regression doesn't cover performance of security aspects of the application.
+
+How to run regression?
+First of all, it never runs locally, only from Jenkins.Then, we need to have created regression job.
+
+job has stages:
+1. Get the project code from github
+2. Trigger tests: clean test -P Regression
+   In our project, we have a profile for regression. It runs all features in parallel.
+3. Generate cucumber report
+4. Send email notification (optional)
+If you need to run regression on different browser, we can crate multiple jobs for different browser:
+  - Vytrack regression chrome ---> browser type will different clean test -Dbrowser=chrome -P Regression
+  - Vytrack regression firefox ---> browser type will different clean test -Dbrowser=firefox -P Regression
+
+You don't decide where to run regression, you will know from project manager (management).
+Smoke test is used to ensure that application is up and running and critical components are working.
+It runs every morning and after new build is deployed to test environment.
+Smoke test MUST be executed after release in the production environment.

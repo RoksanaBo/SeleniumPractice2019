@@ -13,7 +13,7 @@ TestNG - unit, system and e2e testing framework.
 
 TDD Test Driven Development --> about the whole development process.
 
-THE MOST IMPORTANT THING ABOUT TTD - requirements look like simple agile user stories.
+THE MOST IMPORTANT THING ABOUT TDD - requirements look like simple agile user stories.
 Before writing the functionality itself, developer writes test
 and then he starts writing the functionality then continues to checking if everything passing. All this unit tests,
 if they passing, means everything is working.

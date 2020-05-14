@@ -1,0 +1,298 @@
+Today is May 3, 2020
+    Agenda:
+            Introduction to back-end testing
+            DMBS
+            SQL
+
+We store information on the paper, in the brain, in electronic devices. When computers were created, they
+had only one task - to compute вычислить something. But besides this task, computers can also store the data.
+
+What is data? --> your personal info, credit card history, your grades at school, list of contacts, so
+we can say that data is everywhere. But how the data is stored in web applications?--IN DATA BASE.
+
+There are 2 types of data bases:  relational and non-relational
+
+--Relational - it's data base, where data is stored inside tables. Table has rows and columns.
+
+Data Base - it's an organized collection of structured data stored electronically.
+
+
+Web Application consists of 3 layers: слой This 3 layers are called --> three-tier architecture:
+
+#1 .UI - user interface, used to display information to the end-user. Where do we see user interface of
+    web application?
+        - In the browser.
+    UI also known as front-end. End user - person who use application.
+    End-user interacts only with front-end of the application.
+    For development of user interface engineers use HTML + CSS + JavaScript
+
+#2 Business logic
+    Web Services - used to process all data.On this level, all kind of business is done. Controls access to the data.
+    Web services communicate with each other. And to be able to connect them people use API.There is a standard way
+    to exchange information.   On this level, all kind of business is done. Controls access to the data.
+
+    For example:
+    When you are trying to login, you enter credentials hit enter button, and then UI of web application
+    makes an API call to the services that is responsible for authentication. Then, web services makes a
+    call to the data base and if it has this combination of email and password, it sends response to the
+    UI with a green light and let's you login. When you buy something on ebay with paypal, this transaction
+    is handled by business logic layer. What kind of languages are used to develop business logic layer?
+    Java, C#, C++, Python, Ruby, JavaScript
+    JavaScript can be used for UI and also for back-end .
+    just remember: UI only displays info, and the information is provided by web services.
+
+#3 Data base
+   Used to store data. On this layer, there should be minimum of logic.
+   For example: facebook use mysql database and in their tables they have like 2 columns.
+   Why data base has minimum of logic? Because it wasn't design to perform logical operations.
+   Data base is very slow.
+
+
+SQL -> structure query language --> means it's a language that is used to get something from data,
+       but it's not programming language. It's not OOP language.
+
+-----------
+
+Table has rows and columns.
+
+Relational:      Oracle, PostgreSQL, Microsoft SQL Server
+Non-relational:  one of the most popular is MongoDB, and one of the data bases is MarkLogic, etc..
+
+
+In NO-SQL / non-relational data bases information is not stored in tables. Data is stored in JSON or XML.
+In case of MongoDB - JSON, MarkLogic - XML. Information is stored as key=value pair, like in map.
+
+Developer, who works with all 3 tiers are called full stack.
+When people are asking about back-end testing, they refer to data base and/or web services testing.
+
+For frond-end testing we use selenium web driver.
+For back-end - SQL Developer, JDBC API , Postman, RestAssured and SoapUI.
+
+SQL Developer and  JDBC API - for data base testing --> Postman, RestAssured and
+                                   SoapUI - web services testing aka API testing.
+
+
+Selenium web driver is only for automation.
+For manual testing we use browser!!! In browser we use front-end application.
+----------------------------------------------------------------------------------------
+
+Relational data is stored inside tables.Every table has rows and columns that have relations.
+In every table there is column with unique values. So every table must have a column with unique tables.
+This column called primary key. Based on primary key we are making relations among tables.
+
+For example:
+We have a table "users", in this table all user's information is stored. Then we have another table called
+"transactions_history". Relation between users and transactions_history tables called one to many. Which means
+one user can have many transactions. How do we know which transaction belongs to which user? Based on primary key.
+
+               users     table
+             |user_id| user_name |
+             |   1   | John Smith|
+             |   2   | James May |
+
+user_id is a primary key in users table.
+
+                transactions_history table                                     transaction - сделка
+             |transaction_id| user_id | description       | amount    |
+             |       1      |   1     |  utilities payment|  50.00$   |
+             |       2      |   1     |  rent payment     |  1200.00$ |
+             |       3      |   2     |  utilities payment|  150.00$  |
+             |       4      |   1     |  pet fee          |  40.00$   |
+             |       5      |   1     |  garage rent fee  |  65.00$   |
+
+In this case transaction_id - is a primary key in transactions_history table, and user_id is a foreign key.
+Based on user_id these tables relate to each other.
+
+primary key - ALWAYS UNIQUE AND AUTO-GENERATED.When we gonna use users to data base, they will get user
+              id automatically, to prevent issues. Primary key - column with unique values.
+
+foreign key - column from different table.
+
+RDBMS --> software that is used to manage relational database.
+    R - relational
+    D - data
+    B - base
+    M - management
+    S - system
+
+RDBMS is responsible for security, schemas, CRUD operations, etc...
+    C - create
+    R - read
+    U - update
+    D - delete
+We want to create something from data base, read something from database, update something and delete.
+Every RDBMS must support CRUD operations. To perform these operations we use SQL. SQL --> stands for
+Structured Query Language - used to manipulate with relational database. Command that write calls SQL query.
+What kind of RDBMS we have? Oracle, PostgreSQL, Microsoft SQL Server...
+
+SQL --> Structured Query Language - used to manipulate with relational database. Command that write calls SQL query.
+
+How does it look like?
+SELECT *
+FROM employees;
+
+We use SELECT to read data from the database. You can spell keywords lower case as well but common practice is to
+write them all-uppercase.Every query ends with ; (semicolon)
+* - means everything, instead of * we can specify name of column/columns that we want to get from database.
+
+SELECT column
+FROM table
+WHERE filter conditions (age> 25, name like 'James%')
+
+But where is this data??? Data is on the server. You ec2 instance, the same that we used for Jenkins, has Oracle
+Database. By default there is only 1 schema "hr" and 1 user "hr". To connect, we gonna use SQL Developer.
+
+----------------------
+Go to SQL Developer,click on New Connection. Connection name: HR or anything else if already used.
+Hostname: public IP address of your EC2 server, that is used for Jenkins.
+If you don't have it, please use my IP: 100.27.23.190
+Port: 1521 - default
+Username: hr
+Password hr
+Click on test button to test connection.MAKE SURE THAT PORT 1521 is opened !!!! table - physical collection of data
+
+INTERVIEW QUESTION - What is view in SQL? ::: view - virtual table, that was created by query.
+--------------------------------
+
+Oracle database has 3 versions:
+  - Enterprise (very expensive) - used in professional environment, has not constraints. ограничения
+  - Standard Edition (expensive) - has limitations on CPU
+  - Express edition - (free)  - has limitations on CPU, RAM and many features are not available as well.
+
+HR schema - is default for Oracle database.
+
+Name           Null?    Type
+-------------- -------- ------------
+EMPLOYEE_ID    NOT NULL NUMBER(6)
+FIRST_NAME              VARCHAR2(20)
+LAST_NAME      NOT NULL VARCHAR2(25)
+EMAIL          NOT NULL VARCHAR2(25)
+PHONE_NUMBER            VARCHAR2(20)
+HIRE_DATE      NOT NULL DATE
+JOB_ID         NOT NULL VARCHAR2(10)
+SALARY                  NUMBER(8,2)
+COMMISSION_PCT          NUMBER(2,2)
+MANAGER_ID              NUMBER(6)
+DEPARTMENT_ID           NUMBER(4)
+
+
+1st column - column name
+2nd column - can it be null? primary key cannot be null 100%
+3rd column - data type
+--------------------------------------------------------------------------
+String name = null; in java it means that variable name has no value
+
+What are the data types in Oracle DBS ?
+char(n)  - fixed-length character data (string), n chars long. For example gender char(1) -> F or M only 1 character
+           allowed. If you specify more, but use less, other characters will be just blank. For example: char(50) -->
+           'apple' --> rest of the space will be wasted. It means it's a memory consuming data type.
+           That's why, people use varchar2 data type instead:
+varchar2 - variable-length character string. It's more efficient from memory perspective, because values can have
+           different length. Rest of the reserved space is not wasted, like in char(n) data type.
+           char/varchar2 in SQL it's like String in Java. char and varchar2 are used store strings aka text.
+                     Example:
+                     home_address varchar2(1000)
+                     "101 Constitution Ave, Washington D.C."
+                     "7925 Jones Branch Dr., Mclean, Virginia"
+
+date - used to store date and time. Format is like this: DD-MMM-YYYY. For example: 03-MAY-2020
+long - used to store big amount of data up to 2 GB. Only one long column is allowed per table.
+number(o, d) - used to store number data. Where o - overall number of digits, d - overall number
+               of digits after dot. (to the right of the decimal point)
+
+
+aka - also known as
+fyi - for your information
+ooo - out of the office
+cob - close of business
+
+REMEMBER: There is no boolean in Oracle-SQL. You can do some work around and use 0 and 1 instead.
+------------------------------------------------------------------------
+
+In order to retrieve извлекать information stored in database, we write query. To sort records we use ORDER BY.
+Default is ascending order. To sort in descending order (z-a, 9-0) use:
+ORDER BY col_name DESC
+either column name or column index.
+for example:
+SELECT *
+FROM employees
+WHERE salary > 10000
+ORDER BY salary DESC;
+or
+SELECT *
+FROM employees
+WHERE salary > 10000
+ORDER BY 2 DESC;   <--- order by second column (from left to right) in descending order.
+
+
+order by is used to sort values. 
+There are lots of keywords/functions in SQL.
+----------------------------
+
+In my last project I was doing front-end and back-end testing. front-end + back-end tester = full stack
+test automation engineer. front-end validations were done with selenium webdriver. Expected data is in
+feature files, actual - on the web site. To interact with a website, we use selenium webdriver. Then to
+perform validations (compare expected and actual results) I used assertions. In case of back-end validations
+I used JDBC API along with SQL. JDBC - used to connection from java program to RDBMS. SQL - language that is
+used to interact with the data base. Expected data still coming from feature file, but actual - from database.
+Every single test automation script that I developed, had UI and DB validations. We can do arithmetic
+operations in SQL too.
+-- get name and salary multiplied by commission from employees where commissions not null
+SELECT first_name, (salary * commission_pct) as Commission
+FROM employees
+WHERE commission_pct IS NOT null;
+alias - temporary name for column. To specify it, use AS <new_colmn_name>.
+By using alias, we don't change anything in data base. It just reflects in response.
+SELECT command cannot modify database!!!!!!!!!!!!!!!!!!
+SELECT used to get the data, never to modify it or modify database.
+only INSERT, UPDATE, DELETE can modify database.
+
+
+###In this query, we are getting first and last name as a full name. SInce we combine values from 2 columns,
+   we need to give some new name. And to give this name we use alias. Alias doesn't stay in data base.
+   Basically, it just modifies response.
+
+SELECT first_name || ' ' || last_name as full_name
+FROM employees;
+|| - used as + in java to concatenate strings. Java: "name "+" age"
+-- as = AS, same thing as well as SELECT = select, FROM = from
+-- salary is given montly based, slary * 12 = annual salary
+-- 52 weeks in the year and 40 hours in the week
+-- ROUND function is used to round numbers with decimal points ROUND(number, number_of_decimals)
+
+
+SELECT first_name||' '||last_name AS "full_name", ROUND(salary * 12/52/40, 2) AS "hourly_rate"
+FROM employees
+ORDER BY 2 DESC;
+Later on, we gonna use JDBC to get data from data base and store it in String, List<String>, String[], List<Map<String,String>>...
+First of all, check your query in SQL Developer before going to Java...
+alias = nickname
+--lower - toLowerCase() in java
+
+
+SELECT first_name, last_name, LOWER(email) || '@gmail.com' as "email"
+FROM employees;
+-- upper - toUperCase() in java
+
+
+SELECT first_name, last_name, UPPER(email || '@gmail.com') as "email"
+FROM employees;
+--INITCAP - capitalize first charater in string
+
+
+SELECT first_name, last_name, INITCAP(email) || '@gmail.com' as "email"
+FROM employees;
+######TASK
+get first name, last name and email + "@gmail.com" from employees table
+####### TASK ######
+
+
+Interview question ### find second higher salary
+-- find 2nd highest salary
+-- MAX(Col_name) max value
+-- AND is used to combine filters
+-- (SELECT MAX(salary) FROM employees) - inner query
+SELECT salary
+FROM employees
+WHERE ROWNUM = 1 AND salary < (SELECT MAX(salary) FROM employees)
+ORDER BY salary DESC;

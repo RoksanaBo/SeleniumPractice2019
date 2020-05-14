@@ -78,5 +78,36 @@ ChromeOptions - use to customize browser for tests
 - make your driver ThreadLocal and make the getter method synchronized
 
 --------------------------------------------------------------------------------------------------
+14. How often do you run regression?
+-  Before release. / Once per sprint
+-------------------------------------------------------------
+
+15. When is release?/ What's release cycle?
+  - Every sprint (every 2 weeks), every month or every 2 months or every 3 months or every spring
+    and fall months, in case of my project.
+
+my project was 500.000 lines of code
+mac os 80 million lines of code
+windows xp - 40 million lines of code
+-------------------------------------------------------------------------
+
+What is view in SQL? ::: view - virtual table, that was created by query.
+--------------------------------------------
 
 
+
+Interview question ### find second higher salary
+-- find 2nd highest salary
+-- MAX(Col_name) max value
+-- AND is used to combine filters
+-- (SELECT MAX(salary) FROM employees) - inner query
+SELECT salary
+FROM employees
+WHERE ROWNUM = 1 AND salary < (SELECT MAX(salary) FROM employees)
+ORDER BY salary DESC;
+
+---------------------------------------------------------------------------------
+Different between UNION vs UNION ALL :
+Union   -->returns sorted result without duplicates.
+Union all --> not sorted and with duplicates.
+--------------------------------------------------------------------

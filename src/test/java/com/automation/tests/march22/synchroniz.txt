@@ -7,7 +7,7 @@ Thread.sleep() --> to slow down our script
 Thread class is from Java.
 
 Waits from Selenium:
-- implicit wait            неявное ожидание    it's like general wait
+- implicit wati            неявное ожидание    it's like general wait
 - explicit wait            явное ожидание , detailed, clear
 - fluent wait              беглое ожидание
 

@@ -6,17 +6,11 @@ Today is April 4, 2020
             test execution over terminal with maven commands
             test parametrization
             summary of testng framework
-    Tomorrow:
-            Practice session, no new topics.
-            Building a framework for very simple application and creating some test scripts.
-    Tuesday: BDD and Cucumber
-############################################################################
 
-    Data Driven Testing (DDT) - it's when your test data is separate from your code.
-
-    Basically, you don't store test data in variables. Where this data can be stored?
-
-    In excel and  csv files, in database. In terms of cucumber bdd framework - feature files.
+Data Driven Testing (DDT) - it's when your test data is separate from your code.
+Basically, you don't store test data in variables. Where this data can be stored?
+Test data in general is input data that you provide during the test. This data can be stored in  excel and  csv files,
+in database. In terms of cucumber bdd framework - feature files.
 
     To read excel files, there is java library that calls apache poi. We gonna cover it in this
 
@@ -24,7 +18,7 @@ Today is April 4, 2020
 
     To read it, you can use Scanner. But, there are more advanced libraries, like Open CSV.
 
-    To connect from java to data base, there is JDBC api.
+    To connect from java to data base, there is JDBC (java data base connection) api.
     -----------------------
     Why do we need DDT? It allows us to run same script with different test data.
 

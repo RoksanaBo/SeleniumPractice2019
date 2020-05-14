@@ -26,7 +26,7 @@ What are the steps:
 
 4. Place step definition methods  into step definition classes.
 
-5. Allocate all reqyired web elements and develop reqyuired methods for interaction with
+5. Allocate all required web elements and develop reqyuired methods for interaction with
    those elements.
 
 6. Create page objects i the step definition classes and use them to provide code
@@ -65,5 +65,5 @@ Scenario: 1.Add some car
 
 
 
-What if we want to run scecific scenario?
+What if we want to run specific scenario?
 We can
